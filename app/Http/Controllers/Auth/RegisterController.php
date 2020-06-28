@@ -2,72 +2,145 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Admin;
+use App\Agent;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Account;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+    function formUser()
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        return view('public.RegisterUser');
+    }
+
+    function formAgent()
+    {
+        return view('public.RegisterAgent');
+    }
+
+    function formAdmin()
+    {
+        return view('public.RegisterAdmin');
+    }
+
+    protected function validatorUserRegister($data)
+    {
+        return Validator::make($data->all(), [
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:accounts'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required', 'string', 'min:11', 'max:12'],
+            'name' => ['required'],
+            'birth_date' => ['required'],
+            'gender' => ['required'],
+            'address' => ['required'],
+        ]);
+    }
+
+    function onUserRegister(Request $request)
+    {
+        $data = [
+            'email' => $request['email'],
+            'type' => 'User',
+            'password' => Hash::make($request['password']),
+            'phone' => $request['phone'],
+            'name' => $request['name'],
+            'birth_date' => $request['birth_date'],
+            'gender' => $request['gender'],
+            'address' => $request['address'],
+        ];
+        $validator = $this->validatorUserRegister($request);
+        if (!$validator->fails()) {
+            Account::create($data);
+            $data['id'] = Account::latest()->first()->id;
+            User::create($data);
+            return redirect(route('SignIn'));
+        } else {
+            return redirect(route('UserRegister'))->withErrors($validator);
+        }
+    }
+
+    protected function validatorAgentRegister($data)
+    {
+        return Validator::make($data->all(), [
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:accounts'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required', 'string', 'min:11', 'max:12'],
+            'agency' => ['required'],
+            'name' => ['required'],
+            'job' => ['required'],
+            'birth_date' => ['required'],
+            'gender' => ['required'],
+            'address' => ['required'],
+        ]);
+    }
+
+    function onAgentRegister(Request $request)
+    {
+        $data = [
+            'email' => $request['email'],
+            'type' => 'Agent',
+            'password' => Hash::make($request['password']),
+            'phone' => $request['phone'],
+            'name' => $request['name'],
+            'agency' => $request['agency'],
+            'job' => $request['job'],
+            'birth_date' => $request['birth_date'],
+            'gender' => $request['gender'],
+            'address' => $request['address'],
+        ];
+        $validator = $this->validatorUserRegister($request);
+        if (!$validator->fails()) {
+            Account::create($data);
+            $data['id'] = Account::latest()->first()->id;
+            Agent::create($data);
+            return redirect(route('SignIn'));
+        } else {
+            return redirect(route('AgentRegister'))->withErrors($validator);
+        }
+    }
+
+    protected function validatorAdminRegister($data)
+    {
+        return Validator::make($data->all(), [
+            'name' => ['required'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:accounts'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
+    function onAdminRegister(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        $data = [
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'type' => 'Admin',
+            'password' => Hash::make($request['password']),
+        ];
+        $validator = $this->validatorAdminRegister($request);
+        if (!$validator->fails()) {
+            Account::create($data);
+            $data['id'] = Account::latest()->first()->id;
+            Admin::create($data);
+            return redirect(route('SignIn'));
+        } else {
+            return redirect(route('AdminRegister'))->withErrors($validator);
+        }
     }
 }
