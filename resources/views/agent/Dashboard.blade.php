@@ -1,7 +1,6 @@
 @extends('layout.Agent')
 
 @section('content')
-    <div class="page-wrapper">
         <div class="page-container">
             <div class="main-content">
                 <div class="section__content section__content--p30">
@@ -141,8 +140,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
-    </div>
 @endsection
 

@@ -11,14 +11,14 @@
                         <div class="card-body d-flex flex-column" style="padding-top: 12px">
                             <h5 class="card-title" style="margin-bottom: 0px">{{$data->name}}</h5>
                             <div class="row" style="padding-left: 12px">
-                                @if($data->isJual)
+                                @if($data->isSell)
                                     <span class="badge badge-primary" style="padding: 4px 12px;margin-left: 0px">Jual</span>
                                 @endif
-                                @if($data->isSewa)
+                                @if($data->isRent)
                                     <span class="badge badge-success" style="padding: 4px 12px;margin-left: 0px">Sewa</span>
                                 @endif
                             </div>
-                            <p class="card-text" style="font-size: 9pt;margin-top: 4px">{{Str::limit($data->keterangan,192)}}</p>
+                            <p class="card-text" style="font-size: 9pt;margin-top: 4px">{{Str::limit($data->description,192)}}</p>
                             <p class="card-text"><small class="text-muted">Created {{$data->created_at}}</small></p>
                             <div class="row mt-auto ">
                                 <div class="col-6 w-100" style="padding-left: 8px;padding-right: 4px">

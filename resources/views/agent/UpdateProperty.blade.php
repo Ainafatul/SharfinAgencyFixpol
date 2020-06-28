@@ -9,11 +9,11 @@
                         <h1 class="display-4">Change Property Detail</h1>
                         <hr>
                     </div>
-                    <input type="text" class="form-control" id="name" name="id" hidden value="{{$data->id}}">
+                    <input type="text" class="form-control" id="name" name="id" hidden value="{{$datas->id}}">
                     <div style="padding: 0 6%">
                         <div class="form-group">
                             <label for="nm_property">Nama</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{$data->name}}">
+                            <input type="text" class="form-control" id="name" name="name" value="{{$datas->name}}">
                         </div>
                     </div>
 
@@ -22,16 +22,16 @@
 
                     <div style="padding: 0 6%">
                         <div class="form-group">
-                            <label for="kmr_mandi">Kamar Mandi</label>
-                            <input type="number" class="form-control" id="kmr_mandi" name="kmr_mandi" value="{{$data->kmr_mandi}}">
+                            <label for="bath_room">Kamar Mandi</label>
+                            <input type="number" class="form-control" id="bath_room" name="bath_room" value="{{$datas->bath_room}}">
                         </div>
                         <div class="form-group">
-                            <label for="kmr_mandi">Kamar Tidur</label>
-                            <input type="number" class="form-control" id="kmr_tidur" name="kmr_tidur" value="{{$data->kmr_tidur}}">
+                            <label for="bed_room">Kamar Tidur</label>
+                            <input type="number" class="form-control" id="bed_room" name="bed_room" value="{{$datas->bed_room}}">
                         </div>
                         <div class="form-group">
-                            <label for="lantai">Jumlah Lantai</label>
-                            <input type="number" class="form-control" id="lantai" name="lantai" value="{{$data->lantai}}">
+                            <label for="stories">Jumlah Lantai</label>
+                            <input type="number" class="form-control" id="stories" name="stories" value="{{$datas->stories}}">
                         </div>
                     </div>
 
@@ -40,23 +40,23 @@
 
                     <div style="padding: 0 6%">
                         <div class="form-group">
-                            <label for="luas_tanah">Luas Tanah</label>
-                            <input type="number" class="form-control" id="luas_tanah" name="luas_tanah" value="{{$data->luas_tanah}}">
+                            <label for="land_area">Luas Tanah</label>
+                            <input type="number" class="form-control" id="land_area" name="land_area" value="{{$datas->land_area}}">
                         </div>
                         <div class="form-group">
-                            <label for="luas_bangunan">Luas Bangunan (M<sup><span style="font-size: 0.8em">2</span></sup>)</label>
-                            <input type="number" class="form-control" id="luas_bangunan" name="luas_bangunan" value="{{$data->luas_bangunan}}">
+                            <label for="building_area">Luas Bangunan (M<sup><span style="font-size: 0.8em">2</span></sup>)</label>
+                            <input type="number" class="form-control" id="building_area" name="building_area" value="{{$datas->building_area}}">
                         </div>
 
                         <div class="card">
                             <div class="form-group form-check">
                                 <div class="row" style="padding: 12px 24px;">
                                     <div class="col-6">
-                                        <input type="checkbox" <?php  if ($data->isJual) echo "checked" ?> class="form-check-input" id="isJual" name="isJual">
+                                        <input type="checkbox" <?php  if ($datas->isSell) echo "checked" ?> class="form-check-input" id="isSell" name="isSell">
                                         <label class="form-check-label" for="exampleCheck1">Jual</label>
                                     </div>
                                     <div class="col-6">
-                                        <input type="checkbox" <?php  if ($data->isSewa) echo "checked" ?> class="form-check-input" id="isSewa" name="isSewa">
+                                        <input type="checkbox" <?php  if ($datas->isRent) echo "checked" ?> class="form-check-input" id="isRent" name="isRent">
                                         <label class="form-check-label" for="exampleCheck1">Sewa</label>
                                     </div>
                                 </div>
@@ -68,8 +68,8 @@
                                             <h5 class="card-title">Harga Jual</h5>
                                             <div class="form-group">
                                                 <label for="sub_district">Harga</label>
-                                                <input type="number" min="0.00" max="1000000000000.00" step="0.01" class="form-control" id="harga"
-                                                       name="harga" value="{{$data->harga}}">
+                                                <input type="number" min="0.00" max="1000000000000.00" step="0.01" class="form-control" id="price"
+                                                       name="price" value="{{$datas->price}}">
                                             </div>
                                         </div>
                                     </div>
@@ -80,17 +80,17 @@
                                         <div class="card-body">
                                             <h5 class="card-title">Harga Sewa</h5>
                                             <div class="form-group">
-                                                <label for="sub_district">Harga</label>
-                                                <input type="number" min="0.00" max="1000000000000.00" step="0.01" class="form-control" id="hargaSewa"
-                                                       name="harga" value="{{$data->harga}}">
+                                                <label for="price">Harga</label>
+                                                <input type="number" min="0.00" max="1000000000000.00" step="0.01" class="form-control" id="price"
+                                                       name="price" value="{{$datas->price}}">
                                             </div>
                                             <div class="form-group">
-                                                <label for="sub_district">Minimal Sewa</label>
-                                                <input type="number" class="form-control" id="minSewa" name="minSewa" value="{{$data->minSewa}}">
+                                                <label for="minRent">Minimal Sewa</label>
+                                                <input type="number" class="form-control" id="minRent" name="minRent" value="{{$datas->minRent}}">
                                             </div>
                                             <div class="form-group">
-                                                <label for="sub_district">Jenis Sewa</label>
-                                                <input type="text" class="form-control" id="jenisSewa" name="jenisSewa" value="{{$data->jenisSewa}}">
+                                                <label for="typeRent">Jenis Sewa</label>
+                                                <input type="text" class="form-control" id="typeRent" name="typeRent" value="{{$datas->typeRent}}">
                                             </div>
                                         </div>
                                     </div>
@@ -122,8 +122,8 @@
                             </div>
                         </div>
                         <div class="form-group" style="margin-top: 12px">
-                            <label for="sub_district">Alamat Lengkap</label>
-                            <textarea type="text" class="form-control" id="alamat" rows="5" name="alamat">{{$data->alamat}}</textarea>
+                            <label for="address">Alamat Lengkap</label>
+                            <textarea type="text" class="form-control" id="address" rows="5" name="address">{{$datas->address}}</textarea>
                         </div>
                     </div>
 
@@ -132,35 +132,35 @@
 
                     <div style="padding: 0 6%">
                         <div class="form-group">
-                            <label for="sub_district">Keterangan</label>
-                            <textarea type="text" class="form-control" id="keterangan" name="keterangan" rows="7">{{$data->keterangan}}</textarea>
+                            <label for="description">Keterangan</label>
+                            <textarea type="text" class="form-control" id="description" name="description" rows="7">{{$datas->description}}</textarea>
                         </div>
                         <label for="uploadImage">Photo</label>
                         <div>
                             <div class="list-group list-group-horizontal-xl d-flex justify-content-center h-auto">
                                 <ul class="list-group list-group-horizontal-sm d-flex justify-content-center">
-                                    @if(count(explode(",",$data->image))>0)
+                                    @if(count(explode(",",$datas->image))>0)
                                         <li class="list-group-item card d-flex justify-content-center" style="width: 200px;height: 200px;padding: 0">
-                                            <img id="img0" class="card-img" src="{{asset('uploads/property/'.explode(",",$data->image)[0])}}">
+                                            <img id="img0" class="card-img" src="{{asset('uploads/property/'.explode(",",$datas->image)[0])}}">
                                         </li>
                                     @endif
-                                    @if(count(explode(",",$data->image))>1)
+                                    @if(count(explode(",",$datas->image))>1)
                                         <li class="list-group-item card d-flex justify-content-center" style="width: 200px;height: 200px;padding: 0">
-                                            <img id="img1" class="card-img" src="{{asset('uploads/property/'.explode(",",$data->image)[1])}}">
+                                            <img id="img1" class="card-img" src="{{asset('uploads/property/'.explode(",",$datas->image)[1])}}">
                                         </li>
                                     @endif
                                 </ul>
                                 <ul class="list-group list-group-horizontal-sm d-flex justify-content-center">
-                                    @if(count(explode(",",$data->image))>2)
+                                    @if(count(explode(",",$datas->image))>2)
                                         <li class="list-group-item card" style="width: 200px;height: 200px;padding: 0">
                                             <img id="img2" class="card-img d-flex justify-content-center"
-                                                 src="{{asset('uploads/property/'.explode(",",$data->image)[2])}}">
+                                                 src="{{asset('uploads/property/'.explode(",",$datas->image)[2])}}">
                                         </li>
                                     @endif
-                                    @if(count(explode(",",$data->image))>3)
+                                    @if(count(explode(",",$datas->image))>3)
                                         <li class="list-group-item card" style="width: 200px;height: 200px;padding: 0">
                                             <img id="img3" class="card-img d-flex justify-content-center"
-                                                 src="{{asset('uploads/property/'.explode(",",$data->image)[3])}}">
+                                                 src="{{asset('uploads/property/'.explode(",",$datas->image)[3])}}">
                                         </li>
                                     @endif
                                 </ul>
@@ -168,23 +168,23 @@
                             <div class="list-group list-group-horizontal-xl d-flex justify-content-center" style="margin-bottom: 24px">
                                 <ul class="list-group list-group-horizontal-sm d-flex justify-content-center">
 
-                                    @if(count(explode(",",$data->image))>4)
+                                    @if(count(explode(",",$datas->image))>4)
                                         <li class="list-group-item card d-flex justify-content-center" style="width: 200px;height: 200px;padding: 0">
                                             <img id="img4" class="card-img"
-                                                 src="{{asset('uploads/property/'.explode(",",$data->image)[4])}}">
+                                                 src="{{asset('uploads/property/'.explode(",",$datas->image)[4])}}">
                                         </li>
                                     @endif
-                                    @if(count(explode(",",$data->image))>5)
+                                    @if(count(explode(",",$datas->image))>5)
                                         <li class="list-group-item card d-flex justify-content-center" style="width: 200px;height: 200px;padding: 0">
                                             <img id="img5" class="card-img"
-                                                 src="{{asset('uploads/property/'.explode(",",$data->image)[5])}}">
+                                                 src="{{asset('uploads/property/'.explode(",",$datas->image)[5])}}">
                                         </li>                                    @endif
                                 </ul>
                                 <ul class="list-group list-group-horizontal-sm d-flex justify-content-center">
-                                    @if(count(explode(",",$data->image))>6)
+                                    @if(count(explode(",",$datas->image))>6)
                                         <li class="list-group-item card d-flex justify-content-center" style="width: 200px;height: 200px;padding: 0">
                                             <img id="img6" class="card-img"
-                                                 src="{{asset('uploads/property/'.explode(",",$data->image)[6])}}">
+                                                 src="{{asset('uploads/property/'.explode(",",$datas->image)[6])}}">
                                         </li>
                                     @endif
                                 </ul>

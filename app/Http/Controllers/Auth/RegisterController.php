@@ -35,10 +35,6 @@ class RegisterController extends Controller
         return view('public.RegisterAgent');
     }
 
-    function formAdmin()
-    {
-        return view('public.RegisterAdmin');
-    }
 
     protected function validatorUserRegister($data)
     {
@@ -116,31 +112,6 @@ class RegisterController extends Controller
         }
     }
 
-    protected function validatorAdminRegister($data)
-    {
-        return Validator::make($data->all(), [
-            'name' => ['required'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:accounts'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
 
-    function onAdminRegister(Request $request)
-    {
-        $data = [
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'type' => 'Admin',
-            'password' => Hash::make($request['password']),
-        ];
-        $validator = $this->validatorAdminRegister($request);
-        if (!$validator->fails()) {
-            Account::create($data);
-            $data['id'] = Account::latest()->first()->id;
-            Admin::create($data);
-            return redirect(route('SignIn'));
-        } else {
-            return redirect(route('AdminRegister'))->withErrors($validator);
-        }
-    }
+
 }

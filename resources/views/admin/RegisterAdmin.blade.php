@@ -1,7 +1,7 @@
-@extends('layout.Main')
+@extends('layout.Admin')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-left: 380px">
         <div class="row no-gutter">
             <div class="col-md-9 col-lg-8 px-0">
                 <div class="card mx-4 m-md-0 card-login">

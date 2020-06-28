@@ -1,9 +1,9 @@
 <article class="container page-container">
     <div style="padding-bottom: 100px;padding-top: 50px">
         <div class="card m-lg-auto">
-            <h2 class="m-3">Berita</h2>
+            <h2 class="m-3">Panduan & Referensi</h2>
             <div class="card-body" style="margin-bottom: 36px">
-                <form class="m-lg-auto" action="/onUpdateBerita/{{ $datas->id }}" method="POST" enctype="multipart/form-data">
+                <form class="m-lg-auto" action="/onUpdatePanduan/{{ $datas->id }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -11,18 +11,14 @@
                     <input type="text" class="form-control" id="title" name="title" value="{{ $datas->title}}">
                     </div>
                     <div class="form-group">
-                        <label for="author">Penulis</label>
-                    <input type="text" class="form-control" id="author" name="author" value="{{ $datas->author}}">
-                    </div>
-                    <div class="form-group">
                         <label for="content">Konten</label>
-                    <textarea class="form-control" id="content" name="content" >{{$datas->content}}</textarea>
+                    <textarea class="form-control" id="content" name="content">{{ $datas->content}}</textarea>
                     </div>
                     <label for="customFile">Gambar</label>
                     <div class="custom-file">
-                    <input id="customFile" name="image" class="custom-file-input" type="file" value="{{$datas->image}}">
+                    <input id="customFile" name="image" class="custom-file-input" type="file" value="{{ $datas->image}}">
                         <label class="custom-file-label" for="customFile">Choose file</label></div>
-                    <button style="margin-top: 24px" class="btn btn-primary w-100" type="submit">Update</button>
+                    <button style="margin-top: 24px" class="btn btn-primary w-100" type="submit">Save</button>
                 </form>
             </div>
         </div>

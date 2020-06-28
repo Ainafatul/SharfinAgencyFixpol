@@ -12,22 +12,22 @@
         </form>
 
         <hr style="margin-bottom: 0">
-        <p style="margin-bottom: 12px;font-size: 9pt">Ditemukan <?php echo count($about)?> Hasil</p>
-        @foreach ($about as $abt )
+        <p style="margin-bottom: 12px;font-size: 9pt">Ditemukan <?php echo count($datas)?> Hasil</p>
+        @foreach ($datas as $data )
             <div class=" w-100">
                 <div class="d-flex flex-row">
-                    <img class="card" src="{{ asset('/uploads/about/'. $abt->image)}}"
+                    <img class="card" src="{{ asset('/uploads/about/'. $data->image)}}"
                          style="margin-bottom: 0;width:300px;height: 200px;object-fit: cover"
                          alt="Card image cap">
                     <div class="d-flex flex-column" style="padding: 0 12px;width: 100%">
-                        <h4 class="card-title">{{$abt->title}}</h4>
-                    <p class="card-text" style="font-size: 9pt">{{Str::limit($abt->content,256)}}</p>
+                        <h4 class="card-title">{{$data->title}}</h4>
+                    <p class="card-text" style="font-size: 9pt">{{Str::limit($data->content,256)}}</p>
                         <div class="d-flex flex-row row" style="margin-top: auto">
                             <div class="col-6" style="padding-left: 16px">
-                                <a href="/onEditAbout/{{$abt->id}}" class="btn btn-primary w-100" >Update</a>
+                                <a href="/onEditAbout/{{$data->id}}" class="btn btn-primary w-100" >Update</a>
                             </div>
                             <div class="col-6">
-                            <a href="/onDeleteAbout/{{$abt->id}}" class="btn btn-danger w-100" >Hapus</a>
+                            <a href="/onDeleteAbout/{{$data->id}}" class="btn btn-danger w-100" >Hapus</a>
                             </div>
                         </div>
                     </div>

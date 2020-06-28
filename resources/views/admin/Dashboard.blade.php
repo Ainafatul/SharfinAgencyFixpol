@@ -1,4 +1,4 @@
-@extends('layout.Agent')
+@extends('layout.Admin')
 
 @section('content')
     <div class="page-wrapper">
