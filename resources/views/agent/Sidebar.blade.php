@@ -5,7 +5,7 @@
         <a href="{{route('Dashboard')}}">
             <i class="fa fa-tachometer-alt"></i>
             <span>Dashboard</span>
-        </a>
+        </a>k
     </li>
     <li class="sidebar-dropdown">
         <a href="#">
