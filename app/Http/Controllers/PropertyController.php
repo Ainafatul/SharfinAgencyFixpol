@@ -37,7 +37,7 @@ class PropertyController extends Controller
 
     function my(){
 
-        return redirect()->route('MyProperty');
+        return view('property.MyProperty');
     }
 
     function new(){
