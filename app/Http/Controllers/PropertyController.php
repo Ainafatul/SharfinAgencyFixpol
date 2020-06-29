@@ -34,4 +34,17 @@ class PropertyController extends Controller
         Property::create($data);
         return redirect()->back();
     }
+
+    function my(){
+
+        return redirect()->route('MyProperty');
+    }
+
+    function new(){
+        return redirect()->route('MyProperty');
+    }
+
+    function delete(){
+        return redirect()->route('MyProperty');
+    }
 }

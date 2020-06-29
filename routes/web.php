@@ -4,9 +4,7 @@ use App\Http\Middleware\Role;
 use Illuminate\Support\Facades\Route;
 
 //Public
-Route::get('/', function () {
-    return view('child');
-});
+Route::get('/', function () {return view('child');});
 Route::get('/Landing', function () {
     return view('public.Landing');
 })->name('Landing');
@@ -30,18 +28,15 @@ Route::put('/onAdminRegister', 'AdminController@onAdminRegister')->name('onAdmin
 Route::put('/onSignIn', 'Auth\LoginController@onLogin')->name('onSignIn');
 Route::get('/Logout', 'Auth\LoginController@logout')->name('Logout');
 
-//Property
-//Route::get('/Properties', 'PropertyController@all')->name('PropertyList');
-//Route::get('/Property/{id}', 'PropertyController@byId')->name('Property');
-//Route::get('/Property/{id}/Edit', 'PropertyController@edit')->name('EditProperty');
-
-//Admin
-
-
-//Redirect
-//Route::redirect('/', '/Landing');
-
 Route::get('/Dashboard', 'AuthController@dashboard')->middleware('role:User,Agent,Admin')->name('Dashboard');
+
+Route::middleware(['role:Agent'])->group(function () {
+    Route::get('/Dashboard/Property/My', 'PropertyController@my')->name('MyProperty');
+    Route::get('/Dashboard/Property/New', 'PropertyController@new')->name('NewProperty');
+    Route::get('/Dashboard/Property/{id}/Delete', 'PropertyController@delete')->name('DeleteProperty');
+
+});
+
 Route::middleware(['role:Admin'])->group(function () {
     Route::get('/Dashboard/Article/{id}/Delete', 'ArticleController@delete')->name('DeleteArticle');
     Route::get('/Dashboard/Articles', 'ArticleController@list')->name('Articles');
@@ -61,3 +56,5 @@ Route::middleware(['role:Admin'])->group(function () {
 
     Route::get('/Dashboard/RegisterAdmin', 'AdminController@newAdmin')->name('AdminRegister');
 });
+
+Route::redirect('/', '/Landing');

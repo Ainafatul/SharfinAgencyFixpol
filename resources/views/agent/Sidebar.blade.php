@@ -5,17 +5,14 @@
         <a href="{{route('Dashboard')}}">
             <i class="fa fa-tachometer-alt"></i>
             <span>Dashboard</span>
-        </a>k
+        </a>
     </li>
     <li class="sidebar-dropdown">
-        <a href="#">
-            <i class="fa fa-home"></i>
-            <span>Article</span>
-        </a>
+        <a><i class="fa fa-home"></i><span>Property</span></a>
         <div class="sidebar-submenu">
             <ul>
-                <li><a href="{{route('Articles')}}">List</a></li>
-                <li><a href="{{route('NewArticle')}}">Tambah</a></li>
+                <li><a href="{{route('MyProperty')}}">List</a></li>
+                <li><a href="{{route('NewProperty')}}">Tambah</a></li>
             </ul>
         </div>
     </li>
