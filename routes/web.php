@@ -39,7 +39,7 @@ Route::get('/Logout', 'Auth\LoginController@logout')->name('Logout');
 
 
 //Redirect
-Route::redirect('/', '/Landing');
+//Route::redirect('/', '/Landing');
 
 Route::get('/Dashboard', 'AuthController@dashboard')->middleware('role:User,Agent,Admin')->name('Dashboard');
 Route::middleware(['role:Admin'])->group(function () {
