@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Account;
 use App\User;
+use Carbon\Carbon;
+use Facade\FlareClient\Time\Time;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -53,7 +55,7 @@ class RegisterController extends Controller
     {
         $data = [
             'email' => $request['email'],
-            'type' => 'User',
+            'role' => 'User',
             'password' => Hash::make($request['password']),
             'phone' => $request['phone'],
             'name' => $request['name'],
@@ -91,7 +93,7 @@ class RegisterController extends Controller
     {
         $data = [
             'email' => $request['email'],
-            'type' => 'Agent',
+            'role' => 'Agent',
             'password' => Hash::make($request['password']),
             'phone' => $request['phone'],
             'name' => $request['name'],
@@ -100,18 +102,20 @@ class RegisterController extends Controller
             'birth_date' => $request['birth_date'],
             'gender' => $request['gender'],
             'address' => $request['address'],
+            'picture' => $request['picture'],
         ];
         $validator = $this->validatorUserRegister($request);
         if (!$validator->fails()) {
             Account::create($data);
             $data['id'] = Account::latest()->first()->id;
+            $path = $request->file('picture')->storeAs('public/image/users', Carbon::now()->timestamp . '.' . $request->file('picture')->extension());
+            $data['picture'] = str_replace('public','storage',$path);
             Agent::create($data);
             return redirect(route('SignIn'));
         } else {
             return redirect(route('AgentRegister'))->withErrors($validator);
         }
     }
-
 
 
 }

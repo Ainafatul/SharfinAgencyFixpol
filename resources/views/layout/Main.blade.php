@@ -26,5 +26,6 @@
 @section('footer')
     @include('section.Footer')
 @show
+@stack('scripts')
 </body>
 </html>

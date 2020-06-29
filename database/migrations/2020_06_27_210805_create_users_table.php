@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('picture')->nullable(true);
             $table->timestamps();
         });
+        (new UsersTableSeeder())->run();
+
     }
 
     public function down()

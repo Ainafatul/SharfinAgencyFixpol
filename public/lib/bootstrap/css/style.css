@@ -4,7 +4,7 @@ body{
 
 .disingkat{
     overflow: hidden;
-    white-space: nowrap; 
+    white-space: nowrap;
     text-overflow: ellipsis;
 }
 
@@ -507,7 +507,7 @@ a.rekomendasi{
     --input-padding-x: 1.5rem;
     --input-padding-y: 0.75rem;
 }
-/* 
+/*
 .card-login{
     background-color:rgba(21,172,151,0.3);
 } */

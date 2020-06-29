@@ -11,7 +11,7 @@ class Account extends Authenticatable
     use Notifiable;
 
     protected $fillable = [
-        'type', 'email', 'password',
+        'role', 'email', 'password',
     ];
     protected $hidden = [
         'password', 'remember_token',

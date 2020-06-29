@@ -10,7 +10,7 @@
                             <div class="row px-2">
                                 <div class="col-md-10 mx-auto">
                                     <h3 class="login-heading mb-4">Register <span class="small form-tanya">Agent</span></h3>
-                                    <form action="{{route('onAgentRegister')}}" method="POST">
+                                    <form action="{{route('onAgentRegister')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="row">

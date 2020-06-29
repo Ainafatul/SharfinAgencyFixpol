@@ -10,10 +10,10 @@
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    @include('admin.GuideLine.MyGuideLine')
+    @include('about.MyAbout')
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    @include('admin.GuideLine.NewGuideLine')
+    @include('about.NewAbout')
             </div>
         </div>
     </div>

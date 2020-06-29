@@ -32,6 +32,7 @@ class CreatePropertiesTable extends Migration
             $table->string('main_image')->nullable(true);
             $table->timestamps();
         });
+        
     }
 
     /**

@@ -1,28 +1,40 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{{asset('lib/bootstrap/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('lib/bootstrap/fontawesome/css/all.css')}}">
-    <link rel="stylesheet" href="{{asset('lib/bootstrap/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('res/css/custom.css')}}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=lora:400,700|Montserrat:200,400,500,600,700,900&display=swap">
-    <link rel="script" href="{{asset('res/js/main.js')}}">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <title>Sarfin Agency</title>
-</head>
+@include('layout.Head')
 <body>
-@include('section.TopNavBar')
+<div class="page-wrapper chiller-theme toggled" style="background: #E5F5F3">
+    @include('agent.Sidebar')
 
-@include('agent.Sidebar')
+    <main class="page-content" style="overflow-y: auto;max-height: 100vh;padding-bottom: 128px">
+        <div class="container-fluid">
+            @yield('content')
+        </div>
+    </main>
 
-@yield('content')
+    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+        <i class="fas fa-bars"></i>
+    </a>
+</div>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img-preview').empty()
+                $('#img-preview').append('<div class="col-md-3" style="height: 200px;margin-bottom: 16px">' +
+                    '<img id="img-preview" class="img-thumbnail h-100" src="' + e.target.result + '" style="object-fit: cover"/>' +
+                    '</div>');
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#fileuploads").change(function () {
+        readURL(this);
+    });
+    @stack('scripts')
+</script>
 </body>
 </html>

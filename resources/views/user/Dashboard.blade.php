@@ -1,4 +1,4 @@
-@extends('layout.Agent')
+@extends('layout.User')
 
 @section('content')
     <div class="page-wrapper">

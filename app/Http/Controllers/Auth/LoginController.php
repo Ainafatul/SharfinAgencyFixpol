@@ -30,8 +30,8 @@ class LoginController extends Controller
     function onLogin(Request $request)
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $user = AuthController::getUser();
-            if (Auth::user()->type == 'Agent') {
+            $user = AuthController::user();
+            if (Auth::user()->role == 'Agent') {
                 if ($user->approve == null) {
                     Auth::logout();
                     return redirect()->back()->withErrors(['Agent Not Approve']);

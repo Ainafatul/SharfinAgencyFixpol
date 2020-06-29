@@ -26,6 +26,7 @@ class CreateAgentsTable extends Migration
             $table->date('approve')->nullable(true);
             $table->timestamps();
         });
+        (new AgentsTableSeeder())->run();
     }
 
     /**

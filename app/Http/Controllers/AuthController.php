@@ -6,6 +6,7 @@ use App\Admin;
 use App\Agent;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use stdClass;
 
 class AuthController extends Controller
 {
@@ -15,21 +16,29 @@ class AuthController extends Controller
         $this->middleware('auth');
     }
 
-    static function getUser()
+    static function user()
     {
         $user = Auth::user();
-        if ($user->type == 'User') return User::find($user->id);
-        if ($user->type == 'Agent') return Agent::find($user->id);
-        if ($user->type == 'Admin') return Admin::find($user->id);
+        if ($user->role == 'User') return User::find($user->id);
+        if ($user->role == 'Agent') return Agent::find($user->id);
+        if ($user->role == 'Admin') return Admin::find($user->id);
         return null;
     }
 
-    function Dashboard()
+    static function getData()
     {
-        $user = Auth::user();
-        if ($user->type == 'User') return view('user.Dashboard');
-        if ($user->type == 'Agent') return view('agent.Dashboard');
-        if ($user->type == 'Admin') return view('admin.Dashboard');
+        $data = new stdClass();
+        $data->account = Auth::user();
+        $data->user = AuthController::user();
+        return $data;
+    }
+
+    function dashboard()
+    {
+        $role = Auth::user()->role;
+        if ($role == 'User') return (new UserController())->dashboard();
+        if ($role == 'Agent') return (new AgentController())->dashboard();
+        if ($role == 'Admin') return (new AdminController())->dashboard();
         return null;
     }
 }

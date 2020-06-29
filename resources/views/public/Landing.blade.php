@@ -6,7 +6,7 @@
         <section>
             <div class="container-fluid px-0">
                 <div>
-                    <img class="img-banner d-block img-fluid mx-auto" src="{{asset('lib/bootstrap/img/2.jpg')}}" alt="">
+                    <img class="img-banner d-block img-fluid " style="width: 100%" src="https://www.realestate.com.au/assets/img/hero/hero-buy.f65276612f8efbf90f31cda7c595e4f0.jpg" alt="">
                 </div>
                 <!-- form cari properti -->
                 <div class="row mx-auto">

@@ -15,11 +15,14 @@ class CreateGuideLinesTable extends Migration
     {
         Schema::create('guide_lines', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('author');
             $table->string('title');
             $table->text('content');
             $table->string('image')->nullable(true);
             $table->timestamps();
         });
+        (new GuideLinesTableSeeder())->run();
+
     }
 
     /**

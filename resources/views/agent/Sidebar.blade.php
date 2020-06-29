@@ -1,13 +1,32 @@
-<aside class="menu-sidebar d-none d-lg-block">
-    <div class="menu-sidebar__content js-scrollbar1 ps">
-        <nav class="navbar-sidebar" style="margin-top:64px">
-            <h3>Dashboard</h3>
-            <hr>
-            <ul class="list-unstyled navbar__list">
-                <li class="active has-sub"><a class="js-arrow" href="/Dashboard"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
-                 <li><a href="{{route('NewProperty')}}"><i class="fas fa-table"></i>Property</a></li>
-                <li><a href="/Dashboard/Testimoni"><i class="far fa-check-square"></i>Review</a></li>
+@extends('template.Sidebar')
+
+@section('general')
+    <li>
+        <a href="{{route('Dashboard')}}">
+            <i class="fa fa-tachometer-alt"></i>
+            <span>Dashboard</span>
+        </a>
+    </li>
+    <li class="sidebar-dropdown">
+        <a href="#">
+            <i class="fa fa-home"></i>
+            <span>Article</span>
+        </a>
+        <div class="sidebar-submenu">
+            <ul>
+                <li><a href="{{route('Articles')}}">List</a></li>
+                <li><a href="{{route('NewArticle')}}">Tambah</a></li>
             </ul>
-        </nav>
-    </div>
-</aside>
+        </div>
+    </li>
+@endsection
+
+@section('extra')
+    <li>
+        <a href="#">
+            <i class="fa fa-book"></i>
+            <span>Documentation</span>
+            <span class="badge badge-pill badge-primary">Beta</span>
+        </a>
+    </li>
+@endsection

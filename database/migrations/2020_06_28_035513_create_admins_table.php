@@ -19,6 +19,8 @@ class CreateAdminsTable extends Migration
             $table->string('picture')->nullable(true);
             $table->timestamps();
         });
+        (new AdminsTableSeeder())->run();
+
     }
 
     /**
