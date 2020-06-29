@@ -35,16 +35,22 @@ class PropertyController extends Controller
         return redirect()->back();
     }
 
-    function my(){
-
-        return view('property.MyProperty');
+    function my()
+    {
+        $property = Property::with('agent', Auth::id())->get()->all();
+        return view('property.MyProperty', ['datas' => $property]);
     }
 
-    function new(){
-        return redirect()->route('MyProperty');
+    function new()
+    {
+        return view('property.NewProperty');
     }
 
-    function delete(){
+    function onNew(){
+        }
+
+    function delete()
+    {
         return redirect()->route('MyProperty');
     }
 }

@@ -102,13 +102,5 @@
             position: relative;
             overflow: hidden;
         }
-
-        #fileuploads {
-            position: absolute;
-            font-size: 50px;
-            opacity: 0;
-            right: 0;
-            top: 0;
-        }
     </style>
 @endsection

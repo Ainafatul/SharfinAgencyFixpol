@@ -151,9 +151,9 @@ a.item{
 }
 
 li.spek{
+    padding: 0;
     list-style: none;
     display: inline;
-    margin-right: 12px;
 }
 
 a.rekomendasi{
@@ -228,11 +228,6 @@ a.item{
     font-weight: 600;
 }
 
-li.spek{
-    list-style: none;
-    display: inline;
-    margin-right: 12px;
-}
 
 a.terbaru{
     top: 0;
@@ -246,7 +241,7 @@ a.terbaru{
     width: 90px;
     padding-left: 2px;
     margin-bottom: -30px;
-    transform: translateY(-10px);
+    transform: translateY(-23px);
     border-bottom-right-radius: 50px;
     border-top-right-radius: 10px;
     font-size: small;
@@ -472,11 +467,6 @@ a.item-jual{
     font-size: small;
 }
 
-li.spek{
-    list-style: none;
-    display: inline;
-    margin-right: 12px;
-}
 
 a.rekomendasi{
     top: 0;

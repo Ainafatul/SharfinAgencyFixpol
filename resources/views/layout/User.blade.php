@@ -16,24 +16,7 @@
     </a>
 </div>
 <script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            const reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#img-preview').empty()
-                $('#img-preview').append('<div class="col-md-3" style="height: 200px;margin-bottom: 16px">' +
-                    '<img id="img-preview" class="img-thumbnail h-100" src="' + e.target.result + '" style="object-fit: cover"/>' +
-                    '</div>');
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $("#fileuploads").change(function () {
-        readURL(this);
-    });
+    @include('layout.Script')
     @stack('scripts')
 </script>
 </body>
