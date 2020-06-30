@@ -12,12 +12,12 @@ class GuideLinesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('guide_lines')->delete();
-        
+
         \DB::table('guide_lines')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 4,
                 'author' => '7',
@@ -39,13 +39,13 @@ Televisi
 Diskon
 Cara bayar
 Bonus atau hadiah
-Review Properti
+review Properti
 Virtual Tour
 
 Momen Terbaik
 Country Manager Rumah.com, Marine Novita, menjelaskan bahwa situasi Covid-19 ini mulai terasa hingga sektor properti. Namun, ia juga melihat masih ada peluang yang bisa dimanfaatkan para penjual properti di situasi sekarang ini.
 
-"Sama seperti kebanyakan industri lainnya, properti pun mulai terdampak. Situasi pasar akan semakin mengarah ke buyer\'s market, di mana konsumen yang lebih banyak mendapatkan manfaatnya. Namun, di setiap kesulitan selalu ada peluang," ujar Marine. 
+"Sama seperti kebanyakan industri lainnya, properti pun mulai terdampak. Situasi pasar akan semakin mengarah ke buyer\'s market, di mana konsumen yang lebih banyak mendapatkan manfaatnya. Namun, di setiap kesulitan selalu ada peluang," ujar Marine.
 
 "Secara alami, kondisi seperti ini akan membuat konsumen, terutama dari kalangan investor, melirik properti sebagai peluang. Ya, berbagai kemudahan, keringanan, diskon besar-besaran yang akan diberikan pengembang akan menjadi daya tarik bagi investor, terutama mereka yang berniat berinvestasi jangka panjang," ia menambahkan.
 
@@ -142,20 +142,20 @@ Anda mungkin tidak memberikan potongan harga, tetapi Anda bisa memberikan bonus 
 
 “Tetapi bonus ini akan terlihat sangat menarik karena calon pembeli tidak perlu repot-repot lagi mencari dan membeli sendiri sofa set baru,” kata Marine.
 
-Review Properti
-Review properti adalah membuat artikel panjang yang mengulas properti Anda, tidak hanya keunggulan unit dan perumahan, tetapi juga lingkungan sekitarnya.
+review Properti
+review properti adalah membuat artikel panjang yang mengulas properti Anda, tidak hanya keunggulan unit dan perumahan, tetapi juga lingkungan sekitarnya.
 
 Orang tidak hanya mempertimbangkan fisik properti dalam mengambil keputusan, tetapi juga lokasi. Mereka perlu tahu sekolah apa saja yang ada di sekitar properti Anda, pusat perbelanjaan apa saja, hingga rumah sakit apa saja yang ada di sana. Anda juga perlu menjelaskan prospek properti di area tersebut.',
                 'image' => 'storage/image/guideline/1593413869.webp',
                 'created_at' => '2020-06-29 06:57:51',
                 'updated_at' => '2020-06-29 06:57:51',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 5,
                 'author' => '7',
                 'title' => 'Tips Penting Saat Sewa Rumah',
-                'content' => 'Baru pertama kali berencana mengontrak rumah? Rasa bingung adalah hal yang wajar melanda pikiran Anda. Tapi, jangan terlalu dikhawatirkan, untuk memuluskan rencana ini sebaiknya simak tips dari Rumah.com. 
+                'content' => 'Baru pertama kali berencana mengontrak rumah? Rasa bingung adalah hal yang wajar melanda pikiran Anda. Tapi, jangan terlalu dikhawatirkan, untuk memuluskan rencana ini sebaiknya simak tips dari Rumah.com.
 
 Berapa biaya yang mampu Anda bayar?
 Sebelum mulai mencari rumah atau apartemen sewa, Anda harus tahu berapa biaya yang mampu Anda bayar setiap tahun atau setiap bulannya. Biaya sewa sebaiknya tidak boleh lebih dari 35 persen dari pendapatan kotor Anda (misalnya gaji sebelum pajak).
@@ -183,7 +183,7 @@ Selain menghindari penyesalan di kemudian hari, Anda juga bisa segera meminta pe
                 'created_at' => '2020-06-29 06:59:14',
                 'updated_at' => '2020-06-29 06:59:14',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 6,
                 'author' => '7',
@@ -202,7 +202,7 @@ Tips Memilih Besi Beton Untuk Bangunan',
                 'created_at' => '2020-06-29 07:00:20',
                 'updated_at' => '2020-06-29 07:00:20',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 7,
                 'author' => '7',
@@ -219,7 +219,7 @@ Tips Agar CCTV Anda bisa Terpasang dengan Aman',
                 'created_at' => '2020-06-29 07:01:31',
                 'updated_at' => '2020-06-29 07:01:31',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 8,
                 'author' => '7',
@@ -247,7 +247,7 @@ Bagi pasangan yang ramah ini, lokasi strategis adalah di mana segala sarana pent
                 'created_at' => '2020-06-29 07:03:44',
                 'updated_at' => '2020-06-29 07:03:44',
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 9,
                 'author' => '7',
@@ -275,7 +275,7 @@ Bahkan, KMG atau KTA pun, jika tujuannya adalah untuk membiayai modal usaha, dap
                 'created_at' => '2020-06-29 07:05:03',
                 'updated_at' => '2020-06-29 07:05:03',
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 10,
                 'author' => '7',
@@ -299,7 +299,7 @@ Sekembalinya mereka ke Indonesia di akhir tahun 2017, cita-cita punya hunian ida
                 'created_at' => '2020-06-29 07:06:31',
                 'updated_at' => '2020-06-29 07:06:31',
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 11,
                 'author' => '7',
@@ -322,7 +322,7 @@ Pondasi caissons atau pondasi bore pile.
 
 Saat Anda membeli rumah yang siap huni ataupun membangun sendiri dari nol, penting untuk mengenal jenis pondasi bangunan yang digunakan di rumah Anda. Pondasi yang kuat akan membuat bangunan rumah bertahan lama dan bisa menghadapi berbagai bencana, seperti dikutip dari Liputan6. Itu sebabnya, jenis pondasi rumah perlu dikenali agar Anda dapat memilih yang terbaik dan paling sesuai dengan keinginan.
 
-Dilansir dari Arafuru.com, untuk menentukan jenis pondasi yang paling tepat untuk rumah Anda, perlu diperhatikan beberapa aspek, seperti desain rumah, jenis tanah, kondisi geografis, dan sebagainya. Inilah dua jenis pondasi rumah yang perlu Anda ketahui.   
+Dilansir dari Arafuru.com, untuk menentukan jenis pondasi yang paling tepat untuk rumah Anda, perlu diperhatikan beberapa aspek, seperti desain rumah, jenis tanah, kondisi geografis, dan sebagainya. Inilah dua jenis pondasi rumah yang perlu Anda ketahui.
 
 1. Jenis pondasi dangkal
 Pondasi dangkal umumnya dibuat pada kedalaman tanah yang rendah, yaitu tidak lebih dari 3 meter atau sepertiga dari lebar alas pondasi. Pondasi ini bisa diterapkan di wilayah yang kondisi permukaan tanahnya keras atau stabil untuk mendukung struktur bangunan yang tidak terlalu berat dan tinggi.
@@ -330,14 +330,14 @@ Pondasi dangkal umumnya dibuat pada kedalaman tanah yang rendah, yaitu tidak leb
 Pondasi dangkal tidak disarankan untuk diterapkan pada jenis tanah yang kurang stabil atau memiliki kepadatan tanah yang buruk, seperti tanah bekas rawa atau gambut. Jika Anda menggunakan pondasi dangkal pada tanah yang kurang stabil, harus dilakukan perbaikan kondisi permukaan tanah terlebih dahulu, dengan sistem memakai tiang pancang yang ditanam di bawah pondasi.
 
 2. Jenis pondasi dalam
-Pondasi dalam diterapkan pada permukaan tanah dengan kedalaman tertentu, dengan daya dukung dasar pondasi dipengaruhi oleh beban struktural dan kondisi permukaan tanah. Pondasi dalam biasanya dipasang pada kedalaman lebih dari 3 meter di bawah permukaan tanah. 
+Pondasi dalam diterapkan pada permukaan tanah dengan kedalaman tertentu, dengan daya dukung dasar pondasi dipengaruhi oleh beban struktural dan kondisi permukaan tanah. Pondasi dalam biasanya dipasang pada kedalaman lebih dari 3 meter di bawah permukaan tanah.
 
 Pondasi dalam dapat digunakan untuk mentransfer beban ke lapisan yang lebih dalam dan mencapai kedalaman tertentu sampai didapat jenis tanah yang mendukung daya beban struktur bangunan. Dengan cara ini, jenis tanah yang tidak cocok di dekat permukaan tanah dapat dihindari. Pondasi dalam biasa digunakan pada bangunan yang ukurannya cukup lebar, dengan jarak antar tiang bangunan sekitar 6 meter.',
                 'image' => 'storage/image/guideline/1593414515.jpeg',
                 'created_at' => '2020-06-29 07:08:35',
                 'updated_at' => '2020-06-29 07:08:35',
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 12,
                 'author' => '7',
@@ -380,12 +380,12 @@ Secara sederhana, cara kerja panel solar adalah dengan menyerap cahaya matahari 
                 'created_at' => '2020-06-29 07:10:19',
                 'updated_at' => '2020-06-29 07:10:19',
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 13,
                 'author' => '7',
                 'title' => 'Cara Menghitung Luas Tanah yang Akurat dan Mudah',
-                'content' => 'Mengetahui luas tanah akan mempermudah Anda dalam menentukan harga yang tepat saat ingin menjual properti. Selain itu, jika Anda ingin membangun rumah, Anda perlu mengetahui luas tanah agar rumah yang dibangun benar-benar presisi. Untuk mempermudah Anda menghitung luas tanah secara akurat, ada beberapa cara yang bisa Anda lakukan. Untuk mengetahui detailnya, artikel ini membahas:             
+                'content' => 'Mengetahui luas tanah akan mempermudah Anda dalam menentukan harga yang tepat saat ingin menjual properti. Selain itu, jika Anda ingin membangun rumah, Anda perlu mengetahui luas tanah agar rumah yang dibangun benar-benar presisi. Untuk mempermudah Anda menghitung luas tanah secara akurat, ada beberapa cara yang bisa Anda lakukan. Untuk mengetahui detailnya, artikel ini membahas:
 
 Pentingnya Cara Menghitung Luas Tanah yang Akurat
 Cara Menghitung Luas tanah dengan Rumus
@@ -406,7 +406,7 @@ Untuk mengukur tanah secara akurat, Anda bisa menggunakan bantuan jasa ahli topo
                 'created_at' => '2020-06-29 07:11:44',
                 'updated_at' => '2020-06-29 07:11:44',
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 14,
                 'author' => '7',
@@ -460,14 +460,14 @@ Menyewakan rumah kontrakan ataupun rumah kost merupakan salah satu peluang bisni
                 'created_at' => '2020-06-29 07:15:03',
                 'updated_at' => '2020-06-29 07:15:03',
             ),
-            11 => 
+            11 =>
             array (
                 'id' => 15,
                 'author' => '7',
                 'title' => 'Cara Jual Rumah dalam Waktu Singkat',
-                'content' => 'Umumnya menjual rumah memerlukan waktu yang cukup panjang, mulai dari persiapan dokumen hingga proses transaksi akhir dengan pembeli. Bahkan banyak juga yang berasumsi jika menjual rumah lebih sulit dibandingkan dengan apartemen. Meski begitu, sebenarnya rumah bisa terjual dalam waktu singkat, sekitar tiga bulanan, asal Anda mau dan mampu mengatur strateginya. 
+                'content' => 'Umumnya menjual rumah memerlukan waktu yang cukup panjang, mulai dari persiapan dokumen hingga proses transaksi akhir dengan pembeli. Bahkan banyak juga yang berasumsi jika menjual rumah lebih sulit dibandingkan dengan apartemen. Meski begitu, sebenarnya rumah bisa terjual dalam waktu singkat, sekitar tiga bulanan, asal Anda mau dan mampu mengatur strateginya.
 
-Sebelum membahas cara jual rumah dalam waktu singkat, Anda perlu mengetahui dokumen yang perlu disiapkan. Untuk pihak penjual, Anda perlu menyiapkan KTP dan KK, Sertifikat Tanah asli yang sudah diperiksa BPN (Badan Pertanahan Nasional), dan PBB tahun berjalan dengan pajak yang sudah dibayarkan. Setelah dokumen tersebut lengkap, Anda juga perlu melakukan riset dan membuat strategi untuk membuat rumah semakin cepat terjual. 
+Sebelum membahas cara jual rumah dalam waktu singkat, Anda perlu mengetahui dokumen yang perlu disiapkan. Untuk pihak penjual, Anda perlu menyiapkan KTP dan KK, Sertifikat Tanah asli yang sudah diperiksa BPN (Badan Pertanahan Nasional), dan PBB tahun berjalan dengan pajak yang sudah dibayarkan. Setelah dokumen tersebut lengkap, Anda juga perlu melakukan riset dan membuat strategi untuk membuat rumah semakin cepat terjual.
 
 Dari pemaparan artikel ini, Anda akan mengetahui beberapa hal berikut ini:
 
@@ -477,7 +477,7 @@ Mengetahui Lembaga yang Terlibat hingga Transaksi Selesai
 Menampilkan Kondisi Properti yang Baik
 Melakukan Perbaikan
 Menyingkirkan Semua Barang yang Tidak Perlu
-Menjual dengan Harga yang Terjangkau dan Realistis 
+Menjual dengan Harga yang Terjangkau dan Realistis
 Ruangan yang Perlu Dipermak Sebelum Menjual Rumah
 Kamar Mandi
 Kamar Tidur
@@ -519,7 +519,7 @@ Harga yang terjangkau dan realistis adalah kunci menjual rumah dengan cepat. Fak
                 'created_at' => '2020-06-29 07:16:11',
                 'updated_at' => '2020-06-29 07:16:11',
             ),
-            12 => 
+            12 =>
             array (
                 'id' => 16,
                 'author' => '7',
@@ -568,7 +568,7 @@ Ketika Anda akan reservasi kamar hotel, Anda mungkin bingung dengan ukuran kasur
                 'created_at' => '2020-06-29 07:17:36',
                 'updated_at' => '2020-06-29 07:17:36',
             ),
-            13 => 
+            13 =>
             array (
                 'id' => 17,
                 'author' => '7',
@@ -620,14 +620,14 @@ Anda harus melangkah lebih jauh dari apartemen untuk mencapai fasilitas olahraga
                 'created_at' => '2020-06-29 07:19:56',
                 'updated_at' => '2020-06-29 07:19:56',
             ),
-            14 => 
+            14 =>
             array (
                 'id' => 18,
                 'author' => '7',
                 'title' => 'Trik Gaet Penyewa Rumah',
                 'content' => 'Punya lebih dari satu properti menjadi keuntungan besar bagi Anda. Selain berguna sebagai aset investasi masa depan, rumah juga bisa mendulang pendapatan tetap selama disewakan.
 
-Mari berhitung, apabila Anda punya rumah di lokasi pemukiman dengan dua kamar tidur, harga sewa pasarannya berkisar Rp20 juta sampai Rp30 juta per tahun. Harga sewa ini tentu berbeda drastis bila rumah berada di lokasi premium nan strategis. 
+Mari berhitung, apabila Anda punya rumah di lokasi pemukiman dengan dua kamar tidur, harga sewa pasarannya berkisar Rp20 juta sampai Rp30 juta per tahun. Harga sewa ini tentu berbeda drastis bila rumah berada di lokasi premium nan strategis.
 
 Dalam menyewakan rumah, terpenting adalah Anda harus pandai menemukan penyewa yang tepat. Seperti apa cara mudah menggaet penyewa rumah? (Simak juga: 100 Rumah Disewakan Terpopuler di Indonesia)
 
@@ -666,7 +666,7 @@ Cara yang paling baik mendapatkan penyewa yang baik adalah menghindari beriklan 
                 'created_at' => '2020-06-29 07:20:49',
                 'updated_at' => '2020-06-29 07:20:49',
             ),
-            15 => 
+            15 =>
             array (
                 'id' => 19,
                 'author' => '7',
@@ -725,7 +725,7 @@ Jadi pastikan bahwa Anda memiliki kriteria yang sesuai dan penting bagi Anda seh
                 'created_at' => '2020-06-29 07:22:16',
                 'updated_at' => '2020-06-29 07:22:16',
             ),
-            16 => 
+            16 =>
             array (
                 'id' => 20,
                 'author' => '7',
@@ -769,7 +769,7 @@ Masalah bagi sebagian besar pengontrak rumah adalah dilema ketika hendak melakuk
                 'created_at' => '2020-06-29 07:24:13',
                 'updated_at' => '2020-06-29 07:24:13',
             ),
-            17 => 
+            17 =>
             array (
                 'id' => 21,
                 'author' => '7',
@@ -825,7 +825,7 @@ Karena bisa jadi Anda akan memindahkannya di rumah sewa selanjutnya. Pilihan lai
                 'created_at' => '2020-06-29 07:29:21',
                 'updated_at' => '2020-06-29 07:29:21',
             ),
-            18 => 
+            18 =>
             array (
                 'id' => 22,
                 'author' => '7',
@@ -881,12 +881,12 @@ Sepakati aturan tak boleh ada penghuni yang membolehkan tamunya menginap selama 
                 'created_at' => '2020-06-29 07:30:28',
                 'updated_at' => '2020-06-29 07:30:28',
             ),
-            19 => 
+            19 =>
             array (
                 'id' => 23,
                 'author' => '7',
                 'title' => 'Tips Ngontrak Rumah untuk Pengantin Baru',
-                'content' => 'Setelah menikah, Anda maupun pasangan biasanya akan dihadapkan kepada opsi antara ngontrak rumah atau tinggal bareng mertua, mengingat kondisi keuangan saat ini belum mampu untuk mencicil rumah baru. Nah, sebaiknya carilah lokasi hunian yang letaknya tidak jauh dari tempat kerja kalian berdua. 
+                'content' => 'Setelah menikah, Anda maupun pasangan biasanya akan dihadapkan kepada opsi antara ngontrak rumah atau tinggal bareng mertua, mengingat kondisi keuangan saat ini belum mampu untuk mencicil rumah baru. Nah, sebaiknya carilah lokasi hunian yang letaknya tidak jauh dari tempat kerja kalian berdua.
 
 Layaknya hendak membeli rumah, mencari rumah kontrakan pun relatif susah-susah-gampang. Banyak pertimbangan yang perlu diperhatikan seperti harga sewa, lingkungan, hingga si pemilik kontrakan. Oleh karenanya, agar Anda dan pasangan tidak salah dalam melangkah, yuk pastikan Anda telah mengikuti lima catatan penting ini.
 
@@ -917,7 +917,7 @@ Apakah dalam waktu dekat Anda atau pasangan punya kemungkinan untuk pindah ke lu
                 'created_at' => '2020-06-29 07:31:43',
                 'updated_at' => '2020-06-29 07:31:43',
             ),
-            20 => 
+            20 =>
             array (
                 'id' => 24,
                 'author' => '7',
@@ -955,7 +955,7 @@ Bagi siapapun yang baru mengenal investasi, tentunya akan memilih jalur investas
                 'created_at' => '2020-06-29 07:37:01',
                 'updated_at' => '2020-06-29 07:37:01',
             ),
-            21 => 
+            21 =>
             array (
                 'id' => 25,
                 'author' => '7',
@@ -987,7 +987,7 @@ Jangan merasa keberatan jika calon penyewa mengambil foto properti anda. Tujuan 
                 'created_at' => '2020-06-29 07:37:58',
                 'updated_at' => '2020-06-29 07:37:58',
             ),
-            22 => 
+            22 =>
             array (
                 'id' => 26,
                 'author' => '7',
@@ -1037,12 +1037,12 @@ Biaya tabungan emas Pegadaian dibagi menjadi dua bagian, yaitu:',
                 'created_at' => '2020-06-29 07:39:26',
                 'updated_at' => '2020-06-29 07:39:26',
             ),
-            23 => 
+            23 =>
             array (
                 'id' => 27,
                 'author' => '7',
                 'title' => 'Cara Memilih Bisnis MLM yang Aman',
-                'content' => 'Melihat kesuksesan orang lain yang telah mencapai level tinggi di bisnis MLM, tentu membuat Anda tergiur. Jika Anda penasaran dan ingin mulai menjalani bisnis MLM, tetapi takut gagal atau khawatir tertipu dengan perusahaan MLM yang sistemnya tidak jelas, simak lebih lanjut tentang cara memilih bisnis MLM yang aman berikut ini. Artikel ini akan membahas:          
+                'content' => 'Melihat kesuksesan orang lain yang telah mencapai level tinggi di bisnis MLM, tentu membuat Anda tergiur. Jika Anda penasaran dan ingin mulai menjalani bisnis MLM, tetapi takut gagal atau khawatir tertipu dengan perusahaan MLM yang sistemnya tidak jelas, simak lebih lanjut tentang cara memilih bisnis MLM yang aman berikut ini. Artikel ini akan membahas:
 
 Apa itu MLM
 Prinsip Kerja MLM yang Penting Diketahui
@@ -1075,7 +1075,7 @@ Setiap kali berhasil mendapatkan member, akan ada bonus yang dikirim ke rekening
                 'updated_at' => '2020-06-29 07:40:19',
             ),
         ));
-        
-        
+
+
     }
 }

@@ -12,12 +12,12 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('articles')->delete();
-        
+
         \DB::table('articles')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'author' => '7',
@@ -41,7 +41,7 @@ Sementara untuk pekerja yang memang memasuki masa pensiun atau meninggal dunia m
                 'created_at' => '2020-06-29 09:31:12',
                 'updated_at' => '2020-06-29 09:31:12',
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'author' => '7',
@@ -89,7 +89,7 @@ Hal ini agar alat-alat di atas meja lebih mudah terjangkau dan tetap nyaman saat
                 'created_at' => '2020-06-29 09:33:33',
                 'updated_at' => '2020-06-29 09:33:33',
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'author' => '7',
@@ -113,7 +113,7 @@ Pertimbangan lain yang dicari konsumen adalah aksesibilitas dan tersedianya sara
                 'created_at' => '2020-06-29 09:34:47',
                 'updated_at' => '2020-06-29 09:34:47',
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 4,
                 'author' => '7',
@@ -137,7 +137,7 @@ Selain China dan Jepang, Nippon Paint Singapura juga meluncurkan VirusGuard+ yan
                 'created_at' => '2020-06-29 09:35:39',
                 'updated_at' => '2020-06-29 09:35:39',
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 5,
                 'author' => '7',
@@ -146,7 +146,7 @@ Selain China dan Jepang, Nippon Paint Singapura juga meluncurkan VirusGuard+ yan
 
 Silver-Ion sebagai antimikroba dapat membasmi mikroorganisme dengan penetrasi, menghentikan reproduksi dan metabolisme, lalu menghancurkan mikroorganisme tersebut. Daya antimikroba pada Silver-Ion bertahan lama sehingga senyawa ini efektif dalam melawan kuman.
 
-Nippon Paint Indonesia telah mengaplikasikan Teknologi Silver-Ion pada Nippon Vinilex Fresh sejak tahun 2005 yang digunakan pada bangunan rumah sakit (project based). Kemudian di tahun 2018, teknologi ini diperkenalkan pada customer retail melalui Nippon Spot-Less Plus – cat interior segmen premium dengan fungsi anti-noda dan anti-kuman. Kini, Silver-Ion hadir dalam Vinilex Anti-Kuman – cat interior segmen menengah sejak April 2020 lalu. 
+Nippon Paint Indonesia telah mengaplikasikan Teknologi Silver-Ion pada Nippon Vinilex Fresh sejak tahun 2005 yang digunakan pada bangunan rumah sakit (project based). Kemudian di tahun 2018, teknologi ini diperkenalkan pada customer retail melalui Nippon Spot-Less Plus – cat interior segmen premium dengan fungsi anti-noda dan anti-kuman. Kini, Silver-Ion hadir dalam Vinilex Anti-Kuman – cat interior segmen menengah sejak April 2020 lalu.
 
 Jon Tan, CEO (Decorative Paints) Nippon Paint Indonesia mengatakan, “Vinilex Anti-Kuman dengan Silver-Ion untuk segmen menengah diluncurkan saat ini untuk membantu terciptanya rumah sehat yang terjangkau oleh seluruh keluarga Indonesia. Ini adalah bentuk kontribusi Nippon Paint sebagai pemimpin industri cat dan pelapis di Indonesia untuk memerangi penyebaran penyakit di tengah pandemic COVID-19.”
 
@@ -155,7 +155,7 @@ Dengan demikian, inovasi cat dan pelapis ini dapat menjawab kebutuhan masyarakat
                 'created_at' => '2020-06-29 09:36:16',
                 'updated_at' => '2020-06-29 09:36:16',
             ),
-            5 => 
+            5 =>
             array (
                 'id' => 6,
                 'author' => '7',
@@ -164,7 +164,7 @@ Dengan demikian, inovasi cat dan pelapis ini dapat menjawab kebutuhan masyarakat
 
 “Belum ada kenaikan penjualan. Kondisi masih slow. Daya beli (masyarakat) masih turun,” uajr Clement, seperti dikutip dari Bisnis.com, Jumat, 26 Juni 2020.
 
-Clement melanjutkan, dirinya belum bisa memprediksi kapan pasar properti akan kembali bergairah jika kondisinya masih seperti ini. Terlebih, virus korona juga belum bisa diatasi dan jumlah kasus positif terus bertambah. 
+Clement melanjutkan, dirinya belum bisa memprediksi kapan pasar properti akan kembali bergairah jika kondisinya masih seperti ini. Terlebih, virus korona juga belum bisa diatasi dan jumlah kasus positif terus bertambah.
 
 Namun begitu, peluang di tengah kondisi berat ini sebenarnya masih terbuka lebar. Bagi para broker, hal ini adalah peluang sekaligus tantangan, mengingat suplai pun masih tersedia untuk segala subsektor properti.
 
@@ -191,7 +191,7 @@ Perekonomian yang mulai bergerak ini, Sulihin mengatakan, seharusnya bisa memban
                 'created_at' => '2020-06-29 09:37:02',
                 'updated_at' => '2020-06-29 09:37:02',
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 7,
                 'author' => '7',
@@ -250,7 +250,7 @@ Sistem MVHR dirancang untuk membuat sebuah ruangan menjadi lebih sejuk dengan ve
                 'created_at' => '2020-06-29 09:38:43',
                 'updated_at' => '2020-06-29 09:38:43',
             ),
-            7 => 
+            7 =>
             array (
                 'id' => 8,
                 'author' => '7',
@@ -276,7 +276,7 @@ Untuk diketahui, pada kuartal II-2020 CTRA menargetkan bisa mengantongi marketin
                 'created_at' => '2020-06-29 09:39:51',
                 'updated_at' => '2020-06-29 09:39:51',
             ),
-            8 => 
+            8 =>
             array (
                 'id' => 9,
                 'author' => '7',
@@ -304,7 +304,7 @@ Kembali kepada pemanfaatan ruang bawah tanah maupun atas tanah, perlu dibentuk s
                 'created_at' => '2020-06-29 09:41:13',
                 'updated_at' => '2020-06-29 09:41:13',
             ),
-            9 => 
+            9 =>
             array (
                 'id' => 10,
                 'author' => '7',
@@ -336,7 +336,7 @@ Kemudian, REI pun menginginkan penghapusan atau keringanan pajak bumi dan bangun
                 'created_at' => '2020-06-29 09:42:34',
                 'updated_at' => '2020-06-29 09:42:34',
             ),
-            10 => 
+            10 =>
             array (
                 'id' => 11,
                 'author' => '7',
@@ -356,7 +356,7 @@ Siasat lainnya menerapkan layout dengan pembatas ruang menggunakan material kaca
                 'created_at' => '2020-06-29 09:43:34',
                 'updated_at' => '2020-06-29 09:43:34',
             ),
-            11 => 
+            11 =>
             array (
                 'id' => 12,
                 'author' => '7',
@@ -396,7 +396,7 @@ Tidak hanya itu saja, sistem keamanan berteknologi canggih ini juga dilengkapi d
                 'created_at' => '2020-06-29 09:44:17',
                 'updated_at' => '2020-06-29 09:44:17',
             ),
-            12 => 
+            12 =>
             array (
                 'id' => 13,
                 'author' => '7',
@@ -426,7 +426,7 @@ Tatanan ruang keluarga yang Anda desain keren belum tentu sesuai dengan keingina
 
 Warna dan motif mencolok mungkin sesuai dengan kepribadian Anda, namun belum tentu disukai oleh setiap orang.
 
-(Jangan dulu beli rumah tanpa menyimak ulasannya di Review Properti)
+(Jangan dulu beli rumah tanpa menyimak ulasannya di review Properti)
 
 Tampilan depan rumah
 Rata-rata rumah dilengkapi oleh taman kecil di depan rumah. Ini juga menjadi penilaian pertama yang tidak kalah penting dipertimbangkan oleh calon pembeli.
@@ -447,7 +447,7 @@ Namun, pilih agen yang kredibel untuk menentukan harga akhir. Trik mudahnya, cob
                 'updated_at' => '2020-06-29 09:51:24',
             ),
         ));
-        
-        
+
+
     }
 }
