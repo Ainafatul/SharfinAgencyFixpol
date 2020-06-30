@@ -27,6 +27,7 @@ Route::put('/onSignIn', 'Auth\LoginController@onLogin')->name('onSignIn');
 Route::get('/Register/User', 'Auth\RegisterController@formUser')->name('UserRegister');
 Route::get('/Register/Agent', 'Auth\RegisterController@formAgent')->name('AgentRegister');
 
+//TEst
 Route::get('/Agent/List', 'AgentController@list')->name('AgentList');
 Route::get('/Agent/{id}', 'AgentController@detail')->name('AgentDetail');
 
