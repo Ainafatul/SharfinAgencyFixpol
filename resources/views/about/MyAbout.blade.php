@@ -1,40 +1,60 @@
-<div class="card m-lg-auto" style="padding: 24px 64px;border-top: 0">
-    <h2 class="m-3">ABOUT</h2>
-    <div class="card-body" style="margin-bottom: 36px">
-        <form action="/onAboutSearch" method="GET">
-            <div class="input-group mb-3">
-                <input type="text" name="search" class="form-control" placeholder="Cari" aria-label="Cari"
-                       value="<?php if (isset($_GET['search'])) echo $_GET['search']?>" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="submit" id="button-addon2">Cari</button>
-                </div>
-            </div>
-        </form>
+@extends('layout.Admin')
 
-        <hr style="margin-bottom: 0">
-        <p style="margin-bottom: 12px;font-size: 9pt">Ditemukan <?php echo count($datas)?> Hasil</p>
-        @foreach ($datas as $data )
-            <div class=" w-100">
-                <div class="d-flex flex-row">
-                    <img class="card" src="{{ asset('/uploads/about/'. $data->image)}}"
-                         style="margin-bottom: 0;width:300px;height: 200px;object-fit: cover"
-                         alt="Card image cap">
-                    <div class="d-flex flex-column" style="padding: 0 12px;width: 100%">
-                        <h4 class="card-title">{{$data->title}}</h4>
-                    <p class="card-text" style="font-size: 9pt">{{Str::limit($data->content,256)}}</p>
-                        <div class="d-flex flex-row row" style="margin-top: auto">
-                            <div class="col-6" style="padding-left: 16px">
-                                <a href="/onEditAbout/{{$data->id}}" class="btn btn-primary w-100" >Update</a>
-                            </div>
-                            <div class="col-6">
-                            <a href="/onDeleteAbout/{{$data->id}}" class="btn btn-danger w-100" >Hapus</a>
-                            </div>
-                        </div>
+@section('content')
+    <div class="single-slider slider-height2 d-flex align-items-center" style="margin-bottom: 128px;min-height: 500px;background: #15AC97">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
+                    <div class="hero__caption">
+                        <h1>About Sharfin Agency</h1>
+                        <p>Ut enim ad minim
+                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is aute irure.</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
+                    <div class="hero__img" data-animation="bounceIn" data-delay=".4s" style="animation-delay: 0.4s;">
+                        <img src="assets/img/hero/watch.png" alt="" class=" heartbeat">
                     </div>
                 </div>
             </div>
-            <hr>
-        @endforeach
+        </div>
     </div>
-</div>
+    <div id="id">
+        <div class="container container-md">
+            <div class="card-columns">
+                @foreach($datas as $data)
+                    <div class="card">
+                        <img class="card-img-top" src="{{asset($data->image)}}" style="height: 200px" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title" style="min-height: 38px">{{$data->title}}</h5>
+                            <p class="card-text" style="font-size: 12pt;max-lines: 8 ">{{$data->content}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Created : {{$data->created_at}}</small>
+                            <div class="btn-group float-right">
+                                <a href="{{route('DeleteAbout',['id'=>$data->id])}}" style="color: white" class="btn btn-danger btn-sm float-right mr-1">Delete</a>
+                                <a href="{{route('UpdateAbout',['id'=>$data->id])}}" style="color: white" class="btn btn-warning btn-sm float-right">Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <style>
+        div {
+            position: relative;
+            overflow: hidden;
+        }
 
+        p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            line-height: 16px;     /* fallback */
+            max-height: 64px;      /* fallback */
+            -webkit-line-clamp: 4; /* number of lines to show */
+            -webkit-box-orient: vertical;
+        }
+    </style>
+@endsection

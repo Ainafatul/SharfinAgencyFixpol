@@ -10,23 +10,19 @@
                 </div>
             </div>
             <div class="row">
-                @foreach ($datas ?? '' as $data)
-                    <div class="artikel-item col-6 mb-1 col-lg-4">
-                        <figure class="figure border pb-3 bg-white rounded">
-                            <img src="{{asset('uploads/artikel/'.$data->image)}}" class="figure-img img-fluid rounded">
-                            <figcaption class="figure-caption mb-4 px-3">
-                                <h5 class="artikel-title text-dark text-justify">{{$data->title}}</h5>
-                            </figcaption>
-                            <div class="row">
-                                <div class="col-12 col-sm-4 ml-3">
-                                    <p class="artikel-tgl text-black-50"><i class="far fa-calendar-alt">{{date('j M Y',strtotime($data->created_at))}}</i></p>
+                @foreach ($datas ?? '' as $article)
+                    <div class="artikel-item col-6 mb-1 col-lg-4" style="padding-bottom: 24px">
+                        <a class="w-100" href="{{route('Article',['id'=>    $article->id])}}">
+                            <div class="card">
+                                <img class="card-img-top" src="{{asset($article->image)}}" style="height: 200px" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title" style="min-height: 38px">{{$article->title}}</h5>
                                 </div>
-                                <div class="col text-right mr-3">
-                                    <a href="{{route('Artikel',[['id']=>$data->id])}}" class="btn btn-sm rounded-pill btn-secondary">Baca Selengkapnya <i
-                                            class="fas fa-chevron-right"></i></a>
+                                <div class="card-footer">
+                                    <small class="text-muted">Created : {{$article->created_at}}</small>
                                 </div>
                             </div>
-                        </figure>
+                        </a>
                     </div>
                 @endforeach
             </div>
@@ -55,7 +51,8 @@
                         <input class="form-control form-tanya rounded-pill mx-auto" name="email" style="width: 90%;" type="email"
                                placeholder="Masukkan Email Anda"
                                aria-label="Search">
-                        <a href="{{route('')}}" class="btn btn-tanya btn-secondary btn-md login mx-auto px-5 my-2 rounded-pill mb-0 mb-lg-5"
+                        <a href="{{route('onSubscribeNewsletter')}}"
+                           class="btn btn-tanya btn-secondary btn-md login mx-auto px-5 my-2 rounded-pill mb-0 mb-lg-5"
                            type="submit">Kirim</a>
                     </form>
                 </div>

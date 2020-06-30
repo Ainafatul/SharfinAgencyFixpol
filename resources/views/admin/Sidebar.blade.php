@@ -44,6 +44,24 @@
             </ul>
         </div>
     </li>
+    <li class="sidebar-dropdown">
+        <a href="#">
+            <i class="fa fa-info"></i>
+            <span>About</span>
+        </a>
+        <div class="sidebar-submenu">
+            <ul>
+                <li><a href="{{route('About')}}">Daftar</a></li>
+                <li><a href="{{route('NewAbout')}}">Tambah</a></li>
+            </ul>
+        </div>
+    </li>
+    <li>
+        <a href="{{route('NewsLetterSubscriber')}}">
+            <i class="fa fa-envelope"></i>
+            <span>Email Subscriber</span>
+        </a>
+    </li>
     <li>
         <a href="{{route('AdminRegister')}}">
             <i class="fa fa-user"></i>

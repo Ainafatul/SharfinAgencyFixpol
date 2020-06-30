@@ -9,16 +9,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="jual.html">Jual</a>
+                    <a class="nav-link" href="{{route('PropertyFilter',['type'=>'Beli'])}}">Jual</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sewa</a>
+                    <a class="nav-link" href="{{route('PropertyFilter',['type'=>'Sewa'])}}">Sewa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Berita</a>
+                    <a class="nav-link" href="{{route('Articles')}}">Berita</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Agen</a>
+                    <a class="nav-link" href="{{route('AgentList')}}">Agen</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Tentang Kami</a>

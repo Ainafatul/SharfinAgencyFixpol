@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    function list(){
+    function list()
+    {
         return view('artikel.MyArtikel')->with('datas', Article::all());
     }
 
@@ -16,5 +17,27 @@ class ArticleController extends Controller
     {
         Article::destroy($id);
         return redirect()->back();
+    }
+
+    function update($id)
+    {
+        $data = Article::find($id);
+        return view('artikel.UpdateArtikel')->with('data', $data);
+    }
+
+    function onUpdate(Request $request, $id)
+    {
+        $article = Article::find($id);
+        $article->title = $request['title'];
+        $article->content = $request['content'];
+        if (isset($request['image']) != null) {
+            $article->image = HelperController::uploadImage('article', $request->file('image'));
+        }
+        $article->save();
+        return redirect()->back();
+    }
+
+    function show($id){
+        return view('artikel.Artikel',['article'=> Article::find($id)]);
     }
 }

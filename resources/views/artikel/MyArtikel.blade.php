@@ -33,7 +33,7 @@
                             <small class="text-muted">Created : {{$data->created_at}}</small>
                             <div class="btn-group float-right">
                                 <a href="{{route('DeleteArticle',['id'=>$data->id])}}" style="color: white" class="btn btn-danger btn-sm float-right mr-1">Delete</a>
-                                <a href="" style="color: white" class="btn btn-warning btn-sm float-right">Preview</a>
+                                <a href="{{route('UpdateArticle',['id'=>$data->id])}}" style="color: white" class="btn btn-warning btn-sm float-right">Preview</a>
                             </div>
                         </div>
                     </div>

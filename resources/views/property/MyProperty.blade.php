@@ -24,37 +24,55 @@
         <div class="container container-md">
             <div class="row">
                 @foreach($datas as $data)
-                    <div class="item col-6 mb-1 col-lg-3 p-1 px-sm-2 px-lg-2 px-xl-3">
+                    <div class="item col-md-6 mb-1 col-lg-3 p-1 px-sm-2 px-lg-2 px-xl-3">
                         <div class="card mx-auto terbaru-card">
                             <a href="#" class="item">
-                                <img src="http://10.10.10.16:8000/lib/bootstrap/img/3.jpg" class="img-fluid terbaru-img d-block mx-auto" alt="gambar 1"
+                                <img src="{{asset($data->main_image)}}" class="img-fluid terbaru-img d-block mx-auto" alt="gambar 1"
                                      style="height: 200px">
                                 <div class="label label-card pl-2"><p style="font-size: 14px">Rumah</p></div>
                                 <div class="card-body ">
-                                    <h6 class="card-subtitle mb-2">Alam Singgahsana</h6>
-                                    <h6 class="card-subtitle alamat text-muted">Jl. Raya Cerme</h6><br>
-                                    <h5 class="card-title mb-2">Rp. 996 Jt</h5>
+                                    <h6 class="card-subtitle mb-2" style="height: 32px">{{$data->name}}</h6>
+                                    <h6 class="card-subtitle alamat text-muted limit-2" style="height: 32px">{{$data->address}}</h6><br>
+                                    <h5 class="card-title mb-2">Rp. {{'Harga'}} Jt</h5>
                                     <div class="row spesifikasi w-100" style="margin-left: 0;margin-bottom: 0px">
                                         <li class="col-3 item spek">
-                                            <i class="fas fa-bed"> 4</i>
+                                            <i class="fas fa-bed">{{$data->bed_room}}</i>
                                         </li>
                                         <li class="col-3 item spek">
-                                            <i class="fas fa-shower"> 3</i>
+                                            <i class="fas fa-shower">{{$data->bath_room}}</i>
                                         </li>
                                         <li class="col-3 item spek">
-                                            <i class="fas fa-expand-arrows-alt"> 350 m<sup>2</sup></i>
+                                            <i class="fas fa-expand-arrows-alt"> {{$data->land_area}} m<sup>2</sup></i>
                                         </li>
                                         <li class="col-3 item spek">
-                                            <i class="fas fa-building"> 2 lt</i>
+                                            <i class="fas fa-building"> {{$data->stories}} lt</i>
                                         </li>
                                     </div>
                                 </div>
                             </a>
+                            <div class="row" style="padding: 8px">
+                                <div class="col-6" style="padding-right: 4px">
+                                    <a href="{{route('DeleteProperty',['id'=>$data->id])}}" class="btn btn-danger w-100">Delete</a>
+                                </div>
+                                <div class="col-6" style="padding-left: 4px">
+                                    <a href="#" class="btn btn-primary w-100" style="color: white">Update</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
     </div>
-
+    <style>
+        .limit-2 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            line-height: 16px; /* fallback */
+            max-height: 64px; /* fallback */
+            -webkit-line-clamp: 2; /* number of lines to show */
+            -webkit-box-orient: vertical;
+        }
+    </style>
 @endsection

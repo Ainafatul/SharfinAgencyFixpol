@@ -84,7 +84,7 @@ class AdminController extends Controller
             $path = $file->storeAs('public/image/article', Carbon::now()->timestamp . '.' . $file->extension());
             $data['image'] = str_replace('public', 'storage', $path);
             Article::create($data);
-            return redirect()->route('Articles');
+            return redirect()->route('MyArticle');
         }
         return redirect()->back()->withErrors($validator);
     }

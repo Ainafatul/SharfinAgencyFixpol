@@ -18,4 +18,22 @@ class GuidelineController extends Controller
         GuideLine::destroy($id);
         return redirect()->back();
     }
+
+    function update($id)
+    {
+        $data = GuideLine::find($id);
+        return view('guideline.UpdateGuideLine')->with('data', $data);
+    }
+
+    function onUpdate(Request $request, $id)
+    {
+        $guideline = GuideLine::find($id);
+        $guideline->title = $request['title'];
+        $guideline->content = $request['content'];
+        if (isset($request['image']) != null) {
+            $guideline->image = HelperController::uploadImage('guideline', $request->file('image'));
+        }
+        $guideline->save();
+        return redirect()->back();
+    }
 }

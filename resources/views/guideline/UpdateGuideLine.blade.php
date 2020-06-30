@@ -20,8 +20,12 @@
         </div>
     </div>
     <div id="id">
+        <form action="{{route('onUpdateGuidelines',['id'=>$data->id])}}" method="POST" enctype="multipart/form-data">
+            @csrf
         <div class="container container-md">
-
+            <?php if($errors->first() != ''): ?>
+            <div class="alert alert-danger" role="alert"><?php echo e($errors->first()); ?></div>
+            <?php endif; ?>
             <div class="card">
                 <div class="card-header">
                     <h5 class="card-title m-0">Article Creator</h5>
@@ -55,12 +59,12 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label class="w-100">Title
-                                <input type="text" class="form-control w-100" name="title" value="">
+                                <input type="text" class="form-control w-100" name="title" value="{{$data->title}}">
                             </label>
                         </div>
                         <div class="form-group col-md-12">
                             <label class="w-100">Content
-                                <textarea type="text" class="form-control w-100" name="content" value=""></textarea>
+                                <textarea type="text" rows="12" class="form-control w-100" name="content">{{$data->content}}</textarea>
                             </label>
                         </div>
                     </div>
@@ -73,6 +77,11 @@
                 </div>
                 <div class="card-body">
                     <div id="img-preview" class="row">
+                        @if(isset($data->image))
+                            <div class="col-md-3" style="height: 200px;margin-bottom: 16px">
+                                <img id="img-preview" class="img-thumbnail h-100" src="{{asset($data->image)}}" style="object-fit: cover"/>
+                            </div>
+                        @endif
                     </div>
                     <div class="col-md-3" style="height: 200px;margin-bottom: 16px">
                         <div class="h-100 w-100 file btn btn-lg btn-primary" style="background: #073932">
@@ -81,9 +90,9 @@
                     </div>
                 </div>
             </div>
-
-            <div class="btn btn-primary">Submit Form</div>
+            <input type="submit" class="btn btn-primary" value="Update">
         </div>
+        </form>
     </div>
     <style>
         .card {

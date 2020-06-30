@@ -21,7 +21,9 @@
         @csrf
         <div id="container">
             <div class="container container-md">
-
+                @if($errors->first()!='')
+                    <div class="alert alert-danger" role="alert">{{$errors->first()}}</div>
+                @endif
                 <div class="card" style="margin-top: 24px">
                     <h5 class="card-header">Data Diri</h5>
                     <div class="card-body">
@@ -79,7 +81,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="w-100">Luas Bangunan
-                                    <input type="number" class="form-control w-100" name="building_land" value="">
+                                    <input type="number" class="form-control w-100" name="building_area" value="">
                                 </label>
                             </div>
                         </div>
@@ -87,23 +89,31 @@
                 </div>
 
                 <div class="card" style="margin-top: 24px">
-                    <h5 class="card-header">Data Penjualan Property</h5>
-                    <div class="card-body">
+                    <div class="card-header row" style="margin: 0;padding-left: 0px">
+                        <div class="col-auto form-check">
+                            <input id="jual_chk" type="checkbox" class="form-check-input h-100 " style="margin: 0">
+                        </div>
+                        <h5 class="col-3">Data Penjualan Property</h5>
+                    </div>
+                    <div id="jual" style="display: none" class="card-body">
                         <div class="form-group">
                             <label for="sub_district">Harga</label>
-                            <input type="number" min="0.00" max="1000000000000.00" step="0.01" class="form-control" id="price"
-                                   name="price">
+                            <input type="number" min="0.00" max="1000000000000.00" step="0.01" class="form-control" id="price" name="sell_price">
                         </div>
                     </div>
                 </div>
 
                 <div class="card" style="margin-top: 24px">
-                    <h5 class="card-header">Data Penyewaan Property</h5>
-                    <div class="card-body">
+                    <a class="card-header row" style="margin: 0;padding-left: 0px">
+                        <div class="col-auto form-check">
+                            <input type="checkbox" class="form-check-input h-100 " style="margin: 0" id="sewa_chk">
+                        </div>
+                        <h5 class="col-3">Data Penyewaan Property</h5>
+                    </a>
+                    <div id="sewa" style="display: none"  class="card-body">
                         <div class="form-group">
                             <label for="sub_district">Harga</label>
-                            <input type="number" min="0.00" max="1000000000000.00" step="0.01" class="form-control" id="price"
-                                   name="price">
+                            <input type="number" min="0.00" max="1000000000000.00" step="0.01" class="form-control" id="price" name="rent_price">
                         </div>
                         <div class="form-group">
                             <label for="sub_district">Minimal Sewa</label>
@@ -165,73 +175,39 @@
                         <div class="row">
                             <div class="col-md-3" style="height: 200px">
                                 <div class="h-100 w-100 file btn btn-lg btn-primary" style="background: #073932">
-                                    <input id="fileuploads" style="width: 100%;height: 100%" type="file" multiple name="image"/>
+                                    <input id="fileuploads" style="width: 100%;height: 100%" type="file" multiple name="image[]"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="row" style="margin-top: 48px">
+                    <div class="col-3"></div>
+                    <input class="col-md-6 btn btn-primary" type="submit" value="Submit">
+                    <div class="col-3"></div>
+                </div>
+
             </div>
         </div>
-        <input type="submit" value="Submit">
     </form>
 @endsection
-
 <script>
-    $('#isSell').change(function () {
-        $('#detailPenjualan').attr('hidden', !$(this).is(':checked'))
-    });
-    $('#isRent').change(function () {
-        $('#detailPenyewaan').attr('hidden', !$(this).is(':checked'))
-    });
-
-    const server = "http://10.10.10.16:8000/";
-    $.getJSON(server + "getProvinces", function (result) {
-        $.each(result, function (i, field) {
-            const option = document.createElement("option");
-            option.value = field.id;
-            option.text = field.name;
-            document.getElementById("province").add(option);
-        });
+    @push('scripts')
+    $('#jual_chk').click(function() {
+        if( $(this).is(':checked')) {
+            $("#jual").show();
+        } else {
+            $("#jual").hide();
+        }
     });
 
-    $('#province').change(function () {
-        const selectedID = this.options[this.selectedIndex].value;
-        $.getJSON(server + "getCities/" + selectedID, function (result) {
-            $('#city').empty()
-            $('#district').empty()
-            $('#sub_district').empty()
-            $.each(result, function (i, field) {
-                const option = document.createElement("option");
-                option.value = field.id;
-                option.text = field.name;
-                document.getElementById("city").add(option);
-            });
-        });
-    })
-    $('#city').change(function () {
-        const selectedID = this.options[this.selectedIndex].value;
-        $.getJSON(server + "getDistricts/" + selectedID, function (result) {
-            $('#district').empty()
-            $('#sub_district').empty()
-            $.each(result, function (i, field) {
-                const option = document.createElement("option");
-                option.value = field.id;
-                option.text = field.name;
-                document.getElementById("district").add(option);
-            });
-        });
-    })
-    $('#district').change(function () {
-        const selectedID = this.options[this.selectedIndex].value;
-        $.getJSON(server + "getSubDistricts/" + selectedID, function (result) {
-            $('#sub_district').empty()
-            $.each(result, function (i, field) {
-                const option = document.createElement("option");
-                option.value = field.id;
-                option.text = field.name;
-                document.getElementById("sub_district").add(option);
-            });
-        });
-    })
+    $('#sewa_chk').click(function() {
+        if( $(this).is(':checked')) {
+            $("#sewa").show();
+        } else {
+            $("#sewa").hide();
+        }
+    });
+    @endpush
 </script>

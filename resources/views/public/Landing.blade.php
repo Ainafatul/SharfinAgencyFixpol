@@ -6,7 +6,8 @@
         <section>
             <div class="container-fluid px-0">
                 <div>
-                    <img class="img-banner d-block img-fluid " style="width: 100%" src="https://www.realestate.com.au/assets/img/hero/hero-buy.f65276612f8efbf90f31cda7c595e4f0.jpg" alt="">
+                    <img class="img-banner d-block img-fluid " style="width: 100%"
+                         src="https://www.realestate.com.au/assets/img/hero/hero-buy.f65276612f8efbf90f31cda7c595e4f0.jpg" alt="">
                 </div>
                 <!-- form cari properti -->
                 <div class="row mx-auto">
@@ -72,212 +73,39 @@
                         <a href="jual.html" class="btn btn-lainnya btn-sm btn-secondary rounded-pill px-3">Lainnya <i class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" style="margin-top: 18px">
                     <!-- item -->
-                    <div class="item col-12 col-sm-6 mb-1 col-lg-4 p-1 ">
-                        <div class="card card-rekomendasi">
-                            <a href="#" class="item">
-                                <div class="row ">
-                                    <div class="col-5 my-auto">
-                                        <img src="{{asset('lib/bootstrap/img/sold.svg')}}" class="img-fluid img-rekomendasi d-block mx-auto" alt="gambar 1">
+                    @foreach(\App\Http\Controllers\Controller::getRecommendedProperty() as $property)
+                        <div class="col-xl-4" style="margin-bottom: 12px">
+                            <div class="card">
+                                <div class="row">
+                                    <div class="col-5 p-0">
+                                        <img src="{{asset($property->main_image)}}" class="w-100" alt="" style="object-fit: cover;height: 150px">
                                     </div>
-                                    <div class="col-7 pl-0">
-                                        <div class="card-body pl-0">
-                                            <h6 class="card-subtitle mb-2">Alam Singgahsana</h6>
-                                            <h6 class="card-subtitle alamat text-muted mb-xl-3">Jl. Raya Cerme</h6><br>
-                                            <h5 class="card-title mb-2">Rp. 996 Jt</h5>
-                                            <div class="row spesifikasi">
-                                                <ul class="float-left">
-                                                    <li class="item spek active">
-                                                        <i class="fas fa-bed"> 4</i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-shower"> 3</i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-expand-arrows-alt"> 350 m<sup>2</sup></i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-building"> 2 lt</i>
-                                                    </li>
-                                                </ul>
+                                    <div class="col-7" style="padding-top: 16px">
+                                        <h5 class="" style="color: #1c7430;height: 38px">{{$property->name}}</h5>
+                                        <h6 class="alamat text-muted" style="height: 24px">{{$property->address}}</h6>
+                                        <h5 class="card-title ">Rp. 996 Jt</h5>
+                                        <div class="row" style="padding-left: 8px;padding-right: 8px">
+                                            <div class="col item spek  p-0">
+                                                <i class="fas fa-bed"> {{$property->bed_room}}</i>
+                                            </div>
+                                            <div class="col item spek p-0">
+                                                <i class="fas fa-shower"> {{$property->bath_room}}</i>
+                                            </div>
+                                            <div class="col item spek p-0">
+                                                <i class="fas fa-expand-arrows-alt"> {{$property->land_area}} m<sup>2</sup></i>
+                                            </div>
+                                            <div class="col item spek p-0">
+                                                <i class="fas fa-building"> {{$property->stories}} lt</i>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="item col-12 col-sm-6 mb-1 col-lg-4 p-1 ">
-                        <div class="card card-rekomendasi">
-                            <a href="#" class="item">
-                                <div class="row ">
-                                    <div class="col-5 my-auto">
-                                        <img src="{{asset('lib/bootstrap/img/2.jpg')}}" class="img-fluid img-rekomendasi d-block mx-auto" alt="gambar 1">
-                                    </div>
-                                    <div class="col-7 pl-0">
-                                        <div class="card-body pl-0">
-                                            <h6 class="card-subtitle mb-2">Alam Singgahsana</h6>
-                                            <h6 class="card-subtitle alamat text-muted mb-xl-3">Jl. Raya Cerme</h6><br>
-                                            <h5 class="card-title mb-2">Rp. 996 Jt</h5>
-                                            <div class="row spesifikasi">
-                                                <ul class="float-left">
-                                                    <li class="item spek active">
-                                                        <i class="fas fa-bed"> 4</i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-shower"> 3</i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-expand-arrows-alt"> 350 m<sup>2</sup></i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-building"> 2 lt</i>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item col-12 col-sm-6 mb-1 col-lg-4 p-1 ">
-                        <div class="card card-rekomendasi">
-                            <a href="#" class="item">
-                                <div class="row ">
-                                    <div class="col-5 my-auto">
-                                        <img src="{{asset('lib/bootstrap/img/2.jpg')}}" class="img-fluid img-rekomendasi d-block mx-auto" alt="gambar 1">
-                                    </div>
-                                    <div class="col-7 pl-0">
-                                        <div class="card-body pl-0">
-                                            <h6 class="card-subtitle mb-2">Alam Singgahsana</h6>
-                                            <h6 class="card-subtitle alamat text-muted mb-xl-3">Jl. Raya Cerme</h6><br>
-                                            <h5 class="card-title mb-2">Rp. 996 Jt</h5>
-                                            <div class="row spesifikasi">
-                                                <ul class="float-left">
-                                                    <li class="item spek active">
-                                                        <i class="fas fa-bed"> 4</i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-shower"> 3</i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-expand-arrows-alt"> 350 m<sup>2</sup></i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-building"> 2 lt</i>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item col-12 col-sm-6 mb-1 col-lg-4 p-1 ">
-                        <div class="card card-rekomendasi">
-                            <a href="#" class="item">
-                                <div class="row ">
-                                    <div class="col-5 my-auto">
-                                        <img src="{{asset('lib/bootstrap/img/2.jpg')}}" class="img-fluid img-rekomendasi d-block mx-auto" alt="gambar 1">
-                                    </div>
-                                    <div class="col-7 pl-0">
-                                        <div class="card-body pl-0">
-                                            <h6 class="card-subtitle mb-2">Alam Singgahsana</h6>
-                                            <h6 class="card-subtitle alamat text-muted mb-xl-3">Jl. Raya Cerme</h6><br>
-                                            <h5 class="card-title mb-2">Rp. 996 Jt</h5>
-                                            <div class="row spesifikasi">
-                                                <ul class="float-left">
-                                                    <li class="item spek active">
-                                                        <i class="fas fa-bed"> 4</i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-shower"> 3</i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-expand-arrows-alt"> 350 m<sup>2</sup></i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-building"> 2 lt</i>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item col-12 col-sm-6 mb-1 col-lg-4 p-1 ">
-                        <div class="card card-rekomendasi">
-                            <a href="#" class="item">
-                                <div class="row ">
-                                    <div class="col-5 my-auto">
-                                        <img src="{{asset('lib/bootstrap/img/2.jpg')}}" class="img-fluid img-rekomendasi d-block mx-auto" alt="gambar 1">
-                                    </div>
-                                    <div class="col-7 pl-0">
-                                        <div class="card-body pl-0">
-                                            <h6 class="card-subtitle mb-2">Alam Singgahsana</h6>
-                                            <h6 class="card-subtitle alamat text-muted mb-xl-3">Jl. Raya Cerme</h6><br>
-                                            <h5 class="card-title mb-2">Rp. 996 Jt</h5>
-                                            <div class="row spesifikasi">
-                                                <ul class="float-left">
-                                                    <li class="item spek active">
-                                                        <i class="fas fa-bed"> 4</i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-shower"> 3</i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-expand-arrows-alt"> 350 m<sup>2</sup></i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-building"> 2 lt</i>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item col-12 col-sm-6 mb-1 col-lg-4 p-1 ">
-                        <div class="card card-rekomendasi">
-                            <a href="#" class="item">
-                                <div class="row ">
-                                    <div class="col-5 my-auto">
-                                        <img src="{{asset('lib/bootstrap/img/sold.svg')}}" class="img-fluid img-rekomendasi d-block mx-auto" alt="gambar 1">
-                                    </div>
-                                    <div class="col-7 pl-0">
-                                        <div class="card-body pl-0">
-                                            <h6 class="card-subtitle mb-2">Alam Singgahsana</h6>
-                                            <h6 class="card-subtitle alamat text-muted mb-xl-3">Jl. Raya Cerme</h6><br>
-                                            <h5 class="card-title mb-2">Rp. 996 Jt</h5>
-                                            <div class="row spesifikasi">
-                                                <ul class="float-left">
-                                                    <li class="item spek active">
-                                                        <i class="fas fa-bed"> 4</i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-shower"> 3</i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-expand-arrows-alt"> 350 m<sup>2</sup></i>
-                                                    </li>
-                                                    <li class="item spek">
-                                                        <i class="fas fa-building"> 2 lt</i>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+
+                    @endforeach
                 </div>
             </div>
             <br>
@@ -355,130 +183,37 @@
                 </div>
                 <div class="row">
                     <!-- item -->
-                    <div class="item col-6 mb-1 col-lg-3 p-1 px-sm-2 px-lg-2 px-xl-3">
-                        <div class="card mx-auto terbaru-card">
-                            <a href="#" class="item">
-                                <img src="{{asset('lib/bootstrap/img/3.jpg')}}" class="img-fluid terbaru-img d-block mx-auto" alt="gambar 1">
-                                <div class="label label-card pl-2">
-                                    <p>Rumah</p>
-                                </div>
-                                <div class="card-body ">
-                                    <h6 class="card-subtitle mb-2">Alam Singgahsana</h6>
-                                    <h6 class="card-subtitle alamat text-muted">Jl. Raya Cerme</h6><br>
-                                    <h5 class="card-title mb-2">Rp. 996 Jt</h5>
-                                    <div class="row spesifikasi">
-                                        <ul class="float-left">
-                                            <li class="item spek active">
-                                                <i class="fas fa-bed"> 4</i>
+                    @foreach(\App\Http\Controllers\Controller::getLatestProperty() as $property)
+                        <div class="item col-md-6 mb-1 col-lg-3 p-1 px-sm-2 px-lg-2 px-xl-3">
+                            <div class="card mx-auto terbaru-card">
+                                <a href="{{route('PropertyDetail',['id'=>$property->id])}}" class="item">
+                                    <img src="{{asset($property->main_image)}}" class="img-fluid terbaru-img d-block mx-auto" alt="gambar 1"
+                                         style="height: 200px">
+                                    <div class="label label-card pl-2"><p style="font-size: 14px">Rumah</p></div>
+                                    <div class="card-body ">
+                                        <h6 class="card-subtitle mb-2" style="height: 32px">{{$property->name}}</h6>
+                                        <h6 class="card-subtitle alamat text-muted limit-2" style="height: 32px">{{$property->address}}</h6><br>
+                                        <h5 class="card-title mb-2">Rp. {{'Harga'}} Jt</h5>
+                                        <div class="row spesifikasi w-100" style="margin-left: 0;margin-bottom: 0px">
+                                            <li class="col-3 item spek">
+                                                <i class="fas fa-bed">{{'  '.$property->bed_room}}</i>
                                             </li>
-                                            <li class="item spek">
-                                                <i class="fas fa-shower"> 3</i>
+                                            <li class="col-3 item spek">
+                                                <i class="fas fa-shower">{{'  '.$property->bath_room}}</i>
                                             </li>
-                                            <li class="item spek">
-                                                <i class="fas fa-expand-arrows-alt"> 350 m<sup>2</sup></i>
+                                            <li class="col-3 item spek">
+                                                <i class="fas fa-expand-arrows-alt"> {{$property->land_area}} m<sup>2</sup></i>
                                             </li>
-                                            <li class="item spek">
-                                                <i class="fas fa-building"> 2 lt</i>
+                                            <li class="col-3 item spek">
+                                                <i class="fas fa-building"> {{$property->stories}} lt</i>
                                             </li>
-                                        </ul>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="item col-6 mb-1 col-lg-3 p-1 px-sm-2 px-lg-2 px-xl-3">
-                        <div class="card mx-auto terbaru-card">
-                            <a href="#" class="item">
-                                <img src="{{asset('lib/bootstrap/img/3.jpg')}}" class="img-fluid terbaru-img d-block mx-auto" alt="gambar 1">
-                                <div class="label label-card pl-2">
-                                    <p>Rumah</p>
-                                </div>
-                                <div class="card-body ">
-                                    <h6 class="card-subtitle mb-2">Alam Singgahsana</h6>
-                                    <h6 class="card-subtitle alamat text-muted">Jl. Raya Cerme</h6><br>
-                                    <h5 class="card-title mb-2">Rp. 996 Jt</h5>
-                                    <div class="row spesifikasi">
-                                        <ul class="float-left">
-                                            <li class="item spek active">
-                                                <i class="fas fa-bed"> 4</i>
-                                            </li>
-                                            <li class="item spek">
-                                                <i class="fas fa-shower"> 3</i>
-                                            </li>
-                                            <li class="item spek">
-                                                <i class="fas fa-expand-arrows-alt"> 350 m<sup>2</sup></i>
-                                            </li>
-                                            <li class="item spek">
-                                                <i class="fas fa-building"> 2 lt</i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item col-6 mb-1 col-lg-3 p-1 px-sm-2 px-lg-2 px-xl-3">
-                        <div class="card mx-auto terbaru-card">
-                            <a href="#" class="item">
-                                <img src="{{asset('lib/bootstrap/img/3.jpg')}}" class="img-fluid terbaru-img d-block mx-auto" alt="gambar 1">
-                                <div class="label label-card pl-2">
-                                    <p>Rumah</p>
-                                </div>
-                                <div class="card-body ">
-                                    <h6 class="card-subtitle mb-2">Alam Singgahsana</h6>
-                                    <h6 class="card-subtitle alamat text-muted">Jl. Raya Cerme</h6><br>
-                                    <h5 class="card-title mb-2">Rp. 996 Jt</h5>
-                                    <div class="row spesifikasi">
-                                        <ul class="float-left">
-                                            <li class="item spek active">
-                                                <i class="fas fa-bed"> 4</i>
-                                            </li>
-                                            <li class="item spek">
-                                                <i class="fas fa-shower"> 3</i>
-                                            </li>
-                                            <li class="item spek">
-                                                <i class="fas fa-expand-arrows-alt"> 350 m<sup>2</sup></i>
-                                            </li>
-                                            <li class="item spek">
-                                                <i class="fas fa-building"> 2 lt</i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="item col-6 mb-1 col-lg-3 p-1 px-sm-2 px-lg-2 px-xl-3">
-                        <div class="card mx-auto terbaru-card">
-                            <a href="#" class="item">
-                                <img src="{{asset('lib/bootstrap/img/3.jpg')}}" class="img-fluid terbaru-img d-block mx-auto" alt="gambar 1">
-                                <div class="label label-card pl-2">
-                                    <p>Rumah</p>
-                                </div>
-                                <div class="card-body ">
-                                    <h6 class="card-subtitle mb-2">Alam Singgahsana</h6>
-                                    <h6 class="card-subtitle alamat text-muted">Jl. Raya Cerme</h6><br>
-                                    <h5 class="card-title mb-2">Rp. 996 Jt</h5>
-                                    <div class="row spesifikasi">
-                                        <ul class="float-left">
-                                            <li class="item spek active">
-                                                <i class="fas fa-bed"> 4</i>
-                                            </li>
-                                            <li class="item spek">
-                                                <i class="fas fa-shower"> 3</i>
-                                            </li>
-                                            <li class="item spek">
-                                                <i class="fas fa-expand-arrows-alt"> 350 m<sup>2</sup></i>
-                                            </li>
-                                            <li class="item spek">
-                                                <i class="fas fa-building"> 2 lt</i>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+
+                    @endforeach
                 </div>
             </div>
             <br>
@@ -623,55 +358,33 @@
                 </div>
                 <div class="row">
                     <!-- item -->
-                    <div class="artikel-item col-6 mb-1 col-lg-4">
-                        <figure class="figure border pb-3 bg-white rounded">
-                            <img src="{{asset('lib/bootstrap/img/2.jpg')}}" class="figure-img img-fluid rounded" alt="">
-                            <figcaption class="figure-caption mb-4 px-3">
-                                <h5 class="artikel-title text-dark text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h5>
-                            </figcaption>
-                            <div class="row">
-                                <div class="col-12 col-sm-4 ml-3">
-                                    <p class="artikel-tgl text-black-50"><i class="far fa-calendar-alt"></i> 13 Sep 2020</p>
+                    @foreach(\App\Http\Controllers\Controller::getLatestArticle() as $article)
+                        <div class="artikel-item col-6 mb-1 col-lg-4">
+                            <a href="#">
+                                <div class="card">
+                                    <img class="card-img-top" src="{{asset($article->image)}}" style="height: 200px" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="min-height: 38px">{{$article->title}}</h5>
+                                        <p class="card-text" style="font-size: 12pt;max-lines: 8 ;color: black">{{$article->content}}</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">Created : {{$article->created_at}}</small>
+                                    </div>
                                 </div>
-                                <div class="col text-right mr-3">
-                                    <a href="artikel.html" class="btn btn-sm rounded-pill btn-secondary">Baca Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="artikel-item col-6 mb-1 col-lg-4">
-                        <figure class="figure border pb-3 bg-white rounded">
-                            <img src="{{asset('lib/bootstrap/img/2.jpg')}}" class="figure-img img-fluid rounded" alt="">
-                            <figcaption class="figure-caption mb-4 px-3">
-                                <h5 class="artikel-title text-dark text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h5>
-                            </figcaption>
-                            <div class="row">
-                                <div class="col-12 col-sm-4 ml-3">
-                                    <p class="artikel-tgl text-black-50"><i class="far fa-calendar-alt"></i> 13 Sep 2020</p>
-                                </div>
-                                <div class="col text-right mr-3">
-                                    <a href="" class="btn btn-sm rounded-pill btn-secondary">Baca Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="artikel-item col-6 mb-1 col-lg-4">
-                        <figure class="figure border pb-3 bg-white rounded">
-                            <img src="{{asset('lib/bootstrap/img/3.jpg')}}" class="figure-img img-fluid rounded" alt="">
-                            <figcaption class="figure-caption mb-4 px-3">
-                                <h5 class="artikel-title text-dark text-justify">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h5>
-                            </figcaption>
-                            <div class="row">
-                                <div class="col-12 col-sm-4 ml-3">
-                                    <p class="artikel-tgl text-black-50"><i class="far fa-calendar-alt"></i> 13 Sep 2020</p>
-                                </div>
-                                <div class="col text-right mr-3">
-                                    <a href="" class="btn btn-sm btn-secondary rounded-pill ">Baca Selengkapnya <i class="fas fa-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                    <!-- akhir item -->
+                            </a>
+                        </div>
+                    @endforeach
+                    <style>
+                        p {
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            line-height: 16px;     /* fallback */
+                            max-height: 64px;      /* fallback */
+                            -webkit-line-clamp: 4; /* number of lines to show */
+                            -webkit-box-orient: vertical;
+                        }
+                    </style>
                 </div>
             </div>
         </section>
