@@ -7,10 +7,12 @@ use App\Admin;
 use App\Agent;
 use App\Article;
 use App\GuideLine;
+use App\Mail\SendMail;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
@@ -55,7 +57,7 @@ class AdminController extends Controller
             $path = $file->storeAs('public/image/guideline', Carbon::now()->timestamp . '.' . $file->extension());
             $data['image'] = str_replace('public', 'storage', $path);
             GuideLine::create($data);
-            return redirect()->back();
+            return redirect()->route('Guidelines');
         }
         return redirect()->back()->withErrors($validator);
     }
@@ -110,7 +112,15 @@ class AdminController extends Controller
             'body' => 'Agent Telah di Approve'
         ];
 
-        \Mail::to(Auth::user()->email)->send(new \App\Mail\SendEmail($details));
+        Mail::to(Account::find($agent->id)->email)->send((new SendMail()));
+
+        return redirect()->back();
+    }
+
+    function declineAgent($id)
+    {
+        Agent::destroy($id);
+        Mail::to(Auth::user()->email)->send(new SendMail());
 
         return redirect()->back();
     }

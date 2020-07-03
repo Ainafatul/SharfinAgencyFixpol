@@ -61,6 +61,11 @@ class AboutController extends Controller
             $about->image = HelperController::uploadImage('about', $request->file('image'));
         }
         $about->save();
-        return redirect()->back();
+        return redirect()->route('About');
+    }
+
+    function show()
+    {
+        return view('public.About', ['about' => About::all()]);
     }
 }

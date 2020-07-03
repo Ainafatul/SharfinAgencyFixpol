@@ -6,7 +6,7 @@
             <div class="row justify-content-between align-items-center">
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
                     <div class="hero__caption">
-                        <h1>Guideline</h1>
+                        <h1>My Property</h1>
                         <p>Ut enim ad minim
                             veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is aute irure.</p>
                     </div>
@@ -29,11 +29,13 @@
                             <a href="#" class="item">
                                 <img src="{{asset($data->main_image)}}" class="img-fluid terbaru-img d-block mx-auto" alt="gambar 1"
                                      style="height: 200px">
-                                <div class="label label-card pl-2"><p style="font-size: 14px">Rumah</p></div>
+                                <div class="label label-card pl-2"><p style="font-size: 14px">{{$data->category}}</p></div>
                                 <div class="card-body ">
                                     <h6 class="card-subtitle mb-2" style="height: 32px">{{$data->name}}</h6>
                                     <h6 class="card-subtitle alamat text-muted limit-2" style="height: 32px">{{$data->address}}</h6><br>
-                                    <h5 class="card-title mb-2">Rp. {{'Harga'}} Jt</h5>
+                                    <h5 class="card-title mb-2">@if($data->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($data->isSell)->price)}}
+                                        @else {{\App\Http\Controllers\Controller::format(\App\PropertyRent::find($data->isRent)->price)}} @endif
+                                        @if($data->isRent!=null) / {{\App\PropertyRent::find($data->isRent)->timeType}} @endif</h5>
                                     <div class="row spesifikasi w-100" style="margin-left: 0;margin-bottom: 0px">
                                         <li class="col-3 item spek">
                                             <i class="fas fa-bed">{{$data->bed_room}}</i>
@@ -55,7 +57,7 @@
                                     <a href="{{route('DeleteProperty',['id'=>$data->id])}}" class="btn btn-danger w-100">Delete</a>
                                 </div>
                                 <div class="col-6" style="padding-left: 4px">
-                                    <a href="#" class="btn btn-primary w-100" style="color: white">Update</a>
+                                    <a href="{{route('UpdateProperty',['id'=>$data->id])}}" class="btn btn-primary w-100" style="color: white">Update</a>
                                 </div>
                             </div>
                         </div>

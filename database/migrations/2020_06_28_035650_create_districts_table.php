@@ -20,6 +20,7 @@ class CreateDistrictsTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
+        (new DistrictsTableSeeder())->run();
     }
 
     /**

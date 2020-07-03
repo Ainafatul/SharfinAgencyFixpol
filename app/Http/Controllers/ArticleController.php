@@ -34,10 +34,15 @@ class ArticleController extends Controller
             $article->image = HelperController::uploadImage('article', $request->file('image'));
         }
         $article->save();
-        return redirect()->back();
+        return redirect()->route('MyArticle');
     }
 
     function show($id){
         return view('artikel.Artikel',['article'=> Article::find($id)]);
+    }
+
+    function showAll()
+    {
+        return view('public.Articles', ['datas' => Article::all()]);
     }
 }

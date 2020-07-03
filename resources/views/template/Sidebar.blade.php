@@ -36,10 +36,7 @@
                     <span>General</span>
                 </li>
                 @yield('general')
-                <li class="header-menu">
-                    <span>Extra</span>
-                </li>
-                @yield('extra')
+
             </ul>
         </div>
         <!-- sidebar-menu  -->

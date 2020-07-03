@@ -13,7 +13,7 @@ class CreateSubDistrictsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sub_districts', function (Blueprint $table) {
+        Schema::create('subdistricts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('district_id');
             $table->bigInteger('city_id');
@@ -22,6 +22,7 @@ class CreateSubDistrictsTable extends Migration
             $table->integer('postcode');
             $table->timestamps();
         });
+        (new SubdistrictsTableSeeder())->run();
     }
 
     /**
@@ -31,6 +32,6 @@ class CreateSubDistrictsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_districts');
+        Schema::dropIfExists('subdistricts');
     }
 }

@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Article;
 use App\GuideLine;
 use Illuminate\Http\Request;
 
@@ -34,6 +32,14 @@ class GuidelineController extends Controller
             $guideline->image = HelperController::uploadImage('guideline', $request->file('image'));
         }
         $guideline->save();
-        return redirect()->back();
+        return redirect()->route('Guidelines');
+    }
+    function show($id){
+        return view('guideline.GuideLine',['guideline'=> GuideLine::find($id)]);
+    }
+
+    function showAll()
+    {
+        return view('public.Guidelines', ['datas' => GuideLine::all()]);
     }
 }

@@ -6,7 +6,7 @@
             <div class="row justify-content-between align-items-center">
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
                     <div class="hero__caption">
-                        <h1>Review Sharfin Agency</h1>
+                        <h1>Testimoni</h1>
                         <p>Ut enim ad minim
                             veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is aute irure.</p>
                     </div>
@@ -26,9 +26,12 @@
                     <div class="card">
                         <img class="card-img-top" src="{{asset($data->image)}}" style="height: 200px" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title" style="min-height: 38px">{{$data->name}}</h5>
-                            <h5 class="card-title" style="min-height: 38px">{{$data->job}}</h5>
+                            <h5 class="card-title" style="min-height: 18px">{{$data->name}}</h5>
+                            <p class="card-title" style="font-size: 12pt;max-lines: 8 ">{{$data->job}}</p>
                             <p class="card-text" style="font-size: 12pt;max-lines: 8 ">{{$data->message}}</p>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted">Created : {{$data->created_at}}</small>
                         </div>
                     </div>
                 @endforeach

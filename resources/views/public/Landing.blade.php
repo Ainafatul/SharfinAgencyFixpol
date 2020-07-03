@@ -70,14 +70,15 @@
                         <h3 class="tittle">Rekomendasi</h3>
                     </div>
                     <div class="col text-right">
-                        <a href="jual.html" class="btn btn-lainnya btn-sm btn-secondary rounded-pill px-3">Lainnya <i class="fas fa-chevron-right"></i></a>
+                        <a href="{{route('PropertyFilter',['type'=>'Beli'])}}" class="btn btn-lainnya btn-sm btn-secondary rounded-pill px-3">Lainnya <i class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
                 <div class="row" style="margin-top: 18px">
                     <!-- item -->
-                    @foreach(\App\Http\Controllers\Controller::getRecommendedProperty() as $property)
+                    @foreach(\App\Http\Controllers\Controller::getLatestProperty() as $property)
                         <div class="col-xl-4" style="margin-bottom: 12px">
                             <div class="card">
+                                <a href="{{route('PropertyDetail',['id'=>$property->id])}}" class="item">
                                 <div class="row">
                                     <div class="col-5 p-0">
                                         <img src="{{asset($property->main_image)}}" class="w-100" alt="" style="object-fit: cover;height: 150px">
@@ -85,7 +86,9 @@
                                     <div class="col-7" style="padding-top: 16px">
                                         <h5 class="" style="color: #1c7430;height: 38px">{{$property->name}}</h5>
                                         <h6 class="alamat text-muted" style="height: 24px">{{$property->address}}</h6>
-                                        <h5 class="card-title ">Rp. 996 Jt</h5>
+                                        <h5 class="card-title "@if($property->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($property->isSell)->price)}}
+                                        @else {{\App\Http\Controllers\Controller::format(\App\PropertyRent::find($property->isRent)->price)}} @endif
+                                        @if($property->isRent!=null) / {{\App\PropertyRent::find($property->isRent)->timeType}} @endif</h5>
                                         <div class="row" style="padding-left: 8px;padding-right: 8px">
                                             <div class="col item spek  p-0">
                                                 <i class="fas fa-bed"> {{$property->bed_room}}</i>
@@ -102,6 +105,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                </a>
                             </div>
                         </div>
 
@@ -178,22 +182,24 @@
                         <h3 class="tittle">Property Terbaru</h3>
                     </div>
                     <div class="col text-right">
-                        <a href="" class="btn btn-lainnya btn-sm rounded-pill btn-secondary px-3">Lainnya <i class="fas fa-chevron-right"></i></a>
+                        <a href="{{route('PropertyFilter',['type'=>'Beli'])}}" class="btn btn-lainnya btn-sm rounded-pill btn-secondary px-3">Lainnya <i class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
                 <div class="row">
                     <!-- item -->
-                    @foreach(\App\Http\Controllers\Controller::getLatestProperty() as $property)
+                    @foreach( \App\Http\Controllers\Controller::getRecommendedProperty() as $property)
                         <div class="item col-md-6 mb-1 col-lg-3 p-1 px-sm-2 px-lg-2 px-xl-3">
                             <div class="card mx-auto terbaru-card">
                                 <a href="{{route('PropertyDetail',['id'=>$property->id])}}" class="item">
                                     <img src="{{asset($property->main_image)}}" class="img-fluid terbaru-img d-block mx-auto" alt="gambar 1"
                                          style="height: 200px">
-                                    <div class="label label-card pl-2"><p style="font-size: 14px">Rumah</p></div>
+                                    <div class="label label-card pl-2"><p style="font-size: 14px">{{$property->category}}</p></div>
                                     <div class="card-body ">
                                         <h6 class="card-subtitle mb-2" style="height: 32px">{{$property->name}}</h6>
                                         <h6 class="card-subtitle alamat text-muted limit-2" style="height: 32px">{{$property->address}}</h6><br>
-                                        <h5 class="card-title mb-2">Rp. {{'Harga'}} Jt</h5>
+                                        <h5 class="card-title mb-2">@if($property->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($property->isSell)->price)}}
+                                            @else {{\App\Http\Controllers\Controller::format(\App\PropertyRent::find($property->isRent)->price)}} @endif
+                                            @if($property->isRent!=null) / {{\App\PropertyRent::find($property->isRent)->timeType}} @endif</h5>
                                         <div class="row spesifikasi w-100" style="margin-left: 0;margin-bottom: 0px">
                                             <li class="col-3 item spek">
                                                 <i class="fas fa-bed">{{'  '.$property->bed_room}}</i>
@@ -298,11 +304,12 @@
                 </div>
                 <!-- item -->
                 <div class="row">
+                    @foreach(\App\Http\Controllers\Controller::getPortofolio() as $portofolio)
                     <div class="item col-6 mb-1 col-lg-3 p-1 text-center">
                         <figure class="figure figure-portofolio text-center">
-                            <img src="{{asset('lib/bootstrap/img/agent.svg')}}" class="figure-img img-fluid icon mb-3" alt="">
+                            <img src="{{asset('lib/bootstrap/img/sold.svg')}}" class="figure-img img-fluid icon mb-3" alt="">
                             <figcaption class="figure-caption text-dark">
-                                <h4 class="jumlah">500</h4>
+                                <h4 class="jumlah">{{$portofolio->sold}}</h4>
                                 <h5 class="mb-0">Property Terjual</h5>
                             </figcaption>
                         </figure>
@@ -310,9 +317,9 @@
                     </div>
                     <div class="item col-6 mb-1 col-lg-3 p-1 text-center">
                         <figure class="figure figure-portofolio text-center">
-                            <img src="{{asset('lib/bootstrap/img/agent.svg')}}" class="figure-img img-fluid icon mb-3" alt="">
+                            <img src="{{asset('lib/bootstrap/img/rent.svg')}}" class="figure-img img-fluid icon mb-3" alt="">
                             <figcaption class="figure-caption text-dark">
-                                <h1 class="jumlah">500</h1>
+                                <h1 class="jumlah">{{$portofolio->leased}}</h1>
                                 <h5 class="mb-0">Property Disewa</h5>
                             </figcaption>
                         </figure>
@@ -320,9 +327,9 @@
                     </div>
                     <div class="item col-6 mb-1 col-lg-3 p-1 text-center">
                         <figure class="figure figure-portofolio text-center">
-                            <img src="{{asset('lib/bootstrap/img/agent.svg')}}" class="figure-img img-fluid icon mb-3" alt="">
+                            <img src="{{asset('lib/bootstrap/img/consulting.svg')}}" class="figure-img img-fluid icon mb-3" alt="">
                             <figcaption class="figure-caption text-dark">
-                                <h1 class="jumlah">500</h1>
+                                <h1 class="jumlah">{{$portofolio->consult}}</h1>
                                 <h5 class="mb-0">Orang Berkonsultasi</h5>
                             </figcaption>
                         </figure>
@@ -332,12 +339,13 @@
                         <figure class="figure figure-portofolio text-center">
                             <img src="{{asset('lib/bootstrap/img/agent.svg')}}" class="figure-img img-fluid icon mb-3" alt="">
                             <figcaption class="figure-caption text-dark">
-                                <h1 class="jumlah">500</h1>
+                                <h1 class="jumlah">{{$portofolio->agent}}</h1>
                                 <h5 class="mb-0">Agen</h5>
                             </figcaption>
                         </figure>
                         <hr class="mx-5 mt-2" style="border-width: 2px;">
                     </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -353,14 +361,14 @@
                         <h3 class="artikel-label text-dark">Berita dan Artikel</h3>
                     </div>
                     <div class="col text-right">
-                        <a href="berita.html" class="btn btn-lainnya btn-sm rounded-pill btn-secondary px-3">Lainnya <i class="fas fa-chevron-right"></i></a>
+                        <a href="{{route('Articles')}}" class="btn btn-lainnya btn-sm rounded-pill btn-secondary px-3">Lainnya <i class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
                 <div class="row">
                     <!-- item -->
                     @foreach(\App\Http\Controllers\Controller::getLatestArticle() as $article)
                         <div class="artikel-item col-6 mb-1 col-lg-4">
-                            <a href="#">
+                            <a href="{{route('Article',['id'=>$article->id])}}">
                                 <div class="card">
                                     <img class="card-img-top" src="{{asset($article->image)}}" style="height: 200px" alt="Card image cap">
                                     <div class="card-body">
@@ -406,16 +414,17 @@
                     </div>
                 </div>
                 <div class="row">
+                    @foreach(\App\Http\Controllers\Controller::getReview() as $review)
                     <!-- item -->
-                    <div class="col-12 mb-1 col-lg-4 testimoni-item">
+                    <div class="col-md-4 mb-1 col-lg-4 testimoni-item">
                         <figure class="figure testimoni-figure">
                             <div class="row mx-3 ">
                                 <div class="col-4 mt-3 text-center ">
-                                    <img src="{{asset('lib/bootstrap/img/user.png')}}" class="img-testimoni" alt="">
+                                    <img src="{{asset($review->image)}}" class="img-testimoni" alt="">
                                 </div>
                                 <div class="col-6 my-auto pl-0">
-                                    <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">Thoriq Romi</h6>
-                                    <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">Programmer</p>
+                                    <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">{{$review->name}}</h6>
+                                    <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">{{$review->job}}</p>
                                 </div>
                                 <div class="quote-item col-2 pl-0 my-auto">
                                     <i class="fas fa-quote-left"></i>
@@ -425,8 +434,7 @@
                                 <div class="col">
                                     <figcaption class="figure-caption">
                                         <div class="figure-caption text-dark text-justify px-3 pt-2">
-                                            <p><span class="quote">"</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora quia
-                                                deleniti incidunt nesciunt eveniet nam doloribus, ipsum rerum voluptate? <span
+                                            <p><span class="quote">"</span> {{$review->message}} <span
                                                     class="font-weight-bold quote">"</span></p>
                                         </div>
                                     </figcaption>
@@ -434,60 +442,7 @@
                             </div>
                         </figure>
                     </div>
-                    <div class="col-12 mb-1 col-lg-4 testimoni-item">
-                        <figure class="figure testimoni-figure">
-                            <div class="row mx-3 ">
-                                <div class="col-4 mt-3 text-center ">
-                                    <img src="{{asset('lib/bootstrap/img/user.png')}}" class="img-testimoni" alt="">
-                                </div>
-                                <div class="col-6 my-auto pl-0">
-                                    <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">Thoriq Romi</h6>
-                                    <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">Programmer</p>
-                                </div>
-                                <div class="quote-item col-2 pl-0 my-auto">
-                                    <i class="fas fa-quote-left"></i>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <figcaption class="figure-caption">
-                                        <div class="figure-caption text-dark text-justify px-3 pt-2">
-                                            <p><span class="quote">"</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora quia
-                                                deleniti incidunt nesciunt eveniet nam doloribus, ipsum rerum voluptate? <span
-                                                    class="font-weight-bold quote">"</span></p>
-                                        </div>
-                                    </figcaption>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="col-12 mb-1 col-lg-4 testimoni-item">
-                        <figure class="figure testimoni-figure">
-                            <div class="row mx-3 ">
-                                <div class="col-4 mt-3 text-center ">
-                                    <img src="{{asset('lib/bootstrap/img/user.png')}}" class="img-testimoni" alt="">
-                                </div>
-                                <div class="col-6 my-auto pl-0">
-                                    <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">Thoriq Romi</h6>
-                                    <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">Programmer</p>
-                                </div>
-                                <div class="quote-item col-2 pl-0 my-auto">
-                                    <i class="fas fa-quote-left"></i>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <figcaption class="figure-caption">
-                                        <div class="figure-caption text-dark text-justify px-3 pt-2">
-                                            <p><span class="quote">"</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora quia
-                                                deleniti incidunt nesciunt eveniet nam doloribus, ipsum rerum voluptate? <span
-                                                    class="font-weight-bold quote">"</span></p>
-                                        </div>
-                                    </figcaption>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
+                    @endforeach
                     <!-- akhir item -->
                 </div>
             </div>
@@ -514,8 +469,9 @@
                 </div>
                 <div class="row py-3">
                     <div class="col-12 col-lg-10 mx-auto px-0">
-                        <form class="text-center">
-                            <input class="form-control form-tanya rounded-pill mx-auto" style="width: 90%;" type="email" placeholder="Masukkan Email Anda"
+                        <form class="text-center" method="post" action="{{route('onNewsLetterSubscriber')}}">
+                            @csrf
+                            <input class="form-control form-tanya rounded-pill mx-auto" style="width: 90%;" name="email" type="email" placeholder="Masukkan Email Anda"
                                    aria-label="Search">
                             <input class="btn btn-tanya btn-secondary btn-md login mx-auto px-5 my-2 rounded-pill mb-0 mb-lg-5" type="submit" value="Kirim">
                         </form>

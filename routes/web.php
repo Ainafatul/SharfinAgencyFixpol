@@ -20,6 +20,11 @@ Route::get('/Articles', function () {
 })->name('Articles');
 Route::get('/Property/Filter', 'PropertyController@filter')->name('PropertyFilter');
 Route::get('/Article/{id}', 'ArticleController@show')->name('Article');
+Route::post('/Article/onNewsLetterSubscriber', 'NewsLetterSubscriberController@onSubscribeNewsletter')->name('onNewsLetterSubscriber');
+Route::get('/Articles','ArticleController@showAll')->name('Articles');
+Route::get('/Guideline','GuidelineController@showAll')->name('Guideline');
+Route::get('/Guideline/{id}', 'GuidelineController@show')->name('GuideLine');
+Route::get('/Abouts','AboutController@show')->name('Abouts');
 
 //Guest
 Route::get('/SignIn', 'Auth\LoginController@index')->name('SignIn');
@@ -29,9 +34,10 @@ Route::get('/Register/Agent', 'Auth\RegisterController@formAgent')->name('AgentR
 
 //TEst
 Route::get('/Agent/List', 'AgentController@list')->name('AgentList');
+Route::get('/Agent/List/Filter', 'AgentController@filter')->name('AgentFilter');
 Route::get('/Agent/{id}', 'AgentController@detail')->name('AgentDetail');
-
 Route::get('/Property/{id}', 'PropertyController@detail')->name('PropertyDetail');
+
 
 //Auth
 Route::put('/onUserRegister', 'Auth\RegisterController@onUserRegister')->name('onUserRegister');
@@ -47,6 +53,13 @@ Route::middleware(['role:Agent'])->group(function () {
     Route::get('/Dashboard/Property/New', 'PropertyController@new')->name('NewProperty');
     Route::post('/Dashboard/Property/onNew', 'PropertyController@onNew')->name('onNewProperty');
     Route::get('/Dashboard/Property/{id}/Delete', 'PropertyController@delete')->name('DeleteProperty');
+    Route::get('/Dashboard/Property/{id}/Update', 'PropertyController@update')->name('UpdateProperty');
+    Route::post('/Dashboard/Property/{id}/onUpdate', 'PropertyController@onUpdate')->name('onUpdateProperty');
+
+    Route::get('/Dashboard/Property/Provinces', 'LocationController@getProvinces')->name('getProvinces');
+    Route::get('/Dashboard/Property/Cities', 'LocationController@getCities')->name('getCities');
+    Route::get('/Dashboard/Property/Districts', 'LocationController@getDistricts')->name('getDistricts');
+    Route::get('/Dashboard/Property/SubDistricts', 'LocationController@getSubDistricts')->name('getSubDistricts');
 
 });
 
@@ -75,11 +88,32 @@ Route::middleware(['role:Admin'])->group(function () {
 
     Route::get('/Dashboard/onApproveAgent', 'AdminController@onAgentApproved')->name('onAgentApproved');
     Route::get('/Dashboard/ApproveAgent', 'AdminController@approveAgent')->name('ApproveAgent');
+    Route::get('/Dashboard/MyApproveAgent', 'AgentController@show')->name('MyApproveAgent');
+    Route::get('/Dashboard/DeclineAgent/{id}', 'AdminController@declineAgent')->name('declineAgent');
 
     Route::get('/Dashboard/NewsLetterSubscriber', 'NewsLetterSubscriberController@SubEmail')->name('NewsLetterSubscriber');
     Route::get('/Dashboard/ExportExcel', 'NewsLetterSubscriberController@ExportExcel')->name('ExportExcel');
+
+    Route::get('/Dashboard/Review', 'ReviewController@list')->name('MyReview');
+    Route::get('/Dashboard/NewReview', 'ReviewController@NewReview')->name('NewReview');
+    Route::post('/Dashboard/onNewReview', 'ReviewController@onNewReview')->name('onNewReview');
+
+    Route::get('/Dashboard/Portofolio/{id}/Delete', 'PortofolioController@delete')->name('DeletePortofolio');
+    Route::post('/Dashboard/onPortofolio', 'PortofolioController@onNewPortofolio')->name('onNewPortofolio');
+    Route::get('/Dashboard/NewPortofolio', 'PortofolioController@newPortofolio')->name('NewPortofolio');
+    Route::get('/Dashboard/Portofolio', 'PortofolioController@list')->name('Portofolio');
+    Route::get('/Dashboard/Portofolio/{id}/Update', 'PortofolioController@update')->name('UpdatePortofolio');
+    Route::post('/Dashboard/Portofolio/{id}/onUpdate', 'PortofolioController@onUpdate')->name('onUpdatePortofolio');
 
     Route::get('/Dashboard/RegisterAdmin', 'AdminController@newAdmin')->name('AdminRegister');
 });
 
 Route::redirect('/', '/Landing');
+
+Route::get('/Provinces', 'LocationController@getProvinces')->name('getProvinces');
+Route::get('/Cities/{id}', 'LocationController@getCities')->name('getCities');
+Route::get('/Districts/{id}', 'LocationController@getDistricts')->name('getDistricts');
+Route::get('/SubDistricts/{id}', 'LocationController@getSubDistricts')->name('getSubDistricts');
+
+Route::get('/Test', 'TestController@Test')->name('Test');
+Route::get('/onTest', 'TestController@onTest')->name('onTest');

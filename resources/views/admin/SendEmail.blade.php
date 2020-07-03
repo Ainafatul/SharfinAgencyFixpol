@@ -12,7 +12,7 @@
         <hr class="garis">
         <p>Selamat anda telah menjadi Agent di Sharfin Agency</p>
         <h4>Terima kasih telah bergabung dengan kami</h4>
-        <a href="http://10.10.10.16:8000/SignIn">Klik Untuk Login</a>
+        <a href="http://127.0.0.1:8000/SignIn">Klik Untuk Login</a>
     </div>
 </body>
 </html>
@@ -28,7 +28,7 @@
         margin:20%;
         text-align:center;
         margin:0px auto;
-        width: 580px; 
+        width: 580px;
         max-width: 580px;
         margin-top:10%;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -37,5 +37,5 @@
     .garis {
         width: 75%;
     }
-    
+
 </style>

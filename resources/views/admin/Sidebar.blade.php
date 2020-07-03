@@ -15,7 +15,7 @@
         </a>
         <div class="sidebar-submenu">
             <ul>
-                <li><a href="">Daftar</a></li>
+                <li><a href="{{route('MyApproveAgent')}}">Daftar</a></li>
                 <li><a href="{{route('ApproveAgent')}}">Approval</a></li>
             </ul>
         </div>
@@ -27,7 +27,7 @@
         </a>
         <div class="sidebar-submenu">
             <ul>
-                <li><a href="{{route('Articles')}}">Daftar</a></li>
+                <li><a href="{{route('MyArticle')}}">Daftar</a></li>
                 <li><a href="{{route('NewArticle')}}">Tambah</a></li>
             </ul>
         </div>
@@ -56,6 +56,30 @@
             </ul>
         </div>
     </li>
+    <li class="sidebar-dropdown">
+        <a href="#">
+            <i class="fa fa-user"></i>
+            <span>Testimoni</span>
+        </a>
+        <div class="sidebar-submenu">
+            <ul>
+                <li><a href="{{route('MyReview')}}">Daftar</a></li>
+                <li><a href="{{route('NewReview')}}">Tambah</a></li>
+            </ul>
+        </div>
+    </li>
+    <li class="sidebar-dropdown">
+        <a href="#">
+            <i class="fa fa-info"></i>
+            <span>Portofolio</span>
+        </a>
+        <div class="sidebar-submenu">
+            <ul>
+                <li><a href="{{route('Portofolio')}}">Daftar</a></li>
+                <li><a href="{{route('NewPortofolio')}}">Tambah</a></li>
+            </ul>
+        </div>
+    </li>
     <li>
         <a href="{{route('NewsLetterSubscriber')}}">
             <i class="fa fa-envelope"></i>
@@ -70,12 +94,3 @@
     </li>
 @endsection
 
-@section('extra')
-    <li>
-        <a href="#">
-            <i class="fa fa-book"></i>
-            <span>Documentation</span>
-            <span class="badge badge-pill badge-primary">Beta</span>
-        </a>
-    </li>
-@endsection

@@ -36,7 +36,7 @@
                         @foreach ($datas as $data )
                             <tr>
                                 <td>{{$data->id}}</td>
-                                <td>{{$datat->email}}</td>
+                                <td>{{$data->email}}</td>
                             </tr>
                         @endforeach
                         </tbody>

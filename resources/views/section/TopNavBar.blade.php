@@ -21,12 +21,12 @@
                     <a class="nav-link" href="{{route('AgentList')}}">Agen</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tentang Kami</a>
+                    <a class="nav-link" href="{{route('Abouts')}}">Tentang Kami</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lainnya</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Panduan &amp; Referensi</a>
+                        <a class="dropdown-item" href="{{route('Guideline')}}">Panduan &amp; Referensi</a>
                         <a class="dropdown-item" href="#">Simulasi Kredit</a>
                         <a class="dropdown-item" href="#">Tanya Properti</a>
                     </div>

@@ -19,6 +19,7 @@ class CreateCitiesTable extends Migration
             $table->string('name')->default('');
             $table->timestamps();
         });
+        (new CitiesTableSeeder())->run();
     }
 
     /**

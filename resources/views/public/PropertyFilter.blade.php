@@ -81,17 +81,17 @@
                     <div class="col">
                         <h3 class="tittle">Property </h3>
                     </div>
-                    <div class="col-2 text-right">
-                        <select class="custom-select">
-                            <option value="1">Filter</option>
-                            <option value="2">Harga Terrendah</option>
-                            <option value="3">Harga Tertinggi</option>
-                            <option value="4">Tanah Terluas</option>
-                            <option value="5">Tanah Terkecil</option>
-                            <option value="6">Terbaru</option>
-                            <option value="7">Terlama</option>
-                        </select>
-                    </div>
+{{--                    <div class="col-2 text-right">--}}
+{{--                        <select class="custom-select">--}}
+{{--                            <option value="1">Filter</option>--}}
+{{--                            <option value="2">Harga Terrendah</option>--}}
+{{--                            <option value="3">Harga Tertinggi</option>--}}
+{{--                            <option value="4">Tanah Terluas</option>--}}
+{{--                            <option value="5">Tanah Terkecil</option>--}}
+{{--                            <option value="6">Terbaru</option>--}}
+{{--                            <option value="7">Terlama</option>--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
                 </div>
                 <!-- item -->
                 @foreach($properties as $property)
@@ -108,7 +108,9 @@
                                                 <h5 class="card-subtitle judul-jual mb-2 disingkat">{{$property->name}}</h5>
                                                 <h6 class="card-subtitle alamat-jual text-secondary mb-xl-2 mb-sm-3 mb-0 disingkat">{{$property->address}}</h6>
                                                 <br>
-                                                <h5 class="card-title-jual mb-2">Rp. 996 Jt</h5>
+                                                <h5 class="card-title-jual mb-2">@if($property->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($property->isSell)->price)}}
+                                                    @else {{\App\Http\Controllers\Controller::format(\App\PropertyRent::find($property->isRent)->price)}} @endif
+                                                @if($property->isRent!=null) / {{\App\PropertyRent::find($property->isRent)->timeType}} @endif</h5>
                                                 <div class="row spesifikasi-jual" style="margin-left: 16px">
                                                     <ul class="disingkat row w-100">
                                                         <li class="item spek col-3">
@@ -126,9 +128,9 @@
                                                     </ul>
                                                 </div>
                                                 <div class="label label-jual mt-3 mt-sm-4 mb-0" style="width: 200px">
-                                                    <p class="pl-2 py-0">@if($property->isSell == 1)
-                                                            Dijual @endif @if($property->isSell == 1 && $property->isRent == 1)
-                                                            & @endif @if($property->isRent == 1) Disewakan @endif</p>
+                                                    <p class="pl-2 py-0">@if($property->isSell != null)
+                                                            Dijual @endif @if($property->isSell != null && $property->isRent != null)
+                                                            & @endif @if($property->isRent != null) Disewakan @endif</p>
                                                 </div>
                                             </div>
                                         </div>

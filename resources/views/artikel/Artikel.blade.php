@@ -9,7 +9,7 @@
             <div class="col">
                 <div class="row">
                     <div class="col-10 mx-auto">
-                        <h1 class="judul">{{$article->name}}</h1>
+                        <h1 class="judul">{{$article->title}}</h1>
                         <h6 class="d-block mt-3"><i>{{$author->name}}</i></h6>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="row">
                     <div class="col-10 mx-auto text-center">
-                        <img src="{{asset($article ->image)}}" class="text-center rounded img-artikel mb-5 mt-4">
+                        <img src="{{asset($article ->image)}}" style="height: auto; width: auto" class="text-center rounded img-artikel mb-5 mt-4">
                     </div>
                 </div>
                 <div class="row">
@@ -43,7 +43,7 @@
                         <div class="row">
                             @foreach(\App\Http\Controllers\Controller::getLatestArticle() as $article)
                                 <div class="artikel-item col-6 mb-1 col-lg-4">
-                                    <a href="#">
+                                    <a href="{{route('Article',['id'=>$article->id])}}">
                                         <div class="card">
                                             <img class="card-img-top" src="{{asset($article->image)}}" style="height: 200px" alt="Card image cap">
                                             <div class="card-body">

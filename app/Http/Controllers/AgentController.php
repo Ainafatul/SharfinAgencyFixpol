@@ -29,4 +29,16 @@ class AgentController extends Controller
     {
         return view('public.AgentDetail', ['agent' => Agent::find($id)]);
     }
+
+    function show()
+    {
+        return view('admin.MyApprove', ['agents' => Agent::all()]);
+    }
+
+    function filter(Request $request)
+    {
+        $filter = [];
+        $filter[] = ['agency', 'LIKE', '%' . $request->agency . '%'];
+        return view('public.AgentList')->with('agents', Agent::where($filter)->get());
+    }
 }

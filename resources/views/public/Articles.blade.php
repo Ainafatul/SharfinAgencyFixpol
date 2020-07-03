@@ -12,7 +12,7 @@
             <div class="row">
                 @foreach ($datas ?? '' as $article)
                     <div class="artikel-item col-6 mb-1 col-lg-4" style="padding-bottom: 24px">
-                        <a class="w-100" href="{{route('Article',['id'=>    $article->id])}}">
+                        <a class="w-100" href="{{route('Article',['id'=>$article->id])}}">
                             <div class="card">
                                 <img class="card-img-top" src="{{asset($article->image)}}" style="height: 200px" alt="Card image cap">
                                 <div class="card-body">
@@ -41,19 +41,18 @@
             </div>
             <div class="row">
                 <div class="col-12 col-lg-10 mx-auto">
-                    <h5 class="py-2 text-dark text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, et. Quam maiores voluptatem fugit
+                    <h5 class="py-2 text-dark text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, et. Quam maiores voluptatem
+                        fugit
                         itaque quidem consectetur, vitae, vero in temporibus ab nihil quos deserunt?</h5>
                 </div>
             </div>
             <div class="row py-3">
                 <div class="col-12 col-lg-10 mx-auto px-0">
-                    <form class="text-center">
-                        <input class="form-control form-tanya rounded-pill mx-auto" name="email" style="width: 90%;" type="email"
-                               placeholder="Masukkan Email Anda"
+                    <form class="text-center" method="post" action="{{route('onNewsLetterSubscriber')}}">
+                        @csrf
+                        <input class="form-control form-tanya rounded-pill mx-auto" style="width: 90%;" name="email" type="email" placeholder="Masukkan Email Anda"
                                aria-label="Search">
-                        <a href="{{route('onSubscribeNewsletter')}}"
-                           class="btn btn-tanya btn-secondary btn-md login mx-auto px-5 my-2 rounded-pill mb-0 mb-lg-5"
-                           type="submit">Kirim</a>
+                        <input class="btn btn-tanya btn-secondary btn-md login mx-auto px-5 my-2 rounded-pill mb-0 mb-lg-5" type="submit" value="Kirim">
                     </form>
                 </div>
             </div>

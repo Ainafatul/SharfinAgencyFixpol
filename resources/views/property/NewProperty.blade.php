@@ -6,9 +6,10 @@
             <div class="row justify-content-between align-items-center">
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
                     <div class="hero__caption">
-                        <h1>Select Your New Perfect Style</h1>
+                        <h1>Select Your New Perfect Stylednfbmndbf</h1>
                         <p>Ut enim ad minim
-                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is aute irure.</p>
+                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is
+                            aute irure.</p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
@@ -29,13 +30,16 @@
                     <div class="card-body">
                         <div class="form-group row">
                             <label class="col-md-4">Agent ID
-                                <input type="text" class="form-control text-center" value="{{$auth->account->id}}" disabled>
+                                <input type="text" class="form-control text-center" value="{{$auth->account->id}}"
+                                       disabled>
                             </label>
                             <label class="col-md-4">Email
-                                <input type="text" class="form-control text-center" value="{{$auth->account->email}}" disabled>
+                                <input type="text" class="form-control text-center" value="{{$auth->account->email}}"
+                                       disabled>
                             </label>
                             <label class="col-md-4">Agency
-                                <input type="text" class="form-control text-center" value="{{$auth->user->agency}}" disabled>
+                                <input type="text" class="form-control text-center" value="{{$auth->user->agency}}"
+                                       disabled>
                             </label>
                         </div>
                     </div>
@@ -91,14 +95,16 @@
                 <div class="card" style="margin-top: 24px">
                     <div class="card-header row" style="margin: 0;padding-left: 0px">
                         <div class="col-auto form-check">
-                            <input id="jual_chk" type="checkbox" class="form-check-input h-100 " style="margin: 0">
+                            <input id="jual_chk" name="isSellSelected" type="checkbox" class="form-check-input h-100 "
+                                   style="margin: 0">
                         </div>
                         <h5 class="col-3">Data Penjualan Property</h5>
                     </div>
                     <div id="jual" style="display: none" class="card-body">
                         <div class="form-group">
                             <label for="sub_district">Harga</label>
-                            <input type="number" min="0.00" max="1000000000000.00" step="0.01" class="form-control" id="price" name="sell_price">
+                            <input type="number" min="0.00" max="1000000000000.00" step="0.01" class="form-control"
+                                   id="price" name="sellPrice">
                         </div>
                     </div>
                 </div>
@@ -106,14 +112,16 @@
                 <div class="card" style="margin-top: 24px">
                     <a class="card-header row" style="margin: 0;padding-left: 0px">
                         <div class="col-auto form-check">
-                            <input type="checkbox" class="form-check-input h-100 " style="margin: 0" id="sewa_chk">
+                            <input type="checkbox" name="isRentSelected" class="form-check-input h-100 "
+                                   style="margin: 0" id="sewa_chk">
                         </div>
                         <h5 class="col-3">Data Penyewaan Property</h5>
                     </a>
-                    <div id="sewa" style="display: none"  class="card-body">
+                    <div id="sewa" style="display: none" class="card-body">
                         <div class="form-group">
                             <label for="sub_district">Harga</label>
-                            <input type="number" min="0.00" max="1000000000000.00" step="0.01" class="form-control" id="price" name="rent_price">
+                            <input type="number" min="0.00" max="1000000000000.00" step="0.01" class="form-control"
+                                   id="price" name="rentPrice">
                         </div>
                         <div class="form-group">
                             <label for="sub_district">Minimal Sewa</label>
@@ -132,7 +140,11 @@
                         <div class="row w-100">
                             <div class="col-3">
                                 <label for="province">Province</label>
-                                <select class="custom-select mr-sm-2" id="province" name="province"></select>
+                                <select class="custom-select mr-sm-2" id="province" name="province">
+                                    @foreach(\App\Http\Controllers\LocationController::getProvinces() as $province)
+                                        <option value="{{$province->id}}">{{$province->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="col-3">
                                 <label for="city">City</label>
@@ -159,8 +171,9 @@
                     <h5 class="card-header">Data Promosi</h5>
                     <div class="card-body">
                         <div class="form-group col-md-12">
-                            <label class="w-100">Deskripsi
-                                <textarea type="text" class="form-control w-100" name="description" value=""></textarea>
+                            <label class="w-100">Description
+                                <textarea type="text" rows="12" class="form-control w-100" name="description"
+                                          value=""></textarea>
                             </label>
                         </div>
                     </div>
@@ -175,7 +188,8 @@
                         <div class="row">
                             <div class="col-md-3" style="height: 200px">
                                 <div class="h-100 w-100 file btn btn-lg btn-primary" style="background: #073932">
-                                    <input id="fileuploads" style="width: 100%;height: 100%" type="file" multiple name="image[]"/>
+                                    <input id="fileuploads" style="width: 100%;height: 100%" type="file" multiple
+                                           name="image[]"/>
                                 </div>
                             </div>
                         </div>
@@ -194,20 +208,66 @@
 @endsection
 <script>
     @push('scripts')
-    $('#jual_chk').click(function() {
-        if( $(this).is(':checked')) {
+    $('#jual_chk').click(function () {
+        if ($(this).is(':checked')) {
             $("#jual").show();
         } else {
             $("#jual").hide();
         }
     });
 
-    $('#sewa_chk').click(function() {
-        if( $(this).is(':checked')) {
+    $('#sewa_chk').click(function () {
+        if ($(this).is(':checked')) {
             $("#sewa").show();
         } else {
             $("#sewa").hide();
         }
     });
+
+
+    const server = "http://127.0.0.1:8000/";
+    $('#province').change(function () {
+        const selectedID = this.options[this.selectedIndex].value;
+        $.getJSON(server + "Cities/" + selectedID, function (result) {
+            $('#city').empty()
+            $('#district').empty()
+            $('#sub_district').empty()
+            $.each(result, function (i, field) {
+                const option = document.createElement("option");
+                option.value = field.id;
+                option.text = field.name;
+                document.getElementById("city").add(option);
+            });
+        });
+    })
+
+    $('#city').change(function () {
+        const selectedID = this.options[this.selectedIndex].value;
+        $.getJSON(server + "Districts/" + selectedID, function (result) {
+            $('#district').empty()
+            $('#sub_district').empty()
+            $.each(result, function (i, field) {
+                const option = document.createElement("option");
+                option.value = field.id;
+                option.text = field.name;
+                document.getElementById("district").add(option);
+            });
+        });
+    })
+
+    $('#district').change(function () {
+        const selectedID = this.options[this.selectedIndex].value;
+        $.getJSON(server + "SubDistricts/" + selectedID, function (result) {
+            $('#sub_district').empty()
+            $.each(result, function (i, field) {
+                const option = document.createElement("option");
+                option.value = field.id;
+                option.text = field.name;
+                document.getElementById("sub_district").add(option);
+            });
+        });
+    })
+
+
     @endpush
 </script>

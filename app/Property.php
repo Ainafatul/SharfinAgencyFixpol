@@ -8,6 +8,7 @@ class Property extends Model
 {
     protected $table="properties";
     protected $fillable=[
+            'id',
             'agent',
            'category',
             'isSell',
