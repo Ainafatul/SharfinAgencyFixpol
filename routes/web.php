@@ -18,6 +18,7 @@ Route::get('/onSubscribeNewsletter', function () {
 Route::get('/Articles', function () {
     return view('public.Articles', ['datas' => \App\Article::all()]);
 })->name('Articles');
+Route::get('/Landing/Filter', 'PropertyController@filter2')->name('FilterProperty');
 Route::get('/Property/Filter', 'PropertyController@filter')->name('PropertyFilter');
 Route::get('/Article/{id}', 'ArticleController@show')->name('Article');
 Route::post('/Article/onNewsLetterSubscriber', 'NewsLetterSubscriberController@onSubscribeNewsletter')->name('onNewsLetterSubscriber');
@@ -90,6 +91,7 @@ Route::middleware(['role:Admin'])->group(function () {
     Route::get('/Dashboard/ApproveAgent', 'AdminController@approveAgent')->name('ApproveAgent');
     Route::get('/Dashboard/MyApproveAgent', 'AgentController@show')->name('MyApproveAgent');
     Route::get('/Dashboard/DeclineAgent/{id}', 'AdminController@declineAgent')->name('declineAgent');
+    Route::get('/Dashboard/DetailAgent/{id}', 'AgentController@detailAgent')->name('DetailAgent');
 
     Route::get('/Dashboard/NewsLetterSubscriber', 'NewsLetterSubscriberController@SubEmail')->name('NewsLetterSubscriber');
     Route::get('/Dashboard/ExportExcel', 'NewsLetterSubscriberController@ExportExcel')->name('ExportExcel');

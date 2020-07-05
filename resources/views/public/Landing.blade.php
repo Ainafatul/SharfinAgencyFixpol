@@ -17,10 +17,10 @@
                                 <div class="col-12">
                                     <div class="card-body text-center">
                                         <h4 class="font-weight-bold text-white">Temukan Tempat Tinggal Idaman Anda</h4>
-                                        <form class="text-center">
+                                        <form class="text-center" method="get" action="{{route('FilterProperty')}}">
                                             <div class="row mx-auto py-3">
                                                 <div class="col-9">
-                                                    <input class="form-control form-tanya rounded-pill pl-4" type="text" placeholder="Cari Lokasi"
+                                                    <input class="form-control form-tanya rounded-pill pl-4" type="text"  name="location" placeholder="Cari Lokasi"
                                                            aria-label="Search">
                                                 </div>
                                                 <div class="col-3">
@@ -31,20 +31,23 @@
                                             <!-- Example single danger button -->
                                             <div class="row mx-auto">
                                                 <div class="col-4">
-                                                    <select class="custom-select">
-                                                        <option selected>Kategori</option>
-                                                        <option value="1">Beli</option>
-                                                        <option value="2">Sewa</option>
-                                                    </select>
+                                                        <select class="custom-select" name="type">
+                                                            <option @if(isset($_GET['type']) && $_GET['type'] == 'Beli') selected
+                                                                    @endif value="Beli">Beli
+                                                            </option>
+                                                            <option @if(isset($_GET['type']) && $_GET['type'] == 'Sewa') selected
+                                                                    @endif value="Sewa">Sewa
+                                                            </option>
+                                                        </select>
                                                 </div>
                                                 <div class="col-4">
                                                     <div class="form-input">
-                                                        <input class="form-control" type="text" placeholder="Harga Min">
+                                                        <input class="form-control" type="text" placeholder="minPrice">
                                                     </div>
                                                 </div>
                                                 <div class="col-4">
                                                     <div class="form-input">
-                                                        <input class="form-control" type="text" placeholder="Harga Max">
+                                                        <input class="form-control" type="text" placeholder="maxPrice">
                                                     </div>
                                                 </div>
                                             </div>
@@ -85,7 +88,8 @@
                                     </div>
                                     <div class="col-7" style="padding-top: 16px">
                                         <h5 class="" style="color: #1c7430;height: 38px">{{$property->name}}</h5>
-                                        <h6 class="alamat text-muted" style="height: 24px">{{$property->address}}</h6>
+                                        <h6 class="alamat text-muted" >{{\App\Http\Controllers\HelperController::parseLocation($property->location)}}</h6>
+                                        <br>
                                         <h5 class="card-title "@if($property->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($property->isSell)->price)}}
                                         @else {{\App\Http\Controllers\Controller::format(\App\PropertyRent::find($property->isRent)->price)}} @endif
                                         @if($property->isRent!=null) / {{\App\PropertyRent::find($property->isRent)->timeType}} @endif</h5>
@@ -196,6 +200,7 @@
                                     <div class="label label-card pl-2"><p style="font-size: 14px">{{$property->category}}</p></div>
                                     <div class="card-body ">
                                         <h6 class="card-subtitle mb-2" style="height: 32px">{{$property->name}}</h6>
+                                        <h6 class="card-subtitle alamat text-muted limit-2" style="height: 32px">{{\App\Http\Controllers\HelperController::parseLocation($property->location)}}</h6><br>
                                         <h6 class="card-subtitle alamat text-muted limit-2" style="height: 32px">{{$property->address}}</h6><br>
                                         <h5 class="card-title mb-2">@if($property->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($property->isSell)->price)}}
                                             @else {{\App\Http\Controllers\Controller::format(\App\PropertyRent::find($property->isRent)->price)}} @endif

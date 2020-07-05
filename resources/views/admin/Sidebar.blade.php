@@ -11,7 +11,6 @@
         <a href="#">
             <i class="fa fa-users"></i>
             <span>Agents</span>
-            <span class="badge badge-pill badge-primary">3</span>
         </a>
         <div class="sidebar-submenu">
             <ul>

@@ -7,6 +7,7 @@ use App\Admin;
 use App\Agent;
 use App\Article;
 use App\GuideLine;
+use App\Mail\DeclineEmail;
 use App\Mail\SendMail;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -119,9 +120,9 @@ class AdminController extends Controller
 
     function declineAgent($id)
     {
+        $agent = Agent::find($id);
+        Mail::to(Account::find($agent->id)->email)->send((new DeclineEmail()));
         Agent::destroy($id);
-        Mail::to(Auth::user()->email)->send(new SendMail());
-
         return redirect()->back();
     }
 

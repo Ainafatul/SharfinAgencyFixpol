@@ -12,7 +12,7 @@
                             <div class="col-12 mt-auto">
                                 <div class="row">
                                     <div class="col-5 col-md-4 col-lg-3 my-auto text-center py-3">
-                                        <img src="{{asset($agent->picture)}}" class="figure-img img-fluid img-detail-agen icon-fitur ml-2 ml-sm-0">
+                                        <img src="{{asset($agent->picture)}}" class="figure-img img-fluid img-detail-agen icon-fitur ml-2 ml-sm-0" style="width: 100%; height: auto;">
                                     </div>
                                     <div class="col my-auto subtitle-agen ">
                                         <h4 class="card-subtitle mb-3 disingkat">{{$agent->name}}</h4>
@@ -48,97 +48,45 @@
                         <li class="nav-item">
                             <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Profile</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="detail-tab" data-toggle="tab" href="#detail" role="tab" aria-controls="detail" aria-selected="false">Detail</a>
-                        </li>
                     </ul>
                     <div class="tab-content p-3" id="myTabContent">
-                        <div class="tab-pane fade show active product-review" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus temporibus non soluta
-                                tempora accusamus libero eum error iusto sed sunt dolor repellendus facilis magni reprehenderit
-                                obcaecati nesciunt laboriosam officia, ex quae corrupti? Mollitia, voluptate possimus! Unde quia
-                                maxime nisi nihil fuga quasi corporis blanditiis ducimus quam, exercitationem suscipit sapiente quas
-                                expedita, rerum iste fugiat est nemo quis! Earum facere odit magnam dicta dolores reiciendis error nobis
-                                delectus, itaque facilis corrupti similique, blanditiis porro quis, iusto tenetur expedita neque odio
-                                consectetur officia autem. Adipisci, aliquam totam dolore nam modi animi odio cumque molestiae consequatur
-                                culpa cupiditate voluptatem mollitia incidunt, quisquam reiciendis.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec felis metus. Vivamus eu urna
-                                tempor, pretium erat quis, volutpat eros. Cras consectetur dolor at venenatis feugiat. Fusce
-                                nunc risus, finibus eget augue ac, ornare gravida turpis. Morbi consequat, nisi sit amet viverra
-                                feugiat, lacus mauris ornare erat, at pharetra odio dolor id elit. Pellentesque eu aliquet ex.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia obcaecati saepe laboriosam cumque sed,
-                                aliquid pariatur totam corporis labore molestiae porro accusantium quaerat nesciunt eligendi distinctio
-                                impedit illum eius dicta laborum facilis. Delectus nam omnis nisi adipisci quo, voluptates vitae labore
-                                distinctio aperiam explicabo quam eos voluptate totam doloremque esse ad ipsum nobis culpa. Commodi ipsa
-                                provident ea accusantium, at voluptate, tempore sit enim nihil mollitia quo deleniti molestias, consequuntur
-                                earum aperiam est id incidunt molestiae tenetur rerum. Commodi tempore inventore suscipit laudantium amet
-                                unde voluptates, culpa numquam provident nemo illo saepe harum recusandae ratione magni temporibus aliquam
-                                totam aperiam.</p>
-                        </div>
-                        <div class="tab-pane fade  product-review" id="detail" role="tabpanel" aria-labelledby="detail-tab">
+                        <div class="tab-pane fade show active product-review" id="detail" role="tabpanel"
+                             aria-labelledby="detail-tab">
                             <div class="row">
                                 <div class="col-12 col-lg-6">
                                     <div class="row">
                                         <div class="col">
-                                            <p class="small mb-3 text-secondary">Pelayanan</p>
-                                            <p class="mb-0 text-dark"><i class="fas fa-check"></i> Penyewaan Apartemen</p>
+                                            <p class="small mb-1 text-secondary">Jabatan</p>
+                                            <p class="mb-0 text-dark">{{$agent->job}}</p>
                                             <hr class=" mt-1" style="border-width: 1px;">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="mb-0 text-dark"><i class="fas fa-check"></i> Penyewaan Rumah</p>
+                                            <p class="small mb-1 text-secondary">Jenis Kelamin</p>
+                                            <p class="mb-0 text-dark">{{\App\Http\Controllers\HelperController::parseGender($agent->gender)}}</p>
                                             <hr class=" mt-1" style="border-width: 1px;">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="mb-0 text-dark"><i class="fas fa-check"></i> Penjualan Apartemen</p>
+                                            <p class="small mb-1 text-secondary">Tanggal Lahir</p>
+                                            <p class="mb-0 text-dark">{{$agent->birth_date}}</p>
                                             <hr class=" mt-1" style="border-width: 1px;">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <p class="mb-0 text-dark"><i class="fas fa-check"></i> Penjualan Rumah</p>
-                                            <hr class=" mt-1" style="border-width: 1px;">
-                                        </div>
-                                    </div><div class="row">
-                                        <div class="col">
-                                            <p class="mb-0 text-dark"><i class="fas fa-check"></i> Konsultan Proeerty</p>
+                                            <p class="small mb-1 text-secondary">Alamat</p>
+                                            <p class="mb-0 text-dark">{{$agent->address}}</p>
                                             <hr class=" mt-1" style="border-width: 1px;">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-lg-6">
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="small mb-3 text-secondary">Wilayah</p>
-                                            <p class="mb-0 text-dark"><i class="fas fa-map-marker-alt"></i> Jawa Timur</p>
-                                            <hr class=" mt-1" style="border-width: 1px;">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="mb-0 text-dark"><i class="fas fa-map-marker-alt"></i> Bali</p>
-                                            <hr class=" mt-1" style="border-width: 1px;">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="mb-0 text-dark"><i class="fas fa-map-marker-alt"></i> Jawa Tengah</p>
-                                            <hr class=" mt-1" style="border-width: 1px;">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <p class="mb-0 text-dark"><i class="fas fa-map-marker-alt"></i> DI Yogyakarta</p>
-                                            <hr class=" mt-1" style="border-width: 1px;">
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -44,6 +44,18 @@ class PropertyController extends Controller
         return view('public.PropertyFilter')->with('properties', Property::where($filter)->get());
     }
 
+    function filter2(Request $request)
+    {
+        $filter = [];
+        $city = City::where('name', 'LIKE', '%' . $request->location . '%')->get()->first();
+        if (isset($_GET['location']) && $_GET['location'] != '') $filter[] = ['location', 'LIKE', '%' . $city->id . '%'];
+        if (isset($_GET['type']) && $_GET['type'] == "Beli") $filter[] = ['isSell', '!=', null];
+        if (isset($_GET['type']) && $_GET['type'] == "Sewa") $filter[] = ['isRent', '!=', null];
+//        if (isset($_GET['minPrice']) && $_GET['minPrice'] != 0 && $_GET['minPrice'] != 99) $filter[] = ['land_area', '<', $_GET['minPrice']];
+
+        return view('public.PropertyFilter')->with('properties', Property::where($filter)->get());
+    }
+
     function detail($id)
     {
         return view('public.PropertyDetail', ['property' => Property::find($id)]);
@@ -135,7 +147,6 @@ class PropertyController extends Controller
         if ($request['isSellSelected'] == 'on')
             if (isset($request['sellPrice'])) {
                 $sell = PropertySell::find($property['isSell']);
-                print_r($property['isSell']);
                 $sell->price = $request['sellPrice'];
                 $sell->save();
             }

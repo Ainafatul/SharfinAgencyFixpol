@@ -24,7 +24,7 @@
     <div id="container">
         <div class="container container-md">
             <div class="row">
-                @foreach($agents as $agent)
+                @foreach($agents as $agent) @if($agent->approve != null)
                     <div class="col-lg-3">
                         <div class="card" style="margin-bottom: 24px">
                             <img src="{{asset($agent->picture)}}" class="card-img-top"
@@ -35,6 +35,7 @@
                             </div>
                         </div>
                     </div>
+                @endif
                 @endforeach
             </div>
         </div>

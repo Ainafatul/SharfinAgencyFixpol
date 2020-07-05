@@ -29,7 +29,7 @@ class Controller extends BaseController
 
     static function getLatestArticle()
     {
-        return Article::orderBy('created_at', 'ASC')->limit(3)->get();
+        return Article::orderBy('created_at', 'DESC')->limit(3)->get();
     }
 
     static function getLatestGuideline()

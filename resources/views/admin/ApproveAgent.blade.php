@@ -34,7 +34,7 @@
                                 <p class="card-text">{{$data->agency}}</p>
                                 <div class="row" style="margin-top: 12px">
                                     <div class="col-6"><a href="{{route('declineAgent',['id'=>$data->id])}}" class="btn btn-danger w-100">Decline</a></div>
-                                    <div class="col-6"><a href="#" class="btn btn-warning w-100">Review</a></div>
+                                    <div class="col-6"><a href="{{route('DetailAgent',['id'=>$data->id])}}" class="btn btn-warning w-100">Review</a></div>
                                     <div class="col-12"><a href="{{route('onAgentApproved',['id'=>$data->id])}}" class="btn btn-primary w-100" style="margin-top: 8px">Approve</a></div>
                                 </div>
                             </div>

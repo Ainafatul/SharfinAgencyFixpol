@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
+use App\District;
+use App\Province;
+use App\SubDistrict;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -25,5 +29,17 @@ class HelperController extends Controller
         $path = $file->storeAs('public/image/' . $folder, Carbon::now()->timestamp . '.' . $file->extension());
         $images = str_replace('public', 'storage', $path);
         return $images;
+    }
+
+    static function parseLocation($input)
+    {
+        $location = explode(',', $input);
+        return Province::find($location[0])->name . ', ' . City::find($location[1])->name . ', ' . District::find($location[2])->name . ', ' . SubDistrict::find($location[3])->name . ', ';
+    }
+
+    static function parseGender($code)
+    {
+        if ($code) return "Laki-Laki";
+        else return "Perempuan";
     }
 }

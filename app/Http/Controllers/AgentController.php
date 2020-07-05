@@ -29,6 +29,10 @@ class AgentController extends Controller
     {
         return view('public.AgentDetail', ['agent' => Agent::find($id)]);
     }
+    function detailAgent($id)
+    {
+        return view('admin.AgentDetail', ['agent' => Agent::find($id)]);
+    }
 
     function show()
     {

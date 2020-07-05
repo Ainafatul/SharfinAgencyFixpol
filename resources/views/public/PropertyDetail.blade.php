@@ -47,7 +47,9 @@
                                 <h5 class="card-subtitle judul-jual mb-2 disingkat">{{$property->name}}</h5>
                                 <h6 class="card-subtitle alamat-jual text-secondary mb-xl-2 mb-sm-3 mb-0 disingkat">{{$property->address}}</h6>
                                 <br>
-                                <h5 class="card-title-jual mb-2">Rp {{$property->price}}</h5>
+                                <h5 class="card-title-jual mb-2">@if($property->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($property->isSell)->price)}}
+                                    @else {{\App\Http\Controllers\Controller::format(\App\PropertyRent::find($property->isRent)->price)}} @endif
+                                    @if($property->isRent!=null) / {{\App\PropertyRent::find($property->isRent)->timeType}} @endif</h5>
                                 <div class="row spesifikasi-jual" style="margin-left: 16px">
                                     <ul class="disingkat row w-100">
                                         <li class="item spek col-3">
@@ -195,7 +197,7 @@
                     <h3 class="tittle">Property Terkait</h3>
                 </div>
                 <div class="col text-right">
-                    <a href="" class="btn btn-lainnya btn-sm rounded-pill btn-secondary px-3">Lainnya <i
+                    <a href="{{route('PropertyFilter',['type'=>'Beli'])}}" class="btn btn-lainnya btn-sm rounded-pill btn-secondary px-3">Lainnya <i
                             class="fas fa-chevron-right"></i></a>
                 </div>
             </div>
@@ -210,12 +212,14 @@
                                     <img src="{{asset($property->main_image)}}"
                                          class="img-fluid terbaru-img d-block mx-auto" alt="gambar 1"
                                          style="height: 200px">
-                                    <div class="label label-card pl-2"><p style="font-size: 14px">Rumah</p></div>
+                                    <div class="label label-card pl-2"><p style="font-size: 14px">{{$property->category}}</p></div>
                                     <div class="card-body ">
                                         <h6 class="card-subtitle mb-2" style="height: 32px">{{$property->name}}</h6>
                                         <h6 class="card-subtitle alamat text-muted limit-2"
                                             style="height: 32px">{{$property->address}}</h6><br>
-                                        <h5 class="card-title mb-2">Rp. {{'Harga'}} Jt</h5>
+                                        <h5 class="card-title mb-2">@if($property->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($property->isSell)->price)}}
+                                            @else {{\App\Http\Controllers\Controller::format(\App\PropertyRent::find($property->isRent)->price)}} @endif
+                                            @if($property->isRent!=null) / {{\App\PropertyRent::find($property->isRent)->timeType}} @endif</h5>
                                         <div class="row spesifikasi w-100" style="margin-left: 0;margin-bottom: 0px">
                                             <li class="col-3 item spek">
                                                 <i class="fas fa-bed">{{'  '.$property->bed_room}}</i>
