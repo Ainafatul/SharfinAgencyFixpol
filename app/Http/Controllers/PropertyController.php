@@ -46,12 +46,18 @@ class PropertyController extends Controller
 
     function filter2(Request $request)
     {
+        $data= Property::all();
         $filter = [];
+        $data->isSell = PropertySell::find($data->isSell);
+        $data->isRent = PropertyRent::find($data->isRent);
         $city = City::where('name', 'LIKE', '%' . $request->location . '%')->get()->first();
         if (isset($_GET['location']) && $_GET['location'] != '') $filter[] = ['location', 'LIKE', '%' . $city->id . '%'];
         if (isset($_GET['type']) && $_GET['type'] == "Beli") $filter[] = ['isSell', '!=', null];
         if (isset($_GET['type']) && $_GET['type'] == "Sewa") $filter[] = ['isRent', '!=', null];
-//        if (isset($_GET['minPrice']) && $_GET['minPrice'] != 0 && $_GET['minPrice'] != 99) $filter[] = ['land_area', '<', $_GET['minPrice']];
+        if (isset($_GET['maxPrice']) && $_GET['maxPrice'] != 0 ) $filter[] = [$data->isSell->price, '<', $_GET['maxPrice']];
+        if (isset($_GET['maxPrice']) && $_GET['maxPrice'] != 0 ) $filter[] = [$data->isRent->price, '<', $_GET['maxPrice']];
+        if (isset($_GET['minPrice']) && $_GET['minPrice'] != 0 ) $filter[] = [$_GET['maxPrice'], '<',$data->isSell->price];
+        if (isset($_GET['minPrice']) && $_GET['minPrice'] != 0 ) $filter[] = [$_GET['maxPrice'], '<',$data->isRent->price];
 
         return view('public.PropertyFilter')->with('properties', Property::where($filter)->get());
     }
