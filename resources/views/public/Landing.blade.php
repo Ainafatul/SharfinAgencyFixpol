@@ -42,12 +42,12 @@
                                                 </div>
                                                 <div class="col-4">
                                                     <div class="form-input">
-                                                        <input class="form-control" type="text" placeholder="minPrice">
+                                                        <input class="form-control" type="text" placeholder="Minimal Harga" name="minPrice" value="@if(isset($_GET['minPrice'])) {{(int)$_GET['minPrice']}} @endif">
                                                     </div>
                                                 </div>
                                                 <div class="col-4">
                                                     <div class="form-input">
-                                                        <input class="form-control" type="text" placeholder="maxPrice">
+                                                        <input class="form-control" type="text" placeholder="Maksimal Harga" name="maxPrice" value="@if(isset($_GET['maxPrice'])) {{(int)$_GET['maxPrice']}} @endif">
                                                     </div>
                                                 </div>
                                             </div>

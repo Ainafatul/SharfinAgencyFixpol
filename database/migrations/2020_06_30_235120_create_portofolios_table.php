@@ -21,6 +21,7 @@ class CreatePortofoliosTable extends Migration
             $table->double('agent');
             $table->timestamps();
         });
+        (new PortofoliosTableSeeder())->run();
     }
 
     /**

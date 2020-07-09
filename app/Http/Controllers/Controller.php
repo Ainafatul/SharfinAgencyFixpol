@@ -19,12 +19,12 @@ class Controller extends BaseController
 
     static function getRecommendedProperty()
     {
-        return Property::orderBy('updated_at', 'desc')->limit(6)->get();
+        return Property::orderBy('updated_at', 'desc')->limit(4)->get();
     }
 
     static function getLatestProperty()
     {
-        return Property::orderBy('created_at', 'ASC')->limit(4)->get();
+        return Property::orderBy('created_at', 'ASC')->limit(6)->get();
     }
 
     static function getLatestArticle()
@@ -39,7 +39,7 @@ class Controller extends BaseController
 
     static  function getPortofolio()
     {
-        return Portofolio::orderBy('created_at','DESC')->limit(4)->get();
+        return Portofolio::orderBy('created_at','DESC')->limit(1)->get();
     }
 
     static  function getReview()

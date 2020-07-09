@@ -118,9 +118,11 @@
                                     <div class="col-lg-5 col-4 pl-0 my-auto">
                                         <div class="card-body pl-0">
                                             <h5 class="card-subtitle judul-jual mb-2 disingkat">{{$property->name}}</h5>
-                                            <h6 class="card-subtitle alamat-jual text-secondary mb-xl-2 mb-sm-3 mb-0 disingkat">{{$property->address}}</h6>
+                                            <h6 class="card-subtitle alamat-jual text-secondary mb-xl-2 mb-sm-3 mb-0 disingkat">{{\App\Http\Controllers\HelperController::parseLocation($property->location)}}</h6>
                                             <br>
-                                            <h5 class="card-title-jual mb-2">Rp. 996 Jt</h5>
+                                            <h5 class="card-title-jual mb-2">@if($property->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($property->isSell)->price)}}
+                                                @else {{\App\Http\Controllers\Controller::format(\App\PropertyRent::find($property->isRent)->price)}} @endif
+                                                @if($property->isRent!=null) / {{\App\PropertyRent::find($property->isRent)->timeType}} @endif</h5>
                                             <div class="row spesifikasi-jual" style="margin-left: 16px">
                                                 <ul class="disingkat row w-100">
                                                     <li class="item spek col-3">

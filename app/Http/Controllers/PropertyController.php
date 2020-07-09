@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use phpDocumentor\Reflection\Types\Integer;
 
 class PropertyController extends Controller
 {
@@ -33,6 +34,8 @@ class PropertyController extends Controller
     function filter(Request $request)
     {
         $filter = [];
+//        $data->isSell = PropertySell::find($data->isSell);
+//        $data->isRent = PropertyRent::find($data->isRent);
         $city = City::where('name', 'LIKE', '%' . $request->location . '%')->get()->first();
         if (isset($_GET['location']) && $_GET['location'] != '') $filter[] = ['location', 'LIKE', '%' . $city->id . '%'];
         if (isset($_GET['type']) && $_GET['type'] == "Beli") $filter[] = ['isSell', '!=', null];
@@ -41,25 +44,38 @@ class PropertyController extends Controller
         if (isset($_GET['kamar']) && $_GET['kamar'] != 0 && $_GET['kamar'] != 99) $filter[] = ['bed_room', $_GET['kamar']];
         if (isset($_GET['land']) && $_GET['land'] != 0 && $_GET['land'] != 99) $filter[] = ['land_area', '<', $_GET['land']];
 //        if (isset($_GET['location']) && $_GET['location'] != '') $filter[] = ['address', 'LIKE', '%' . $_GET['location'] . '%'];
-        return view('public.PropertyFilter')->with('properties', Property::where($filter)->get());
+//        $properties = Property::where($filter)->get();
+//        if (isset($_GET['maxPrice']) && isset($_GET['minPrice']) && (int)$_GET['minPrice'] != 0 && (int)$_GET['maxPrice'] != 0 >= $_GET['minPrice']) $properties = $this->priceFilter($properties, $request->minPrice, $request->maxPrice);
+        $properties = Property::where($filter)->get();
+        if (isset($request->maxPrice) && isset($request->minPrice) && $request->minPrice != null && $request->maxPrice != null >= $_GET['minPrice']) $properties = $this->priceFilter($properties, $request->minPrice, $request->maxPrice);
+        return view('public.PropertyFilter')->with('properties', $properties);
+    }
+
+
+    function priceFilter($properties, $min, $max)
+    {
+        $result = [];
+        foreach ($properties as $property) {
+            if ($property->isSell != null) $property->price = PropertySell::find($property->isSell)->price;
+            else$property->price = PropertyRent::find($property->isRent)->price;
+            if ($min <= $property->price && $property->price <= $max) $result[] = $property;
+        }
+        return $result;
     }
 
     function filter2(Request $request)
     {
-        $data= Property::all();
+
         $filter = [];
-        $data->isSell = PropertySell::find($data->isSell);
-        $data->isRent = PropertyRent::find($data->isRent);
         $city = City::where('name', 'LIKE', '%' . $request->location . '%')->get()->first();
         if (isset($_GET['location']) && $_GET['location'] != '') $filter[] = ['location', 'LIKE', '%' . $city->id . '%'];
         if (isset($_GET['type']) && $_GET['type'] == "Beli") $filter[] = ['isSell', '!=', null];
         if (isset($_GET['type']) && $_GET['type'] == "Sewa") $filter[] = ['isRent', '!=', null];
-        if (isset($_GET['maxPrice']) && $_GET['maxPrice'] != 0 ) $filter[] = [$data->isSell->price, '<', $_GET['maxPrice']];
-        if (isset($_GET['maxPrice']) && $_GET['maxPrice'] != 0 ) $filter[] = [$data->isRent->price, '<', $_GET['maxPrice']];
-        if (isset($_GET['minPrice']) && $_GET['minPrice'] != 0 ) $filter[] = [$_GET['maxPrice'], '<',$data->isSell->price];
-        if (isset($_GET['minPrice']) && $_GET['minPrice'] != 0 ) $filter[] = [$_GET['maxPrice'], '<',$data->isRent->price];
 
-        return view('public.PropertyFilter')->with('properties', Property::where($filter)->get());
+        $properties = Property::where($filter)->get();
+        if (isset($request->maxPrice) && isset($request->minPrice) && $request->minPrice != null && $request->maxPrice != null >= $_GET['minPrice']) $properties = $this->priceFilter($properties, $request->minPrice, $request->maxPrice);
+
+        return view('public.PropertyFilter')->with('properties', $properties);
     }
 
     function detail($id)
@@ -122,7 +138,7 @@ class PropertyController extends Controller
         if (!$validator->fails()) {
             if (count(explode(',', $data['image'])) > 7) return redirect()->back()->withErrors('Hanya 7 Gambar yang Diperbolehkan');
             Property::create($data);
-            return redirect()->back();
+            return redirect()->route('MyProperty');
         }
         return redirect()->back()->withErrors($validator);
     }

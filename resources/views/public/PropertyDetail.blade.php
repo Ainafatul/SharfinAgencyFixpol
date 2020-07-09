@@ -45,6 +45,7 @@
                         <div class="card-body pl-3">
                             <div class="card-body pl-0">
                                 <h5 class="card-subtitle judul-jual mb-2 disingkat">{{$property->name}}</h5>
+                                <h6 class="card-subtitle alamat-jual text-secondary mb-xl-2 mb-sm-3 mb-0 disingkat">{{\App\Http\Controllers\HelperController::parseLocation($property->location)}}</h6>
                                 <h6 class="card-subtitle alamat-jual text-secondary mb-xl-2 mb-sm-3 mb-0 disingkat">{{$property->address}}</h6>
                                 <br>
                                 <h5 class="card-title-jual mb-2">@if($property->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($property->isSell)->price)}}
@@ -163,14 +164,14 @@
                                     <div class="row">
                                         <div class="col">
                                             <p class="small mb-1 text-secondary">Luas Tanah</p>
-                                            <p class="mb-0 text-dark">{{$property->land_area}}<sup>2</sup></p>
+                                            <p class="mb-0 text-dark">{{$property->land_area}} m<sup>2</sup></p>
                                             <hr class=" mt-1" style="border-width: 1px;">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
                                             <p class="small mb-1 text-secondary">Luas Bangunan</p>
-                                            <p class="mb-0 text-dark">350 m<sup>2</sup></p>
+                                            <p class="mb-0 text-dark">{{$property->building_area}} m<sup>2</sup></p>
                                             <hr class=" mt-1" style="border-width: 1px;">
                                         </div>
                                     </div>
@@ -215,6 +216,8 @@
                                     <div class="label label-card pl-2"><p style="font-size: 14px">{{$property->category}}</p></div>
                                     <div class="card-body ">
                                         <h6 class="card-subtitle mb-2" style="height: 32px">{{$property->name}}</h6>
+                                        <h6 class="card-subtitle alamat text-muted limit-2"
+                                            style="height: 32px">{{\App\Http\Controllers\HelperController::parseLocation($property->location)}}</h6><br>
                                         <h6 class="card-subtitle alamat text-muted limit-2"
                                             style="height: 32px">{{$property->address}}</h6><br>
                                         <h5 class="card-title mb-2">@if($property->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($property->isSell)->price)}}

@@ -62,11 +62,14 @@ class RegisterController extends Controller
             'birth_date' => $request['birth_date'],
             'gender' => $request['gender'],
             'address' => $request['address'],
+            'picture' => $request['picture'],
         ];
         $validator = $this->validatorUserRegister($request);
         if (!$validator->fails()) {
             Account::create($data);
             $data['id'] = Account::latest()->first()->id;
+            $path = $request->file('picture')->storeAs('public/image/users', Carbon::now()->timestamp . '.' . $request->file('picture')->extension());
+            $data['picture'] = str_replace('public','storage',$path);
             User::create($data);
             return redirect(route('SignIn'));
         } else {

@@ -10,7 +10,7 @@
                             <div class="row px-2">
                                 <div class="col-md-10 mx-auto">
                                     <h3 class="login-heading mb-4">Register <span class="small form-tanya">User</span></h3>
-                                    <form action="{{route('onUserRegister')}}" method="POST">
+                                    <form action="{{route('onUserRegister')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="row">
@@ -40,13 +40,13 @@
                                                     <textarea required type="text" id="address" name="address" class="form-control form-tanya"
                                                               placeholder="Alamat" value=""></textarea>
                                                 </div>
-                                            </div>
-                                            <div class="col-sm-6">
                                                 <div class="form-label-group">
                                                     <input required type="text" id="telp" minlength="0" maxlength="12" name="phone"
                                                            class="form-control form-tanya" placeholder="Your Phone *">
                                                     <label for="telp">No Telp </label>
                                                 </div>
+                                            </div>
+                                            <div class="col-sm-6">
                                                 <div class="form-label-group">
                                                     <input type="email" id="Email" class="form-control form-tanya" name="email" placeholder="Email address"
                                                            required>
@@ -61,6 +61,10 @@
                                                     <input required type="password" id="confirm_password" class="form-control form-tanya"
                                                            placeholder="Confirm Password *" value="" name="password_confirmation">
                                                     <label for="confirm_password">Confirm Password </label>
+                                                </div>
+                                                <div class="form-group form-label-group">
+                                                    <input type="file" id="foto" class="form-control form-tanya pt-4" name="picture">
+                                                    <label for="foto">Foto Diri</label>
                                                 </div>
                                             </div>
                                         </div>

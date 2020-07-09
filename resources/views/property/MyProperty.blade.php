@@ -32,6 +32,7 @@
                                 <div class="label label-card pl-2"><p style="font-size: 14px">{{$data->category}}</p></div>
                                 <div class="card-body ">
                                     <h6 class="card-subtitle mb-2" style="height: 32px">{{$data->name}}</h6>
+                                    <h6 class="card-subtitle alamat text-muted limit-2" style="height: 32px">{{\App\Http\Controllers\HelperController::parseLocation($data->location)}}</h6><br>
                                     <h6 class="card-subtitle alamat text-muted limit-2" style="height: 32px">{{$data->address}}</h6><br>
                                     <h5 class="card-title mb-2">@if($data->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($data->isSell)->price)}}
                                         @else {{\App\Http\Controllers\Controller::format(\App\PropertyRent::find($data->isRent)->price)}} @endif

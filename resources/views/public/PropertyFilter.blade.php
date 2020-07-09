@@ -24,12 +24,16 @@
                         </div>
                         <div class="col-3 p-0">
                             <div class="form-input">
-                                <input class="form-control" type="text" placeholder="Harga Min">
+                                <input class="form-control" type="text" placeholder="Harga Min"
+                                       value="@if(isset($_GET['minPrice'])) {{(int)$_GET['minPrice']}} @endif"
+                                       name="minPrice">
                             </div>
                         </div>
                         <div class="col-3 p-0">
                             <div class="form-input">
-                                <input class="form-control" type="text" placeholder="Harga Max">
+                                <input class="form-control" type="text" placeholder="Harga Max"
+                                       value="@if(isset($_GET['maxPrice'])) {{(int)$_GET['maxPrice']}} @endif"
+                                       name="maxPrice">
                             </div>
                         </div>
                         <div class="col-4 p-0">
@@ -40,17 +44,17 @@
                                 <option @if(isset($_GET['km']) && $_GET['km'] == 99) selected @endif value="99">Semua
                                     KM
                                 </option>
-                                <option @if(isset($_GET['km']) && $_GET['km'] == 1) selected @endif value="1">1 KM
+                                <option @if(isset($_GET['km']) && $_GET['km'] == 1) selected @endif value="1">1 Kamar Mandi
                                 </option>
-                                <option @if(isset($_GET['km']) && $_GET['km'] == 2) selected @endif value="2">2 KM
+                                <option @if(isset($_GET['km']) && $_GET['km'] == 2) selected @endif value="2">2 Kamar Mandi
                                 </option>
-                                <option @if(isset($_GET['km']) && $_GET['km'] == 3) selected @endif value="3">3 KM
+                                <option @if(isset($_GET['km']) && $_GET['km'] == 3) selected @endif value="3">3 Kamar Mandi
                                 </option>
-                                <option @if(isset($_GET['km']) && $_GET['km'] == 4) selected @endif value="4">4 KM
+                                <option @if(isset($_GET['km']) && $_GET['km'] == 4) selected @endif value="4">4 Kamar Mandi
                                 </option>
-                                <option @if(isset($_GET['km']) && $_GET['km'] == 5) selected @endif value="5">5 KM
+                                <option @if(isset($_GET['km']) && $_GET['km'] == 5) selected @endif value="5">5 Kamar Mandi
                                 </option>
-                                <option @if(isset($_GET['km']) && $_GET['km'] == 6) selected @endif value="6">6 KM
+                                <option @if(isset($_GET['km']) && $_GET['km'] == 6) selected @endif value="6">6 Kamar Mandi
                                 </option>
                             </select>
                         </div>
@@ -60,25 +64,25 @@
                                     Kamar Tidur
                                 </option>
                                 <option @if(isset($_GET['kamar']) && $_GET['kamar'] == 99) selected @endif  value="99">
-                                    Semua KT
+                                    Semua
                                 </option>
                                 <option @if(isset($_GET['kamar']) && $_GET['kamar'] == 1) selected @endif  value="1">1
-                                    KT
+                                    Kamar Tidur
                                 </option>
                                 <option @if(isset($_GET['kamar']) && $_GET['kamar'] == 2) selected @endif  value="2">2
-                                    KT
+                                    Kamar Tidur
                                 </option>
                                 <option @if(isset($_GET['kamar']) && $_GET['kamar'] == 3) selected @endif  value="3">3
-                                    KT
+                                    Kamar Tidur
                                 </option>
                                 <option @if(isset($_GET['kamar']) && $_GET['kamar'] == 4) selected @endif  value="4">4
-                                    KT
+                                    Kamar Tidur
                                 </option>
                                 <option @if(isset($_GET['kamar']) && $_GET['kamar'] == 5) selected @endif  value="5">5
-                                    KT
+                                    Kamar Tidur
                                 </option>
                                 <option @if(isset($_GET['kamar']) && $_GET['kamar'] == 6) selected @endif  value="6">6
-                                    KT
+                                    Kamar Tidur
                                 </option>
                             </select>
                         </div>
@@ -91,25 +95,25 @@
                                     Semua
                                 </option>
                                 <option @if(isset($_GET['land']) && $_GET['land'] == 50) selected @endif  value="50">50
-                                    m2
+                                    m<sup>2</sup>
                                 </option>
                                 <option @if(isset($_GET['land']) && $_GET['land'] == 100) selected @endif  value="100">
-                                    100 m2
+                                    100 m<sup>2</sup>
                                 </option>
                                 <option @if(isset($_GET['land']) && $_GET['land'] == 200) selected @endif  value="200">
-                                    200 m2
+                                    200 m<sup>2</sup>
                                 </option>
                                 <option @if(isset($_GET['land']) && $_GET['land'] == 300) selected @endif  value="300">
-                                    300 m2
+                                    300 m<sup>2</sup>
                                 </option>
                                 <option @if(isset($_GET['land']) && $_GET['land'] == 400) selected @endif  value="400">
-                                    400 m2
+                                    400 m<sup>2</sup>
                                 </option>
                                 <option @if(isset($_GET['land']) && $_GET['land'] == 500) selected @endif  value="500">
-                                    500 m2
+                                    500 m<sup>2</sup>
                                 </option>
                                 <option @if(isset($_GET['land']) && $_GET['land'] == 9999) selected
-                                        @endif  value="9999">>500 m2
+                                        @endif  value="9999">>500
                                 </option>
                             </select>
                         </div>
