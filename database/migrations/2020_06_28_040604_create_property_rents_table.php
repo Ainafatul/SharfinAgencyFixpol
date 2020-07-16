@@ -20,6 +20,7 @@ class CreatePropertyRentsTable extends Migration
             $table->string('timeType');
             $table->timestamps();
         });
+        (new PropertyRentsTableSeeder())->run();
     }
 
     /**

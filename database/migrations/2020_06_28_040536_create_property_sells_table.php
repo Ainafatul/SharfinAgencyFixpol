@@ -18,6 +18,7 @@ class CreatePropertySellsTable extends Migration
             $table->double('price');
             $table->timestamps();
         });
+        (new PropertiesTableSeeder())->run();
     }
 
     /**

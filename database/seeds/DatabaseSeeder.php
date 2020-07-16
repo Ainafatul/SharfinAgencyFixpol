@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ArticlesTableSeeder::class);
         $this->call(PropertiesTableSeeder::class);
         $this->call(PortofoliosTableSeeder::class);
+        $this->call(PropertySellsTableSeeder::class);
+        $this->call(PropertyRentsTableSeeder::class);
     }
 }
