@@ -28,7 +28,7 @@
                             <div class="row px-2">
                                 <div class="col-md-10 mx-auto">
                                     <h3 class="login-heading mb-4">Register <span class="small form-tanya">Admin</span></h3>
-                                    <form action="{{route('onAdminRegister')}}" method="POST">
+                                    <form action="{{route('onAdminRegister')}}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="form-label-group">
@@ -48,6 +48,10 @@
                                             <input required type="password" id="confirm_password" class="form-control form-tanya"
                                                    placeholder="Confirm Password *" value="" name="password_confirmation">
                                             <label for="confirm_password">Confirm Password </label>
+                                        </div>
+                                        <div class="form-label-group">
+                                            <input type="file" id="foto" class="form-control form-tanya pt-4" name="picture">
+                                            <label for="foto">Foto Diri</label>
                                         </div>
                                         @if($errors->first()!='')
                                             <div class="alert alert-danger" role="alert">{{$errors->first()}}</div>

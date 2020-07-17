@@ -140,9 +140,9 @@
                                                 </ul>
                                             </div>
                                             <div class="label label-jual mt-3 mt-sm-4 mb-0" style="width: 200px">
-                                                <p class="pl-2 py-0">@if($property->isSell == 1)
-                                                        Dijual @endif @if($property->isSell == 1 && $property->isRent == 1)
-                                                        & @endif @if($property->isRent == 1) Disewakan @endif</p>
+                                                <p class="pl-2 py-0">@if($property->isSell != null)
+                                                        Dijual @endif @if($property->isSell != null && $property->isRent != null)
+                                                        & @endif @if($property->isRent != null) Disewakan @endif</p>
                                             </div>
                                         </div>
                                     </div>

@@ -42,4 +42,9 @@ class HelperController extends Controller
         if ($code) return "Laki-Laki";
         else return "Perempuan";
     }
+
+    public function getAutocompleteData(Request $request)
+    {
+        return City::where('name', 'like', '%' . $request->input('term') . '%')->get('name');
+    }
 }

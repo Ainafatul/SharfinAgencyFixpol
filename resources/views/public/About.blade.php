@@ -14,7 +14,7 @@
                 </div>
                 <div class="row">
                     <div class="col-10 mx-auto text-center">
-                        <img src="{{asset($data ->image)}}" class="text-center rounded img-artikel mb-5 mt-4">
+                        <img src="{{asset($data ->image)}}" class="text-center rounded img-artikel mb-5 mt-4" >
                     </div>
                 </div>
                 <div class="row">

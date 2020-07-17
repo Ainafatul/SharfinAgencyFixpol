@@ -50,9 +50,19 @@
                 <div class="col-12 col-lg-10 mx-auto px-0">
                     <form class="text-center" method="post" action="{{route('onNewsLetterSubscriber')}}">
                         @csrf
-                        <input class="form-control form-tanya rounded-pill mx-auto" style="width: 90%;" name="email" type="email" placeholder="Masukkan Email Anda"
-                               aria-label="Search">
-                        <input class="btn btn-tanya btn-secondary btn-md login mx-auto px-5 my-2 rounded-pill mb-0 mb-lg-5" type="submit" value="Kirim">
+                        <div>
+                            <input required class="form-control form-tanya rounded-pill mx-auto" style="width: 90%;" name="email"
+                                   type="email" placeholder="Masukkan Email Anda"
+                                   aria-label="Search">
+                        </div>
+                        <div>
+                            @if($errors->first()!='')
+                                <div class="alert alert-danger mx-auto px-5 my-2 rounded-pill mb-0 mb-lg-5" role="alert">{{$errors->first()}}</div>
+                            @endif
+                            <button
+                                class="btn btn-tanya btn-secondary btn-md login mx-auto px-5 my-2 rounded-pill mb-0 mb-lg-5"
+                                type="submit">Kirim</button>
+                        </div>
                     </form>
                 </div>
             </div>

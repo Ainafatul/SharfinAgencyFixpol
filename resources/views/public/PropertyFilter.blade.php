@@ -9,7 +9,8 @@
                     <div class="row ">
                         <div class="col-4 p-0">
                             <div class="form-input">
-                                <input class="form-control" type="text" name="location" placeholder="Lokasi">
+                                <input id="location" class="form-control" autocomplete="off" type="text" name="location"
+                                       placeholder="Lokasi berdasarkan Kota/Kab">
                             </div>
                         </div>
                         <div class="col-2 p-0">
@@ -42,19 +43,24 @@
                                     Mandi
                                 </option>
                                 <option @if(isset($_GET['km']) && $_GET['km'] == 99) selected @endif value="99">Semua
-                                    KM
                                 </option>
-                                <option @if(isset($_GET['km']) && $_GET['km'] == 1) selected @endif value="1">1 Kamar Mandi
+                                <option @if(isset($_GET['km']) && $_GET['km'] == 1) selected @endif value="1">1 Kamar
+                                    Mandi
                                 </option>
-                                <option @if(isset($_GET['km']) && $_GET['km'] == 2) selected @endif value="2">2 Kamar Mandi
+                                <option @if(isset($_GET['km']) && $_GET['km'] == 2) selected @endif value="2">2 Kamar
+                                    Mandi
                                 </option>
-                                <option @if(isset($_GET['km']) && $_GET['km'] == 3) selected @endif value="3">3 Kamar Mandi
+                                <option @if(isset($_GET['km']) && $_GET['km'] == 3) selected @endif value="3">3 Kamar
+                                    Mandi
                                 </option>
-                                <option @if(isset($_GET['km']) && $_GET['km'] == 4) selected @endif value="4">4 Kamar Mandi
+                                <option @if(isset($_GET['km']) && $_GET['km'] == 4) selected @endif value="4">4 Kamar
+                                    Mandi
                                 </option>
-                                <option @if(isset($_GET['km']) && $_GET['km'] == 5) selected @endif value="5">5 Kamar Mandi
+                                <option @if(isset($_GET['km']) && $_GET['km'] == 5) selected @endif value="5">5 Kamar
+                                    Mandi
                                 </option>
-                                <option @if(isset($_GET['km']) && $_GET['km'] == 6) selected @endif value="6">6 Kamar Mandi
+                                <option @if(isset($_GET['km']) && $_GET['km'] == 6) selected @endif value="6">6 Kamar
+                                    Mandi
                                 </option>
                             </select>
                         </div>
@@ -235,3 +241,13 @@
         <br><br>
     </div>
 @endsection
+@push('scripts')
+    var path = "{{ route('loc') }}";
+    $('#location').typeahead({
+    source: function (query, process) {
+    return $.get(path, {query: query}, function (data) {
+    return process(data);
+    });
+    }
+    });
+@endpush

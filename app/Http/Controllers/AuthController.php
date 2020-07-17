@@ -36,7 +36,7 @@ class AuthController extends Controller
     function dashboard()
     {
         $role = Auth::user()->role;
-        if ($role == 'User') return (new UserController())->dashboard();
+        if ($role == 'User') return redirect()->route('Landing');
         if ($role == 'Agent') return (new AgentController())->dashboard();
         if ($role == 'Admin') return (new AdminController())->dashboard();
         return null;

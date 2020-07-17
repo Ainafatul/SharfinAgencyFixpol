@@ -121,8 +121,10 @@ class AdminController extends Controller
     function declineAgent($id)
     {
         $agent = Agent::find($id);
+        $account = Account::find($id);
         Mail::to(Account::find($agent->id)->email)->send((new DeclineEmail()));
         Agent::destroy($id);
+        Account::destroy($id);
         return redirect()->back();
     }
 
@@ -153,11 +155,14 @@ class AdminController extends Controller
             'email' => $request['email'],
             'role' => 'Admin',
             'password' => Hash::make($request['password']),
+            'picture' => $request['picture'],
         ];
         $validator = $this->validatorAdminRegister($request);
         if (!$validator->fails()) {
             Account::create($data);
             $data['id'] = Account::latest()->first()->id;
+            $path = $request->file('picture')->storeAs('public/image/users', Carbon::now()->timestamp . '.' . $request->file('picture')->extension());
+            $data['picture'] = str_replace('public','storage',$path);
             Admin::create($data);
             return redirect(route('SignIn'));
         } else {

@@ -27,6 +27,9 @@ Route::get('/Guideline','GuidelineController@showAll')->name('Guideline');
 Route::get('/Guideline/{id}', 'GuidelineController@show')->name('GuideLine');
 Route::get('/Abouts','AboutController@show')->name('Abouts');
 
+Route::get('/Autocomplete','HelperController@create');
+Route::get('/Autocomplete/Data','HelperController@getAutocompleteData')->name('loc');
+
 //Guest
 Route::get('/SignIn', 'Auth\LoginController@index')->name('SignIn');
 Route::put('/onSignIn', 'Auth\LoginController@onLogin')->name('onSignIn');
