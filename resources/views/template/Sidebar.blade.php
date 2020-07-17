@@ -6,16 +6,16 @@
                 <i class="fas fa-times"></i>
             </div>
         </div>
-        <div class="sidebar-header">
-            <div class="user-pic">
-                <img class="img-responsive img-rounded" src="{{asset($auth->user->picture)}}" alt="User picture"
-                     style="width: 56px;height: 56px;object-fit: cover">
-            </div>
-            <div class="user-info">
-                <span class="user-name"><strong>{{\Illuminate\Support\Str::limit($auth->user->name,16)}}</strong></span>
-                <span class="user-role">{{$auth->account->role}}</span>
-            </div>
-        </div>
+{{--        <div class="sidebar-header">--}}
+{{--            <div class="user-pic">--}}
+{{--                <img class="img-responsive img-rounded" src="{{asset($auth->user->picture)}}" alt="User picture"--}}
+{{--                     style="width: 56px;height: 56px;object-fit: cover">--}}
+{{--            </div>--}}
+{{--            <div class="user-info">--}}
+{{--                <span class="user-name"><strong>{{\Illuminate\Support\Str::limit($auth->user->name,16)}}</strong></span>--}}
+{{--                <span class="user-role">{{$auth->account->role}}</span>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <!-- sidebar-header  -->
         <div class="sidebar-search">
             <div>

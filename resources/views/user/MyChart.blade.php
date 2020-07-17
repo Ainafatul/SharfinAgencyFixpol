@@ -1,4 +1,4 @@
-@extends('layout.Agent')
+@extends('layout.User')
 
 @section('content')
     <div class="single-slider slider-height2 d-flex align-items-center" style="margin-bottom: 128px;min-height: 500px;background: #15AC97">
