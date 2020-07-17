@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Account;
 use App\City;
 use App\GuideLine;
+use App\Like;
 use App\Property;
 use App\PropertyRent;
 use App\PropertySell;
@@ -24,6 +25,16 @@ class PropertyController extends Controller
         $property = Property::where('agent', Auth::id())->get()->all();
 
         return view('property.MyProperty', ['datas' => $property]);
+    }
+
+    function chart()
+    {
+        $datas = Like::where('user', Auth::id())->get()->all();
+        $result = [];
+        foreach ($datas as $data) {
+            $result[] = Property::find($data->property);
+        }
+        return view('user.MyChart', ['datas' => $result]);
     }
 
     function new()
@@ -188,4 +199,31 @@ class PropertyController extends Controller
         return redirect()->route('MyProperty');
 
     }
+
+    function onLiked(Request $request)
+    {
+        $data = [];
+        $data['user'] = Auth::id();
+        $data['property'] = $request->id;
+        Like::create($data);
+        return redirect()->back();
+    }
+
+    function onUnliked(Request $request)
+    {
+        $user = Auth::id();
+        $query = ['user' => $user, 'property' => $request->id];
+        Like::where($query)->get()->first()->delete();
+        return redirect()->back();
+    }
+
+    static function like($id)
+    {
+        $user = Auth::id();
+        $query = ['user' => $user, 'property' => $id];
+        $result = Like::where($query)->get();
+        return count($result);
+    }
+
+
 }

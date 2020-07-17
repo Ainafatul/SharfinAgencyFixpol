@@ -55,26 +55,10 @@
         </div>
     </li>
     <li class="sidebar-dropdown">
-        <a href="#">
+        <a href="{{route('PropertyChart')}}">
             <i class="fa fa-chart-line"></i>
             <span>Charts</span>
         </a>
-        <div class="sidebar-submenu">
-            <ul>
-                <li>
-                    <a href="#">Pie chart</a>
-                </li>
-                <li>
-                    <a href="#">Line chart</a>
-                </li>
-                <li>
-                    <a href="#">Bar chart</a>
-                </li>
-                <li>
-                    <a href="#">Histogram</a>
-                </li>
-            </ul>
-        </div>
     </li>
     <li class="sidebar-dropdown">
         <a href="#">

@@ -44,11 +44,11 @@
                 <a href="{{route('Dashboard')}}"
                    class="btn btn-nav btn-sm btn-light login px-5 my-2 my-sm-0 rounded-pill"
                    type="button">{{explode(" ",\App\Http\Controllers\AuthController::getData()->user->name)[0]}}</a>
-                @if(\Illuminate\Support\Facades\Auth::user()->role == 'User')
-                    <a href="{{route('Logout')}}"
-                       class="btn btn-nav btn-sm btn-light login px-5 my-2 my-sm-0 rounded-pill btn-primary"
-                       type="button">Log Out</a>
-                @endif
+{{--                @if(\Illuminate\Support\Facades\Auth::user()->role == 'User')--}}
+{{--                    <a href="{{route('Logout')}}"--}}
+{{--                       class="btn btn-nav btn-sm btn-light login px-5 my-2 my-sm-0 rounded-pill btn-primary"--}}
+{{--                       type="button">Log Out</a>--}}
+{{--                @endif--}}
             @endif
         </div>
     </nav>

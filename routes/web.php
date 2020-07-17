@@ -52,6 +52,12 @@ Route::put('/onAdminRegister', 'AdminController@onAdminRegister')->name('onAdmin
 Route::get('/Logout', 'Auth\LoginController@logout')->middleware('role:User,Agent,Admin')->name('Logout');
 Route::get('/Dashboard', 'AuthController@dashboard')->middleware('role:User,Agent,Admin')->name('Dashboard');
 
+//Route::middleware(['role:User'])->group(function () {
+Route::get('/Dashboard/Property/onLiked','PropertyController@onLiked')->name('onLiked');
+Route::get('/Dashboard/Property/onUnliked','PropertyController@onUnliked')->name('onUnliked');
+Route::get('/Dashboard/Property/Charts','PropertyController@chart')->name('PropertyChart');
+//});/
+
 Route::middleware(['role:Agent'])->group(function () {
     Route::get('/Dashboard/Property/My', 'PropertyController@my')->name('MyProperty');
     Route::get('/Dashboard/Property/New', 'PropertyController@new')->name('NewProperty');
