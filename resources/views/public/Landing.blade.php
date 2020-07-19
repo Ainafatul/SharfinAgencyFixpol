@@ -92,9 +92,6 @@
                 <div class="row" style="margin-top: 18px">
                     <!-- item -->
                     @foreach(\App\Http\Controllers\PropertyController::RecommendedProperty() as $data)
-                        <br>
-                        <br>
-                        <br>
                         <div class="col-xl-4" style="margin-bottom: 12px">
                             <div class="card">
                                 <a href="{{route('PropertyDetail',['id'=>$data->property->id])}}" class="item">
