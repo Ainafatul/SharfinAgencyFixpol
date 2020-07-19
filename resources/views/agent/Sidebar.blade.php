@@ -11,10 +11,18 @@
         <a><i class="fa fa-home"></i><span>Property</span></a>
         <div class="sidebar-submenu">
             <ul>
-                <li><a href="{{route('MyProperty')}}">List</a></li>
+                <li><a href="{{route('MySellProperty')}}">Jual</a></li>
+                <li><a href="{{route('MyRentProperty')}}">Sewa</a></li>
                 <li><a href="{{route('NewProperty')}}">Tambah</a></li>
+                <li><a href="#">Riwayat</a></li>
             </ul>
         </div>
+    </li>
+    <li>
+        <a href="{{route('AgentHistory')}}">
+            <i class="fa fa-info"></i>
+            <span>Riwayat</span>
+        </a>
     </li>
 @endsection
 

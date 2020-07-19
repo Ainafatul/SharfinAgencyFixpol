@@ -19,12 +19,12 @@ class Controller extends BaseController
 
     static function getRecommendedProperty()
     {
-        return Property::orderBy('updated_at', 'desc')->limit(4)->get();
+        return PropertyController::RecommendedProperty();
     }
 
-    static function getLatestProperty()
+    static function getNewProperty()
     {
-        return Property::orderBy('created_at', 'ASC')->limit(6)->get();
+        return Property::orderBy('created_at', 'DESC')->limit(4)->get();
     }
 
     static function getLatestArticle()

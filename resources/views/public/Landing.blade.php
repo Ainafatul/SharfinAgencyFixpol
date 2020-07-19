@@ -91,36 +91,40 @@
                 </div>
                 <div class="row" style="margin-top: 18px">
                     <!-- item -->
-                    @foreach(\App\Http\Controllers\Controller::getLatestProperty() as $property)
+                    @foreach(\App\Http\Controllers\PropertyController::RecommendedProperty() as $data)
+                        <br>
+                        <br>
+                        <br>
                         <div class="col-xl-4" style="margin-bottom: 12px">
                             <div class="card">
-                                <a href="{{route('PropertyDetail',['id'=>$property->id])}}" class="item">
+                                <a href="{{route('PropertyDetail',['id'=>$data->property->id])}}" class="item">
                                     <div class="row">
                                         <div class="col-5 p-0">
-                                            <img src="{{asset($property->main_image)}}" class="w-100" alt=""
+                                            <img src="{{asset($data->property->main_image)}}" class="w-100" alt=""
                                                  style="object-fit: cover;height: 150px">
                                         </div>
                                         <div class="col-7" style="padding-top: 16px">
-                                            <h5 class="" style="color: #1c7430;height: 38px">{{$property->name}}</h5>
-                                            <h6 class="alamat text-muted">{{\App\Http\Controllers\HelperController::parseLocation($property->location)}}</h6>
+                                            <h5 class=""
+                                                style="color: #1c7430;height: 38px">{{$data->property->name}}</h5>
+                                            <h6 class="alamat text-muted">{{\App\Http\Controllers\HelperController::parseLocation($data->property->location)}}</h6>
                                             <br>
-                                            <h5 class="card-title "@if($property->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($property->isSell)->price)}}
-                                            @else {{\App\Http\Controllers\Controller::format(\App\PropertyRent::find($property->isRent)->price)}} @endif
-                                            @if($property->isRent!=null)
-                                                / {{\App\PropertyRent::find($property->isRent)->timeType}} @endif</h5>
+                                            <h5 class="card-title "@if($data->property->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($data->property->isSell)->price)}}
+                                            @else {{\App\Http\Controllers\Controller::format(\App\PropertyRent::find($data->property->isRent)->price)}} @endif
+                                            @if($data->property->isRent!=null)
+                                                / {{\App\PropertyRent::find($data->property->isRent)->timeType}} @endif</h5>
                                                 <div class="row" style="padding-left: 8px;padding-right: 8px">
                                                     <div class="col item spek  p-0">
-                                                        <i class="fas fa-bed"> {{$property->bed_room}}</i>
+                                                        <i class="fas fa-bed"> {{$data->property->bed_room}}</i>
                                                     </div>
                                                     <div class="col item spek p-0">
-                                                        <i class="fas fa-shower"> {{$property->bath_room}}</i>
+                                                        <i class="fas fa-shower"> {{$data->property->bath_room}}</i>
                                                     </div>
                                                     <div class="col item spek p-0">
-                                                        <i class="fas fa-expand-arrows-alt"> {{$property->land_area}}
+                                                        <i class="fas fa-expand-arrows-alt"> {{$data->property->land_area}}
                                                             m<sup>2</sup></i>
                                                     </div>
                                                     <div class="col item spek p-0">
-                                                        <i class="fas fa-building"> {{$property->stories}} lt</i>
+                                                        <i class="fas fa-building"> {{$data->property->stories}} lt</i>
                                                     </div>
                                                 </div>
                                         </div>
@@ -128,7 +132,6 @@
                                 </a>
                             </div>
                         </div>
-
                     @endforeach
                 </div>
             </div>
@@ -217,7 +220,7 @@
                 </div>
                 <div class="row">
                     <!-- item -->
-                    @foreach( \App\Http\Controllers\Controller::getRecommendedProperty() as $property)
+                    @foreach( \App\Http\Controllers\Controller::getNewProperty() as $property)
                         <div class="item col-md-6 mb-1 col-lg-3 p-1 px-sm-2 px-lg-2 px-xl-3">
                             <div class="card mx-auto terbaru-card">
                                 <a href="{{route('PropertyDetail',['id'=>$property->id])}}" class="item">
@@ -350,52 +353,51 @@
                 </div>
                 <!-- item -->
                 <div class="row">
-                    @foreach(\App\Http\Controllers\Controller::getPortofolio() as $portofolio)
-                        <div class="item col-6 mb-1 col-lg-3 p-1 text-center">
-                            <figure class="figure figure-portofolio text-center">
-                                <img src="{{asset('lib/bootstrap/img/sold.svg')}}"
-                                     class="figure-img img-fluid icon mb-3" alt="">
-                                <figcaption class="figure-caption text-dark">
-                                    <h4 class="jumlah">{{$portofolio->sold}}</h4>
-                                    <h5 class="mb-0">Property Terjual</h5>
-                                </figcaption>
-                            </figure>
-                            <hr class="mx-5 mt-2" style="border-width: 2px;">
-                        </div>
-                        <div class="item col-6 mb-1 col-lg-3 p-1 text-center">
-                            <figure class="figure figure-portofolio text-center">
-                                <img src="{{asset('lib/bootstrap/img/rent.svg')}}"
-                                     class="figure-img img-fluid icon mb-3" alt="">
-                                <figcaption class="figure-caption text-dark">
-                                    <h1 class="jumlah">{{$portofolio->leased}}</h1>
-                                    <h5 class="mb-0">Property Disewa</h5>
-                                </figcaption>
-                            </figure>
-                            <hr class="mx-5 mt-2" style="border-width: 2px;">
-                        </div>
-                        <div class="item col-6 mb-1 col-lg-3 p-1 text-center">
-                            <figure class="figure figure-portofolio text-center">
-                                <img src="{{asset('lib/bootstrap/img/consulting.svg')}}"
-                                     class="figure-img img-fluid icon mb-3" alt="">
-                                <figcaption class="figure-caption text-dark">
-                                    <h1 class="jumlah">{{$portofolio->consult}}</h1>
-                                    <h5 class="mb-0">Orang Berkonsultasi</h5>
-                                </figcaption>
-                            </figure>
-                            <hr class="mx-5 mt-2" style="border-width: 2px;">
-                        </div>
-                        <div class="item col-6 mb-1 col-lg-3 p-1 text-center">
-                            <figure class="figure figure-portofolio text-center">
-                                <img src="{{asset('lib/bootstrap/img/agent.svg')}}"
-                                     class="figure-img img-fluid icon mb-3" alt="">
-                                <figcaption class="figure-caption text-dark">
-                                    <h1 class="jumlah">{{$portofolio->agent}}</h1>
-                                    <h5 class="mb-0">Agen</h5>
-                                </figcaption>
-                            </figure>
-                            <hr class="mx-5 mt-2" style="border-width: 2px;">
-                        </div>
-                    @endforeach
+                    <div class="item col-6 mb-1 col-lg-3 p-1 text-center">
+                        <figure class="figure figure-portofolio text-center">
+                            <img src="{{asset('lib/bootstrap/img/sold.svg')}}"
+                                 class="figure-img img-fluid icon mb-3" alt="">
+                            <figcaption class="figure-caption text-dark">
+                                <h4 class="jumlah">{{\App\Http\Controllers\AdminController::PropertyHistory(true)}}</h4>
+                                <h5 class="mb-0">Property Terjual</h5>
+                            </figcaption>
+                        </figure>
+                        <hr class="mx-5 mt-2" style="border-width: 2px;">
+                    </div>
+                    <div class="item col-6 mb-1 col-lg-3 p-1 text-center">
+                        <figure class="figure figure-portofolio text-center">
+                            <img src="{{asset('lib/bootstrap/img/rent.svg')}}"
+                                 class="figure-img img-fluid icon mb-3" alt="">
+                            <figcaption class="figure-caption text-dark">
+                                <h1 class="jumlah">{{\App\Http\Controllers\AdminController::PropertyHistory(false)}}</h1>
+                                <h5 class="mb-0">Property Disewa</h5>
+                            </figcaption>
+                        </figure>
+                        <hr class="mx-5 mt-2" style="border-width: 2px;">
+                    </div>
+                    <div class="item col-6 mb-1 col-lg-3 p-1 text-center">
+                        <figure class="figure figure-portofolio text-center">
+                            <img src="{{asset('lib/bootstrap/img/consulting.svg')}}"
+                                 class="figure-img img-fluid icon mb-3" alt="">
+                            <figcaption class="figure-caption text-dark">
+                                <h1 class="jumlah">500</h1>
+                                <h5 class="mb-0">Orang Berkonsultasi</h5>
+                            </figcaption>
+                        </figure>
+                        <hr class="mx-5 mt-2" style="border-width: 2px;">
+                    </div>
+                    <div class="item col-6 mb-1 col-lg-3 p-1 text-center">
+                        <figure class="figure figure-portofolio text-center">
+                            <img src="{{asset('lib/bootstrap/img/agent.svg')}}"
+                                 class="figure-img img-fluid icon mb-3" alt="">
+                            <figcaption class="figure-caption text-dark">
+                                <h1 class="jumlah">{{\App\Http\Controllers\AdminController::AgentHistory()}}</h1>
+                                <h5 class="mb-0">Agen</h5>
+                            </figcaption>
+                        </figure>
+                        <hr class="mx-5 mt-2" style="border-width: 2px;">
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -528,17 +530,20 @@
                         <form class="text-center" method="post" action="{{route('onNewsLetterSubscriber')}}">
                             @csrf
                             <div>
-                                <input required class="form-control form-tanya rounded-pill mx-auto" style="width: 90%;" name="email"
+                                <input required class="form-control form-tanya rounded-pill mx-auto" style="width: 90%;"
+                                       name="email"
                                        type="email" placeholder="Masukkan Email Anda"
                                        aria-label="Search">
                             </div>
                             <div>
                                 @if($errors->first()!='')
-                                    <div class="alert alert-danger mx-auto px-5 my-2 rounded-pill mb-0 mb-lg-5" role="alert">{{$errors->first()}}</div>
+                                    <div class="alert alert-danger mx-auto px-5 my-2 rounded-pill mb-0 mb-lg-5"
+                                         role="alert">{{$errors->first()}}</div>
                                 @endif
                                 <button
                                     class="btn btn-tanya btn-secondary btn-md login mx-auto px-5 my-2 rounded-pill mb-0 mb-lg-5"
-                                    type="submit">Kirim</button>
+                                    type="submit">Kirim
+                                </button>
                             </div>
                         </form>
                     </div>

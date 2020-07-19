@@ -67,17 +67,11 @@
             </ul>
         </div>
     </li>
-    <li class="sidebar-dropdown">
-        <a href="#">
+    <li>
+        <a href="{{route('AdminHistory')}}">
             <i class="fa fa-info"></i>
-            <span>Portofolio</span>
+            <span>Riwayat</span>
         </a>
-        <div class="sidebar-submenu">
-            <ul>
-                <li><a href="{{route('Portofolio')}}">Daftar</a></li>
-                <li><a href="{{route('NewPortofolio')}}">Tambah</a></li>
-            </ul>
-        </div>
     </li>
     <li>
         <a href="{{route('NewsLetterSubscriber')}}">

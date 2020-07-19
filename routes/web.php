@@ -52,14 +52,17 @@ Route::put('/onAdminRegister', 'AdminController@onAdminRegister')->name('onAdmin
 Route::get('/Logout', 'Auth\LoginController@logout')->middleware('role:User,Agent,Admin')->name('Logout');
 Route::get('/Dashboard', 'AuthController@dashboard')->middleware('role:User,Agent,Admin')->name('Dashboard');
 
-//Route::middleware(['role:User'])->group(function () {
+Route::middleware(['role:User'])->group(function () {
 Route::get('/Dashboard/Property/onLiked','PropertyController@onLiked')->name('onLiked');
 Route::get('/Dashboard/Property/onUnliked','PropertyController@onUnliked')->name('onUnliked');
 Route::get('/Dashboard/Property/Charts','PropertyController@chart')->name('PropertyChart');
-//});/
+});
 
 Route::middleware(['role:Agent'])->group(function () {
-    Route::get('/Dashboard/Property/My', 'PropertyController@my')->name('MyProperty');
+//    Route::get('/Dashboard/Property/My', 'PropertyController@my')->name('MyProperty');
+    Route::get('/Dashboard/Property/MySell', 'PropertyController@MySell')->name('MySellProperty');
+    Route::get('/Dashboard/Property/MyRent', 'PropertyController@MyRent')->name('MyRentProperty');
+    Route::get('/Dashboard/Property/{id}/Transaction', 'PropertyController@transaction')->name('TransactionProperty');
     Route::get('/Dashboard/Property/New', 'PropertyController@new')->name('NewProperty');
     Route::post('/Dashboard/Property/onNew', 'PropertyController@onNew')->name('onNewProperty');
     Route::get('/Dashboard/Property/{id}/Delete', 'PropertyController@delete')->name('DeleteProperty');
@@ -71,10 +74,12 @@ Route::middleware(['role:Agent'])->group(function () {
     Route::get('/Dashboard/Property/Districts', 'LocationController@getDistricts')->name('getDistricts');
     Route::get('/Dashboard/Property/SubDistricts', 'LocationController@getSubDistricts')->name('getSubDistricts');
 
+    Route::get('/Dashboard/History', function () {
+        return view('agent.PropertyHistory');
+    })->name('AgentHistory');
 });
 
 Route::middleware(['role:Admin'])->group(function () {
-
     Route::get('/Dashboard/Article/{id}/Delete', 'ArticleController@delete')->name('DeleteArticle');
     Route::post('/Dashboard/onNewArticle', 'AdminController@onNewArticle')->name('onNewArticle');
     Route::get('/Dashboard/Article/New', 'AdminController@newArticle')->name('NewArticle');
@@ -109,14 +114,11 @@ Route::middleware(['role:Admin'])->group(function () {
     Route::get('/Dashboard/NewReview', 'ReviewController@NewReview')->name('NewReview');
     Route::post('/Dashboard/onNewReview', 'ReviewController@onNewReview')->name('onNewReview');
 
-    Route::get('/Dashboard/Portofolio/{id}/Delete', 'PortofolioController@delete')->name('DeletePortofolio');
-    Route::post('/Dashboard/onPortofolio', 'PortofolioController@onNewPortofolio')->name('onNewPortofolio');
-    Route::get('/Dashboard/NewPortofolio', 'PortofolioController@newPortofolio')->name('NewPortofolio');
-    Route::get('/Dashboard/Portofolio', 'PortofolioController@list')->name('Portofolio');
-    Route::get('/Dashboard/Portofolio/{id}/Update', 'PortofolioController@update')->name('UpdatePortofolio');
-    Route::post('/Dashboard/Portofolio/{id}/onUpdate', 'PortofolioController@onUpdate')->name('onUpdatePortofolio');
-
     Route::get('/Dashboard/RegisterAdmin', 'AdminController@newAdmin')->name('AdminRegister');
+
+    Route::get('/Dashboard/Riwayat', function () {
+        return view('admin.PropertyHistory');
+    })->name('AdminHistory');
 });
 
 Route::redirect('/', '/Landing');
@@ -128,3 +130,4 @@ Route::get('/SubDistricts/{id}', 'LocationController@getSubDistricts')->name('ge
 
 Route::get('/Test', 'TestController@Test')->name('Test');
 Route::get('/onTest', 'TestController@onTest')->name('onTest');
+

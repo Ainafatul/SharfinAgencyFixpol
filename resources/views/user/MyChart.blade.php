@@ -27,8 +27,8 @@
                     <div class="item col-md-6 mb-1 col-lg-3 p-1 px-sm-2 px-lg-2 px-xl-3">
                         <div class="card mx-auto terbaru-card">
                             <a href="#" class="item">
-{{--                                <img src="{{asset($data->main_image)}}" class="img-fluid terbaru-img d-block mx-auto" alt="gambar 1"--}}
-{{--                                     style="height: 200px">--}}
+                                <img src="{{asset($data->main_image)}}" class="img-fluid terbaru-img d-block mx-auto" alt="gambar 1"
+                                     style="height: 200px">
                                 <div class="label label-card pl-2"><p style="font-size: 14px">{{$data->category}}</p></div>
                                 <div class="card-body ">
                                     <h6 class="card-subtitle mb-2" style="height: 32px">{{$data->name}}</h6>

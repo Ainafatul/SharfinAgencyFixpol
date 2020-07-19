@@ -24,6 +24,7 @@
         <div class="container container-md">
             <div class="row">
                 @foreach($datas as $data)
+                    @if($data->isSell != null)
                     <div class="item col-md-6 mb-1 col-lg-3 p-1 px-sm-2 px-lg-2 px-xl-3">
                         <div class="card mx-auto terbaru-card">
                             <a href="#" class="item">
@@ -63,6 +64,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 @endforeach
             </div>
         </div>

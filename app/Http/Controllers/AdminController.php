@@ -9,6 +9,7 @@ use App\Article;
 use App\GuideLine;
 use App\Mail\DeclineEmail;
 use App\Mail\SendMail;
+use App\Property_Update;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -147,7 +148,6 @@ class AdminController extends Controller
         ]);
     }
 
-
     function onAdminRegister(Request $request)
     {
         $data = [
@@ -168,5 +168,21 @@ class AdminController extends Controller
         } else {
             return redirect(route('AdminRegister'))->withErrors($validator);
         }
+    }
+
+    static function PropertyHistory($isSell)
+    {
+        if($isSell == true){
+            $property = Property_Update::where('isSell')->get()->all();
+        }else{
+            $property = Property_Update::where('isRent')->get()->all();
+        }
+        return count($property);
+    }
+
+    static function AgentHistory()
+    {
+        $property = Agent::where('approve','!=',null)->get()->all();
+        return count($property);
     }
 }

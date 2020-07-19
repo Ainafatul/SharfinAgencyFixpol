@@ -53,6 +53,42 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2020-06-28 18:19:18',
                 'updated_at' => '2020-06-28 18:19:18',
             ),
+            3 => 
+            array (
+                'id' => 17,
+                'name' => 'Ainafatul Nur Muslikah',
+                'birth_date' => '1996-12-30',
+                'gender' => 0,
+                'address' => 'Malang',
+                'phone' => '085735782195',
+                'picture' => 'storage/image/users/1594978877.jpeg',
+                'created_at' => '2020-07-17 09:41:17',
+                'updated_at' => '2020-07-17 09:41:17',
+            ),
+            4 => 
+            array (
+                'id' => 18,
+                'name' => 'Dafa Wiratama',
+                'birth_date' => '1988-02-01',
+                'gender' => 1,
+                'address' => 'Geneng',
+                'phone' => '085735782195',
+                'picture' => 'storage/image/users/1595051592.jpeg',
+                'created_at' => '2020-07-18 05:53:12',
+                'updated_at' => '2020-07-18 05:53:12',
+            ),
+            5 => 
+            array (
+                'id' => 19,
+                'name' => 'Caca',
+                'birth_date' => '1995-01-31',
+                'gender' => 0,
+                'address' => 'Gwneng',
+                'phone' => '085735782195',
+                'picture' => 'storage/image/users/1595056847.jpeg',
+                'created_at' => '2020-07-18 07:20:47',
+                'updated_at' => '2020-07-18 07:20:47',
+            ),
         ));
         
         

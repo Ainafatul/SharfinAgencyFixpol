@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Agent;
+use App\Property_Update;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,4 +46,19 @@ class AgentController extends Controller
         $filter[] = ['agency', 'LIKE', '%' . $request->agency . '%'];
         return view('public.AgentList')->with('agents', Agent::where($filter)->get());
     }
+
+    static function PropertyHistory($isSell)
+    {
+        if($isSell == true){
+            $filter = ['agent'=> Auth::id(),
+                ['isSell','!=',null]];
+        }else{
+            $filter = ['agent'=> Auth::id(),
+                ['isRent','!=',null]];
+        }
+        $property = Property_Update::where($filter)->get()->all();
+        return (count($property));
+    }
+
+
 }

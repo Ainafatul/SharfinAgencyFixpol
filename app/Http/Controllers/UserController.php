@@ -9,4 +9,6 @@ class UserController extends Controller
     function dashboard(){
         return view('user.Dashboard',['data'=>AuthController::getData()]);
     }
+
+
 }

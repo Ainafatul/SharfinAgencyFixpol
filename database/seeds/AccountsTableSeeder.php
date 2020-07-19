@@ -50,6 +50,39 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-06-28 21:30:51',
                 'updated_at' => '2020-06-28 21:30:51',
             ),
+            3 => 
+            array (
+                'id' => 17,
+                'email' => 'ainafatul20@gmail.com',
+                'role' => 'User',
+                'email_verified_at' => NULL,
+                'password' => '$2y$10$K1yBiEd54HliNLdaytkjGuc7at178TNYjg0RuNXc0JtJI1HbedlMa',
+                'remember_token' => NULL,
+                'created_at' => '2020-07-17 09:41:17',
+                'updated_at' => '2020-07-17 09:41:17',
+            ),
+            4 => 
+            array (
+                'id' => 18,
+                'email' => 'Dafawiratama13@admin.com',
+                'role' => 'User',
+                'email_verified_at' => NULL,
+                'password' => '$2y$10$XwXM1DBS5QJHD7RLYLmLi.M.jHpFS4LAIFd81DPHFpWxByiEVZhIq',
+                'remember_token' => NULL,
+                'created_at' => '2020-07-18 05:53:12',
+                'updated_at' => '2020-07-18 05:53:12',
+            ),
+            5 => 
+            array (
+                'id' => 19,
+                'email' => 'caca@gmail.com',
+                'role' => 'User',
+                'email_verified_at' => NULL,
+                'password' => '$2y$10$eJLURuz4uJpek3vYOjFTJ.YmKrZ8uulnHD0BwmqHUsAro/N4e/n86',
+                'remember_token' => NULL,
+                'created_at' => '2020-07-18 07:20:47',
+                'updated_at' => '2020-07-18 07:20:47',
+            ),
         ));
         
         

@@ -7,8 +7,10 @@ use App\City;
 use App\GuideLine;
 use App\Like;
 use App\Property;
+use App\Property_Update;
 use App\PropertyRent;
 use App\PropertySell;
+use App\Transaction;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -20,11 +22,18 @@ use phpDocumentor\Reflection\Types\Integer;
 class PropertyController extends Controller
 {
 
-    function my()
+    function MySell()
     {
         $property = Property::where('agent', Auth::id())->get()->all();
 
-        return view('property.MyProperty', ['datas' => $property]);
+        return view('property.Sell', ['datas' => $property]);
+    }
+
+    function MyRent()
+    {
+        $property = Property::where('agent', Auth::id())->get()->all();
+
+        return view('property.Rent', ['datas' => $property]);
     }
 
     function chart()
@@ -225,5 +234,78 @@ class PropertyController extends Controller
         return count($result);
     }
 
+    private static function comparator($object1, $object2)
+    {
+        return $object1->like < $object2->like;
+    }
+
+    static function RecommendedProperty()
+    {
+        $likes = Like::all();
+        $result = [];
+        foreach ($likes as $like) {
+            if (isset($result[$like->property])) {
+                $result[$like->property]->like++;
+            } else {
+                $obj = new \stdClass();
+                $obj->like = 1;
+                $obj->id = $like->property;
+                $obj->property = Property::find($like->property);
+                if ($obj->property != null) {
+                    $result[$like->property] = $obj;
+                }
+            }
+        }
+        usort($result, array('App\Http\Controllers\PropertyController', 'comparator'));
+        return array_slice($result, 0, 6);
+    }
+
+    function transaction(Request $request, $id)
+    {
+        $data = [];
+        $data['agent'] = Auth::id();
+        $data['property'] = $request->id;
+        Transaction::create($data);
+
+        $property = Property::where('id', $id)->get()->first();
+        $name = $property->name;
+        $agent = $property->agent;
+        $category = $property->category;
+        $isSell = $property->isSell;
+        $isRent = $property->isRent;
+        $bath_room = $property->bath_room;
+        $bed_room = $property->bed_room;
+        $stories = $property->stories;
+        $land_area = $property->land_area;
+        $building_area = $property->building_area;
+        $location = $property->location;
+        $address = $property->address;
+        $description = $property->description;
+        $main_image = $property->main_image;
+        $image = $property->image;
+
+        $update = new Property_Update();
+        $update->name = $name;
+        $update->agent = $agent;
+        $update->category = $category;
+        $update->bath_room = $bath_room;
+        $update->bed_room = $bed_room;
+        $update->stories = $stories;
+        $update->land_area = $land_area;
+        $update->building_area = $building_area;
+        $update->isSell = $isSell;
+        $update->isRent = $isRent;
+        $update->location = $location;
+        $update->address = $address;
+        $update->description = $description;
+        $update->main_image = $main_image;
+        $update->image = $image;
+        $update->save();
+        $property->delete();
+
+        return redirect()->back();
+    }
+
 
 }
+

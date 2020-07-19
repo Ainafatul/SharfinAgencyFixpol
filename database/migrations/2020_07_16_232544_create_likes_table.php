@@ -19,6 +19,7 @@ class CreateLikesTable extends Migration
             $table->integer('user');
             $table->timestamps();
         });
+        (new LikesTableSeeder())->run();
     }
 
     /**
