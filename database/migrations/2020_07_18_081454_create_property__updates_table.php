@@ -32,7 +32,7 @@ class CreatePropertyUpdatesTable extends Migration
             $table->string('main_image')->nullable(true);
             $table->timestamps();
         });
-        (new PropertyUpdatesTableSeeder())->run();
+//        (new PropertyUpdatesTableSeeder())->run();
     }
 
     /**

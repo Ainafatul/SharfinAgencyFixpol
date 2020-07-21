@@ -14,15 +14,18 @@
                 <li><a href="{{route('MySellProperty')}}">Jual</a></li>
                 <li><a href="{{route('MyRentProperty')}}">Sewa</a></li>
                 <li><a href="{{route('NewProperty')}}">Tambah</a></li>
-                <li><a href="#">Riwayat</a></li>
             </ul>
         </div>
     </li>
-    <li>
-        <a href="{{route('AgentHistory')}}">
-            <i class="fa fa-info"></i>
-            <span>Riwayat</span>
-        </a>
+    <li class="sidebar-dropdown">
+        <a><i class="fa fa-info"></i><span>Riwayat</span></a>
+        <div class="sidebar-submenu">
+            <ul>
+                <li><a href="{{route('ListPropertySold')}}">Terjual</a></li>
+                <li><a href="{{route('ListPropertyLeased')}}">Tersewa</a></li>
+                <li><a href="{{route('AgentHistory')}}">Riwayat</a></li>
+            </ul>
+        </div>
     </li>
 @endsection
 

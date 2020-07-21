@@ -10,6 +10,8 @@ use App\GuideLine;
 use App\Mail\DeclineEmail;
 use App\Mail\SendMail;
 use App\Property_Update;
+use App\PropertyRent;
+use App\PropertySell;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -173,9 +175,9 @@ class AdminController extends Controller
     static function PropertyHistory($isSell)
     {
         if($isSell == true){
-            $property = Property_Update::where('isSell')->get()->all();
+            $property = Property_Update::where('isSell', '!=', null)->get()->all();
         }else{
-            $property = Property_Update::where('isRent')->get()->all();
+            $property = Property_Update::where('isRent', '!=', null)->get()->all();
         }
         return count($property);
     }
@@ -184,5 +186,29 @@ class AdminController extends Controller
     {
         $property = Agent::where('approve','!=',null)->get()->all();
         return count($property);
+    }
+
+    function sold()
+    {
+        return view('admin.Sold')->with('datas', Property_Update::all());
+    }
+
+    function leased()
+    {
+        return view('admin.Leased')->with('datas', Property_Update::all());
+    }
+
+    static function PriceCount()
+    {
+        $datas = Property_Update::all();
+        $sold = 0;
+        $leased = 0;
+        foreach ($datas as $data) {
+            $sell = PropertySell::find($data->isSell);
+            if ($sell != null) $sold += $sell->price;
+            $rent = PropertyRent::find($data->isRent);
+            if ($rent != null) $leased += $rent->price;
+        }
+        return [$sold, $leased];
     }
 }

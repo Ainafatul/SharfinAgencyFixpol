@@ -67,11 +67,24 @@
             </ul>
         </div>
     </li>
-    <li>
-        <a href="{{route('AdminHistory')}}">
-            <i class="fa fa-info"></i>
-            <span>Riwayat</span>
-        </a>
+    <li class="sidebar-dropdown">
+        <a><i class="fa fa-home"></i><span>Property</span></a>
+        <div class="sidebar-submenu">
+            <ul>
+                <li><a href="{{route('AdminSellProperty')}}">Jual</a></li>
+                <li><a href="{{route('AdminRentProperty')}}">Sewa</a></li>
+            </ul>
+        </div>
+    </li>
+    <li class="sidebar-dropdown">
+        <a><i class="fa fa-info"></i><span>Riwayat</span></a>
+        <div class="sidebar-submenu">
+            <ul>
+                <li><a href="{{route('PropertySold')}}">Terjual</a></li>
+                <li><a href="{{route('PropertyLeased')}}">Tersewa</a></li>
+                <li><a href="{{route('AdminHistory')}}">Riwayat</a></li>
+            </ul>
+        </div>
     </li>
     <li>
         <a href="{{route('NewsLetterSubscriber')}}">

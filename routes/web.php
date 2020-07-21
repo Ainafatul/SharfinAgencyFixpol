@@ -77,6 +77,11 @@ Route::middleware(['role:Agent'])->group(function () {
     Route::get('/Dashboard/History', function () {
         return view('agent.PropertyHistory');
     })->name('AgentHistory');
+
+    Route::get('/Dashboard/Riwayat/ListSold', 'PropertyController@sold')->name('ListPropertySold');
+    Route::get('/Dashboard/Riwayat/ListLeased', 'PropertyController@leased')->name('ListPropertyLeased');
+
+    Route::get('/Dashboard/Pendapatan', 'AgentController@PriceCount')->name('PriceCount');
 });
 
 Route::middleware(['role:Admin'])->group(function () {
@@ -119,6 +124,13 @@ Route::middleware(['role:Admin'])->group(function () {
     Route::get('/Dashboard/Riwayat', function () {
         return view('admin.PropertyHistory');
     })->name('AdminHistory');
+
+    Route::get('/Dashboard/Property/Sell', 'PropertyController@AdminSellProperty')->name('AdminSellProperty');
+    Route::get('/Dashboard/Property/Rent', 'PropertyController@AdminRentProperty')->name('AdminRentProperty');
+    Route::get('/Dashboard/Property/{id}/AdminTransaction', 'PropertyController@AdminTransaction')->name('AdminTransactionProperty');
+
+    Route::get('/Dashboard/Riwayat/Sold', 'AdminController@sold')->name('PropertySold');
+    Route::get('/Dashboard/Riwayat/Leased', 'AdminController@leased')->name('PropertyLeased');
 });
 
 Route::redirect('/', '/Landing');

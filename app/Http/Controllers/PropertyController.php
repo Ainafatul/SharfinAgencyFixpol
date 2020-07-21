@@ -306,6 +306,76 @@ class PropertyController extends Controller
         return redirect()->back();
     }
 
+    function sold()
+    {
+        $property = Property_Update::where('agent', Auth::id())->get()->all();
+
+        return view('agent.Sold', ['datas' => $property]);
+    }
+
+    function leased()
+    {
+        $property = Property_Update::where('agent', Auth::id())->get()->all();
+
+        return view('agent.Leased', ['datas' => $property]);
+    }
+
+    function AdminSellProperty()
+    {
+        return view('admin.Sell')->with('datas', Property::all());
+    }
+
+    function AdminRentProperty()
+    {
+        return view('admin.Rent')->with('datas', Property::all());
+    }
+
+    function AdminTransaction(Request $request, $id)
+    {
+        $data = [];
+        $data['agent'] = $request->agent;
+        $data['property'] = $request->id;
+        Transaction::create($data);
+
+        $property = Property::where('id', $id)->get()->first();
+        $name = $property->name;
+        $agent = $property->agent;
+        $category = $property->category;
+        $isSell = $property->isSell;
+        $isRent = $property->isRent;
+        $bath_room = $property->bath_room;
+        $bed_room = $property->bed_room;
+        $stories = $property->stories;
+        $land_area = $property->land_area;
+        $building_area = $property->building_area;
+        $location = $property->location;
+        $address = $property->address;
+        $description = $property->description;
+        $main_image = $property->main_image;
+        $image = $property->image;
+
+        $update = new Property_Update();
+        $update->name = $name;
+        $update->agent = $agent;
+        $update->category = $category;
+        $update->bath_room = $bath_room;
+        $update->bed_room = $bed_room;
+        $update->stories = $stories;
+        $update->land_area = $land_area;
+        $update->building_area = $building_area;
+        $update->isSell = $isSell;
+        $update->isRent = $isRent;
+        $update->location = $location;
+        $update->address = $address;
+        $update->description = $description;
+        $update->main_image = $main_image;
+        $update->image = $image;
+        $update->save();
+        $property->delete();
+
+        return redirect()->back();
+    }
+
 
 }
 
