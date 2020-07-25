@@ -140,8 +140,7 @@ Route::get('/Cities/{id}', 'LocationController@getCities')->name('getCities');
 Route::get('/Districts/{id}', 'LocationController@getDistricts')->name('getDistricts');
 Route::get('/SubDistricts/{id}', 'LocationController@getSubDistricts')->name('getSubDistricts');
 
-Route::get('/Test', 'TestController@Test')->name('Test');
-Route::get('/onTest', 'TestController@onTest')->name('onTest');
-
 Route::get('/AgentChart', 'PropertyController@AgentChart');
+Route::get('/PropertyChart', 'PropertyController@PropertyChart');
 
+Route::get('/review', 'PropertyController@testimoni')->name('Review');

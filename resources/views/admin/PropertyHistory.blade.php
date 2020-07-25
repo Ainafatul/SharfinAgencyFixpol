@@ -105,9 +105,32 @@
                         chart.draw(data, options);
                     })
                 }
+
+            </script>
+            <script>
+                google.charts.load('current', {'packages': ['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+                function drawChart() {
+                    $.getJSON('http://127.0.0.1:8000/PropertyChart', function (data) {
+                        console.log(data)
+                        var data = google.visualization.arrayToDataTable(data);
+
+                        var options = {
+                            title: 'Property Chart',
+                            curveType: 'function',
+                            legend: {position: 'bottom'}
+                        };
+
+                        var chart = new google.visualization.LineChart(document.getElementById('property_chart'));
+
+                        chart.draw(data, options);
+                    })
+                }
             </script>
             <body>
             <div id="curve_chart" style="width: 900px; height: 500px"></div>
+            <br>
+            <div id="property_chart" style="width: 900px; height: 500px"></div>
             </body>
         </div>
     </div>

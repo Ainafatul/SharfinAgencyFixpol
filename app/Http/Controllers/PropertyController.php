@@ -11,6 +11,7 @@ use App\Property;
 use App\Property_Update;
 use App\PropertyRent;
 use App\PropertySell;
+use App\Review;
 use App\Transaction;
 use App\User;
 use Carbon\Carbon;
@@ -42,7 +43,7 @@ class PropertyController extends Controller
         $datas = Like::where('user', Auth::id())->get()->all();
         $result = [];
         foreach ($datas as $data) {
-            if(Property::find($data->property) != null){
+            if (Property::find($data->property) != null) {
                 $result[] = Property::find($data->property);
             }
         }
@@ -161,9 +162,9 @@ class PropertyController extends Controller
         if (!$validator->fails()) {
             if (count(explode(',', $data['image'])) > 7) return redirect()->back()->withErrors('Hanya 7 Gambar yang Diperbolehkan');
             $property = Property::create($data);
-            if ($property->isSell != null){
+            if ($property->isSell != null) {
                 return redirect()->route('MySellProperty');
-            }else {
+            } else {
                 return redirect()->route('MyRentProperty');
             }
 
@@ -214,9 +215,9 @@ class PropertyController extends Controller
         }
         $property->save();
 
-        if ($property->isSell != null){
+        if ($property->isSell != null) {
             return redirect()->route('MySellProperty');
-        }else {
+        } else {
             return redirect()->route('MyRentProperty');
         }
     }
@@ -256,17 +257,19 @@ class PropertyController extends Controller
         $likes = Like::all();
         $result = [];
         foreach ($likes as $like) {
-            if (isset($result[$like->property])) {
-                $result[$like->property]->like++;
-            } else {
-                $obj = new \stdClass();
-                $obj->like = 1;
-                $obj->id = $like->property;
-                $obj->property = Property::find($like->property);
-                if ($obj->property != null) {
-                    $result[$like->property] = $obj;
+            $test = Property::find($like->property);
+            if ($test != null)
+                if (isset($result[$like->property])) {
+                    $result[$like->property]->like++;
+                } else {
+                    $obj = new \stdClass();
+                    $obj->like = 1;
+                    $obj->id = $like->property;
+                    $obj->property = Property::find($like->property);
+                    if ($obj->property != null) {
+                        $result[$like->property] = $obj;
+                    }
                 }
-            }
         }
         usort($result, array('App\Http\Controllers\PropertyController', 'comparator'));
         return array_slice($result, 0, 6);
@@ -394,7 +397,6 @@ class PropertyController extends Controller
     static function AgentChart()
     {
         $datas = Agent::all();
-        $index = [];
         foreach ($datas as $data) {
             $date = self::getDate($data->approve);
             if (isset($index2[$date[1]]))
@@ -408,7 +410,7 @@ class PropertyController extends Controller
             }
         }
         $testtt = [];
-        $testtt[] = ['test','Total','Penambahan'];
+        $testtt[] = ['test', 'Total', 'Penambahan'];
         foreach ($index2 as $test) {
             $testtt[] = [$test->label, $test->date, $test->count];
         }
@@ -450,28 +452,41 @@ class PropertyController extends Controller
         return [substr($date, 8, 2), substr($date, 5, 2), substr($date, 0, 4)];
     }
 
-    function PropertyChart($isSell)
+    function PropertyChart()
     {
         $datas = Property_Update::all();
+        $lists = [];
         foreach ($datas as $data) {
-            $date = self::getDate($data->created_at);
-            if (isset($index2[$date[1]]))
-                $index2[$date[1]]->count += 1;
-            else {
+            $sell = 0;
+            $rent = 0;
+            if ($data->isSell) {
+                $sell = 1;
+            }
+            if ($data->isRent) {
+                $rent = 1;
+            }
+            if (isset($lists[$data->created_at->format('m')])) {
+                $lists[$data->created_at->format('m')]->sell += 1;
+                $lists[$data->created_at->format('m')]->rent += 1;
+            } else {
                 $t = new \stdClass();
-                $t->label = self::dateToString($date[1]);
-                $t->date = (int)$date[1];
-                $t->count = 1;
-                $index2[$date[1]] = $t;
+                $t->label = $data->created_at->format('M');
+                $t->date = $data->created_at->format('m');
+                $t->sell = $sell;
+                $t->rent = $rent;
+                $lists[$t->date] = $t;
             }
         }
-        if ($isSell == true){
-
-        }else {
-
-
+        $testtt[] = ['test', 'Jual', 'Sewa'];
+        foreach ($lists as $list) {
+            $testtt[] = [$list->label,(int) $list->sell, $list->rent];
         }
+        print_r(json_encode($testtt));
+    }
 
+    function testimoni()
+    {
+        return view('test')->with('datas', Review::all());
     }
 
 }
