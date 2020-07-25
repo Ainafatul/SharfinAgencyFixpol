@@ -20,6 +20,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('user')->nullable(true);
             $table->timestamps();
         });
+        (new TransactionsTableSeeder())->run();
     }
 
     /**

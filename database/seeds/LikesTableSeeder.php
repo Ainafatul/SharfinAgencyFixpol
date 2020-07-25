@@ -20,90 +20,146 @@ class LikesTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'property' => 1,
-                'user' => 17,
-                'created_at' => '2020-07-17 09:41:45',
-                'updated_at' => '2020-07-17 09:41:45',
+                'property' => 11,
+                'user' => 23,
+                'created_at' => '2020-07-24 10:49:45',
+                'updated_at' => '2020-07-24 10:49:45',
             ),
             1 => 
             array (
                 'id' => 2,
-                'property' => 11,
-                'user' => 17,
-                'created_at' => '2020-07-17 09:41:48',
-                'updated_at' => '2020-07-17 09:41:48',
+                'property' => 28,
+                'user' => 23,
+                'created_at' => '2020-07-24 10:49:48',
+                'updated_at' => '2020-07-24 10:49:48',
             ),
             2 => 
             array (
                 'id' => 3,
-                'property' => 5,
-                'user' => 17,
-                'created_at' => '2020-07-17 09:41:52',
-                'updated_at' => '2020-07-17 09:41:52',
+                'property' => 42,
+                'user' => 23,
+                'created_at' => '2020-07-24 10:49:51',
+                'updated_at' => '2020-07-24 10:49:51',
             ),
             3 => 
             array (
                 'id' => 4,
-                'property' => 9,
-                'user' => 17,
-                'created_at' => '2020-07-17 09:41:55',
-                'updated_at' => '2020-07-17 09:41:55',
+                'property' => 43,
+                'user' => 23,
+                'created_at' => '2020-07-24 10:49:57',
+                'updated_at' => '2020-07-24 10:49:57',
             ),
             4 => 
             array (
                 'id' => 5,
-                'property' => 1,
-                'user' => 18,
-                'created_at' => '2020-07-18 05:53:55',
-                'updated_at' => '2020-07-18 05:53:55',
+                'property' => 11,
+                'user' => 24,
+                'created_at' => '2020-07-24 10:50:25',
+                'updated_at' => '2020-07-24 10:50:25',
             ),
             5 => 
             array (
                 'id' => 6,
-                'property' => 3,
-                'user' => 18,
-                'created_at' => '2020-07-18 05:53:58',
-                'updated_at' => '2020-07-18 05:53:58',
+                'property' => 11,
+                'user' => 25,
+                'created_at' => '2020-07-24 10:50:53',
+                'updated_at' => '2020-07-24 10:50:53',
             ),
             6 => 
             array (
                 'id' => 7,
-                'property' => 11,
-                'user' => 18,
-                'created_at' => '2020-07-18 05:54:01',
-                'updated_at' => '2020-07-18 05:54:01',
+                'property' => 28,
+                'user' => 25,
+                'created_at' => '2020-07-24 10:50:56',
+                'updated_at' => '2020-07-24 10:50:56',
             ),
             7 => 
             array (
                 'id' => 8,
-                'property' => 5,
-                'user' => 18,
-                'created_at' => '2020-07-18 05:56:00',
-                'updated_at' => '2020-07-18 05:56:00',
+                'property' => 36,
+                'user' => 24,
+                'created_at' => '2020-07-24 10:51:59',
+                'updated_at' => '2020-07-24 10:51:59',
             ),
             8 => 
             array (
                 'id' => 9,
-                'property' => 7,
-                'user' => 18,
-                'created_at' => '2020-07-18 05:56:03',
-                'updated_at' => '2020-07-18 05:56:03',
+                'property' => 44,
+                'user' => 24,
+                'created_at' => '2020-07-24 10:52:03',
+                'updated_at' => '2020-07-24 10:52:03',
             ),
             9 => 
             array (
                 'id' => 10,
-                'property' => 13,
-                'user' => 18,
-                'created_at' => '2020-07-18 07:03:15',
-                'updated_at' => '2020-07-18 07:03:15',
+                'property' => 46,
+                'user' => 24,
+                'created_at' => '2020-07-24 10:52:06',
+                'updated_at' => '2020-07-24 10:52:06',
             ),
             10 => 
             array (
                 'id' => 11,
-                'property' => 11,
-                'user' => 19,
-                'created_at' => '2020-07-18 07:21:07',
-                'updated_at' => '2020-07-18 07:21:07',
+                'property' => 8,
+                'user' => 23,
+                'created_at' => '2020-07-24 11:10:31',
+                'updated_at' => '2020-07-24 11:10:31',
+            ),
+            11 => 
+            array (
+                'id' => 12,
+                'property' => 48,
+                'user' => 23,
+                'created_at' => '2020-07-24 11:10:36',
+                'updated_at' => '2020-07-24 11:10:36',
+            ),
+            12 => 
+            array (
+                'id' => 13,
+                'property' => 44,
+                'user' => 23,
+                'created_at' => '2020-07-24 11:10:42',
+                'updated_at' => '2020-07-24 11:10:42',
+            ),
+            13 => 
+            array (
+                'id' => 14,
+                'property' => 8,
+                'user' => 24,
+                'created_at' => '2020-07-24 11:11:07',
+                'updated_at' => '2020-07-24 11:11:07',
+            ),
+            14 => 
+            array (
+                'id' => 15,
+                'property' => 48,
+                'user' => 24,
+                'created_at' => '2020-07-24 11:11:14',
+                'updated_at' => '2020-07-24 11:11:14',
+            ),
+            15 => 
+            array (
+                'id' => 16,
+                'property' => 43,
+                'user' => 24,
+                'created_at' => '2020-07-24 11:13:00',
+                'updated_at' => '2020-07-24 11:13:00',
+            ),
+            16 => 
+            array (
+                'id' => 17,
+                'property' => 46,
+                'user' => 23,
+                'created_at' => '2020-07-24 11:14:45',
+                'updated_at' => '2020-07-24 11:14:45',
+            ),
+            17 => 
+            array (
+                'id' => 18,
+                'property' => 8,
+                'user' => 25,
+                'created_at' => '2020-07-24 11:15:54',
+                'updated_at' => '2020-07-24 11:15:54',
             ),
         ));
         

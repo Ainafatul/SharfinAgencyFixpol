@@ -77,4 +77,6 @@ class AgentController extends Controller
         return [$sold, $leased];
     }
 
+
+
 }

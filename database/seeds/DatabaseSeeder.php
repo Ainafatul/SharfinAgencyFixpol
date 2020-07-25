@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PropertyRentsTableSeeder::class);
         $this->call(LikesTableSeeder::class);
         $this->call(PropertyUpdatesTableSeeder::class);
+        $this->call(TransactionsTableSeeder::class);
     }
 }

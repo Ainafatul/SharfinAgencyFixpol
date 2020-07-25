@@ -143,3 +143,5 @@ Route::get('/SubDistricts/{id}', 'LocationController@getSubDistricts')->name('ge
 Route::get('/Test', 'TestController@Test')->name('Test');
 Route::get('/onTest', 'TestController@onTest')->name('onTest');
 
+Route::get('/AgentChart', 'PropertyController@AgentChart');
+

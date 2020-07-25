@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Account;
+use App\Agent;
 use App\City;
 use App\GuideLine;
 use App\Like;
@@ -41,7 +42,9 @@ class PropertyController extends Controller
         $datas = Like::where('user', Auth::id())->get()->all();
         $result = [];
         foreach ($datas as $data) {
-            $result[] = Property::find($data->property);
+            if(Property::find($data->property) != null){
+                $result[] = Property::find($data->property);
+            }
         }
         return view('user.MyChart', ['datas' => $result]);
     }
@@ -157,8 +160,13 @@ class PropertyController extends Controller
             }
         if (!$validator->fails()) {
             if (count(explode(',', $data['image'])) > 7) return redirect()->back()->withErrors('Hanya 7 Gambar yang Diperbolehkan');
-            Property::create($data);
-            return redirect()->route('MyProperty');
+            $property = Property::create($data);
+            if ($property->isSell != null){
+                return redirect()->route('MySellProperty');
+            }else {
+                return redirect()->route('MyRentProperty');
+            }
+
         }
         return redirect()->back()->withErrors($validator);
     }
@@ -166,7 +174,7 @@ class PropertyController extends Controller
     function delete($id)
     {
         Property::destroy($id);
-        return redirect()->route('MyProperty');
+        return redirect()->back();
     }
 
     function update($id)
@@ -205,8 +213,12 @@ class PropertyController extends Controller
             $property->image = HelperController::uploadImages('property', $request->file('image'));
         }
         $property->save();
-        return redirect()->route('MyProperty');
 
+        if ($property->isSell != null){
+            return redirect()->route('MySellProperty');
+        }else {
+            return redirect()->route('MyRentProperty');
+        }
     }
 
     function onLiked(Request $request)
@@ -285,8 +297,10 @@ class PropertyController extends Controller
         $image = $property->image;
 
         $update = new Property_Update();
+        $update->property = $id;
         $update->name = $name;
         $update->agent = $agent;
+        $update->category = $category;
         $update->category = $category;
         $update->bath_room = $bath_room;
         $update->bed_room = $bed_room;
@@ -355,6 +369,7 @@ class PropertyController extends Controller
         $image = $property->image;
 
         $update = new Property_Update();
+        $update->property = $id;
         $update->name = $name;
         $update->agent = $agent;
         $update->category = $category;
@@ -376,6 +391,88 @@ class PropertyController extends Controller
         return redirect()->back();
     }
 
+    static function AgentChart()
+    {
+        $datas = Agent::all();
+        $index = [];
+        foreach ($datas as $data) {
+            $date = self::getDate($data->approve);
+            if (isset($index2[$date[1]]))
+                $index2[$date[1]]->count += 1;
+            else {
+                $t = new \stdClass();
+                $t->label = self::dateToString($date[1]);
+                $t->date = (int)$date[1];
+                $t->count = 1;
+                $index2[$date[1]] = $t;
+            }
+        }
+        $testtt = [];
+        $testtt[] = ['test','Total','Penambahan'];
+        foreach ($index2 as $test) {
+            $testtt[] = [$test->label, $test->date, $test->count];
+        }
+        print_r(json_encode($testtt));
+    }
+
+    static function dateToString($mount)
+    {
+        switch ((int)$mount) {
+            case 1:
+                return 'January';
+            case 2:
+                return 'February';
+            case 3:
+                return 'March';
+            case 4:
+                return 'April';
+            case 5:
+                return 'May';
+            case 6:
+                return 'June';
+            case 7:
+                return 'July';
+            case 8:
+                return 'August';
+            case 9:
+                return 'September';
+            case 10:
+                return 'October';
+            case 11:
+                return 'November';
+            case 12:
+                return 'December';
+        }
+    }
+
+    static function getDate($date)
+    {
+        return [substr($date, 8, 2), substr($date, 5, 2), substr($date, 0, 4)];
+    }
+
+    function PropertyChart($isSell)
+    {
+        $datas = Property_Update::all();
+        foreach ($datas as $data) {
+            $date = self::getDate($data->created_at);
+            if (isset($index2[$date[1]]))
+                $index2[$date[1]]->count += 1;
+            else {
+                $t = new \stdClass();
+                $t->label = self::dateToString($date[1]);
+                $t->date = (int)$date[1];
+                $t->count = 1;
+                $index2[$date[1]] = $t;
+            }
+        }
+        if ($isSell == true){
+
+        }else {
+
+
+        }
+
+    }
 
 }
 

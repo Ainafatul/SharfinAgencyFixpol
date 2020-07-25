@@ -89,6 +89,42 @@ class UsersTableSeeder extends Seeder
                 'created_at' => '2020-07-18 07:20:47',
                 'updated_at' => '2020-07-18 07:20:47',
             ),
+            6 => 
+            array (
+                'id' => 23,
+                'name' => 'User1',
+                'birth_date' => '1995-01-31',
+                'gender' => 1,
+                'address' => 'Malang',
+                'phone' => '085735782195',
+                'picture' => 'storage/image/users/1595587635.jpeg',
+                'created_at' => '2020-07-24 10:47:15',
+                'updated_at' => '2020-07-24 10:47:15',
+            ),
+            7 => 
+            array (
+                'id' => 24,
+                'name' => 'user2',
+                'birth_date' => '1996-11-14',
+                'gender' => 1,
+                'address' => 'Malang',
+                'phone' => '085735782195',
+                'picture' => 'storage/image/users/1595587698.jpeg',
+                'created_at' => '2020-07-24 10:48:18',
+                'updated_at' => '2020-07-24 10:48:18',
+            ),
+            8 => 
+            array (
+                'id' => 25,
+                'name' => 'User3',
+                'birth_date' => '1997-02-04',
+                'gender' => 1,
+                'address' => 'Malang',
+                'phone' => '085735782195',
+                'picture' => 'storage/image/users/1595587755.jpeg',
+                'created_at' => '2020-07-24 10:49:15',
+                'updated_at' => '2020-07-24 10:49:15',
+            ),
         ));
         
         

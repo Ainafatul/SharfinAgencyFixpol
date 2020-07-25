@@ -15,6 +15,7 @@ class CreatePropertyUpdatesTable extends Migration
     {
         Schema::create('property_updates', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('property')->nullable(true);
             $table->integer('agent');
             $table->string('category');
             $table->integer('isSell')->nullable(true);
@@ -32,7 +33,7 @@ class CreatePropertyUpdatesTable extends Migration
             $table->string('main_image')->nullable(true);
             $table->timestamps();
         });
-//        (new PropertyUpdatesTableSeeder())->run();
+        (new PropertyUpdatesTableSeeder())->run();
     }
 
     /**

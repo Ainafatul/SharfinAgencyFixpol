@@ -9,6 +9,7 @@ class Property_Update extends Model
     protected $table="property_updates";
     protected $fillable=[
         'id',
+        'property',
         'agent',
         'category',
         'isSell',
