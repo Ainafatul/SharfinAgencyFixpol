@@ -1,234 +1,229 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{asset('lib/bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('lib/bootstrap/fontawesome/css/all.css')}}">
+    <link rel="stylesheet" href="{{asset('lib/bootstrap/css/style.css')}}">
+
+    <!-- google font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=lora:400,700|Montserrat:200,400,500,600,700,900&display=swap">
+
+    <!-- owlcarousel -->
+    <link rel="stylesheet" href="{{asset('lib/bootstrap/OwlCarousel2/dist/assets/owl.carousel.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{asset('lib/bootstrap/OwlCarousel2/dist/assets/owl.theme.default.min.css')}}"
+          type="text/css">
+
+
+    <title>Sarfin Agency</title>
+</head>
+<body>
+<!-- testimoni -->
+<section class="section-testimoni">
+    <div class="container my-3">
+        <div class="row text-center">
+            <div class="col-3 text-right quote-title">
+                <i class="fas fa-quote-left"></i>
+            </div>
+            <div class="col-6 my-auto">
+                <h3 class="testimoni-title">Cerita Mereka</h3>
+            </div>
+            <div class="col-3 text-left quote-title">
+                <i class="fas fa-quote-right"></i>
+            </div>
+        </div>
+        <!-- item -->
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <figure class="figure testimoni-figure">
+                    <div class="row mx-3 ">
+                        <div class="col-4 mt-3 text-center ">
+                            <img src="bootstrap/img/user.png" class="img-testimoni">
+                        </div>
+                        <div class="col-6 my-auto pl-0">
+                            <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">Thoriq Romi</h6>
+                            <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">Programmer</p>
+                        </div>
+                        <div class="quote-item col-2 pl-0 my-auto">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <figcaption class="figure-caption">
+                                <div class="figure-caption text-dark text-justify px-3 pt-2">
+                                    <p><span class="quote">"</span> Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit. Eaque, dolorem.<span class="font-weight-bold quote">"</span></p>
+                                </div>
+                            </figcaption>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+            <div class="item">
+                <figure class="figure testimoni-figure">
+                    <div class="row mx-3 ">
+                        <div class="col-4 mt-3 text-center ">
+                            <img src="bootstrap/img/user.png" class="img-testimoni">
+                        </div>
+                        <div class="col-6 my-auto pl-0">
+                            <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">Thoriq Romi</h6>
+                            <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">Programmer</p>
+                        </div>
+                        <div class="quote-item col-2 pl-0 my-auto">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <figcaption class="figure-caption">
+                                <div class="figure-caption text-dark text-justify px-3 pt-2">
+                                    <p><span class="quote">"</span> Lorem ipsum, dolor sit amet consectetur adipisicing
+                                        elit. Corporis fugit, earum non necessitatibus nihil rem doloribus veniam libero
+                                        velit vitae! <span class="font-weight-bold quote">"</span></p>
+                                </div>
+                            </figcaption>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+            <div class="item">
+                <figure class="figure testimoni-figure">
+                    <div class="row mx-3 ">
+                        <div class="col-4 mt-3 text-center ">
+                            <img src="bootstrap/img/user.png" class="img-testimoni">
+                        </div>
+                        <div class="col-6 my-auto pl-0">
+                            <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">Thoriq Romi</h6>
+                            <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">Programmer</p>
+                        </div>
+                        <div class="quote-item col-2 pl-0 my-auto">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <figcaption class="figure-caption">
+                                <div class="figure-caption text-dark text-justify px-3 pt-2">
+                                    <p><span class="quote">"</span> Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit. Quas cumque modi, dolorem in laboriosam temporibus? <span
+                                            class="font-weight-bold quote">"</span></p>
+                                </div>
+                            </figcaption>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+            <div class="item">
+                <figure class="figure testimoni-figure">
+                    <div class="row mx-3 ">
+                        <div class="col-4 mt-3 text-center ">
+                            <img src="bootstrap/img/user.png" class="img-testimoni">
+                        </div>
+                        <div class="col-6 my-auto pl-0">
+                            <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">Thoriq Romi</h6>
+                            <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">Programmer</p>
+                        </div>
+                        <div class="quote-item col-2 pl-0 my-auto">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <figcaption class="figure-caption">
+                                <div class="figure-caption text-dark text-justify px-3 pt-2">
+                                    <p><span class="quote">"</span> Lorem ipsum dolor sit amet consectetur adipisicing
+                                        elit. Temporibus tempora quia deleniti incidunt nesciunt eveniet nam doloribus,
+                                        ipsum rerum voluptate? <span class="font-weight-bold quote">"</span></p>
+                                </div>
+                            </figcaption>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+            <div class="item">
+                <figure class="figure testimoni-figure">
+                    <div class="row mx-3 ">
+                        <div class="col-4 mt-3 text-center ">
+                            <img src="bootstrap/img/user.png" class="img-testimoni">
+                        </div>
+                        <div class="col-6 my-auto pl-0">
+                            <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">Thoriq Romi</h6>
+                            <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">Programmer</p>
+                        </div>
+                        <div class="quote-item col-2 pl-0 my-auto">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <figcaption class="figure-caption">
+                                <div class="figure-caption text-dark text-justify px-3 pt-2">
+                                    <p><span class="quote">"</span> Lorem ipsum, dolor sit amet consectetur adipisicing
+                                        elit. Sapiente nulla deleniti iste qui delectus, provident dolor nostrum
+                                        recusandae magni, est quam. Officiis dolorem reprehenderit optio accusantium,
+                                        odit magni iure beatae natus alias at placeat nihil nisi ad maiores quia
+                                        deleniti a recusandae sint non molestias. At dicta doloribus id aperiam! <span
+                                            class="font-weight-bold quote">"</span></p>
+                                </div>
+                            </figcaption>
+                        </div>
+                    </div>
+                </figure>
+            </div>
+        </div>
+        <!-- akhir item -->
+    </div>
+</section>
+<br><br>
+<!-- akhir testimoni -->
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-<div class="top-content">
-    <div class="container-fluid">
-        <div id="carousel-example" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner row w-100 mx-auto" role="listbox">
-                @foreach($datas as $review)
-                    <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
-                        <figure class="figure testimoni-figure">
-                            <div class="row mx-3 ">
-                                <div class="col-4 mt-3 text-center ">
-                                    <img src="{{asset($review->image)}}" class="img-testimoni" alt="">
-                                </div>
-                                <div class="col-6 my-auto pl-0">
-                                    <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">{{$review->name}}</h6>
-                                    <p class="testimoni-pekerjaan mx-auto text-muted"
-                                       style="font-size: small;">{{$review->job}}</p>
-                                </div>
-                                <div class="quote-item col-2 pl-0 my-auto">
-                                    <i class="fas fa-quote-left"></i>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <figcaption class="figure-caption">
-                                        <div class="figure-caption text-dark text-justify px-3 pt-2">
-                                            <p><span class="quote">"</span> {{$review->message}} <span
-                                                    class="font-weight-bold quote">"</span></p>
-                                        </div>
-                                    </figcaption>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                @endforeach
-                <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </div>
-    <style>
-        /*
-        code by Iatek LLC 2018 - CC 2.0 License - Attribution required
-        code customized by Azmind.com
-    */
-        @media (min-width: 768px) and (max-width: 991px) {
-            /* Show 4th slide on md if col-md-4*/
-            .carousel-inner .active.col-md-4.carousel-item + .carousel-item + .carousel-item + .carousel-item {
-                position: absolute;
-                top: 0;
-                right: -33.3333%; /*change this with javascript in the future*/
-                z-index: -1;
-                display: block;
-                visibility: visible;
+<script src="bootstrap/OwlCarousel2/docs/assets/vendors/jquery.min.js" type="text/javascript"></script>
+<script src="bootstrap/OwlCarousel2/dist/owl.carousel.js" type="text/javascript"></script>
+    @push('scripts')
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 3
+            },
+            1000: {
+                items: 3
             }
         }
+    })
 
-        @media (min-width: 576px) and (max-width: 768px) {
-            /* Show 3rd slide on sm if col-sm-6*/
-            .carousel-inner .active.col-sm-6.carousel-item + .carousel-item + .carousel-item {
-                position: absolute;
-                top: 0;
-                right: -50%; /*change this with javascript in the future*/
-                z-index: -1;
-                display: block;
-                visibility: visible;
-            }
-        }
 
-        @media (min-width: 576px) {
-            .carousel-item {
-                margin-right: 0;
-            }
+    $('.carousel').carousel({
+    interval: 2500,
+    puse: 'hover',
+    wrap: true,
+    touch: true
+    })
+    @endpush
+<!-- slider -->
 
-            /* show 2 items */
-            .carousel-inner .active + .carousel-item {
-                display: block;
-            }
-
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item {
-                transition: none;
-            }
-
-            .carousel-inner .carousel-item-next {
-                position: relative;
-                transform: translate3d(0, 0, 0);
-            }
-
-            /* left or forward direction */
-            .active.carousel-item-left + .carousel-item-next.carousel-item-left,
-            .carousel-item-next.carousel-item-left + .carousel-item,
-            .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(-100%, 0, 0);
-                visibility: visible;
-            }
-
-            /* farthest right hidden item must be also positioned for animations */
-            .carousel-inner .carousel-item-prev.carousel-item-right {
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1;
-                display: block;
-                visibility: visible;
-            }
-
-            /* right or prev direction */
-            .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
-            .carousel-item-prev.carousel-item-right + .carousel-item,
-            .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(100%, 0, 0);
-                visibility: visible;
-                display: block;
-                visibility: visible;
-            }
-        }
-
-        /* MD */
-        @media (min-width: 768px) {
-            /* show 3rd of 3 item slide */
-            .carousel-inner .active + .carousel-item + .carousel-item {
-                display: block;
-            }
-
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item {
-                transition: none;
-            }
-
-            .carousel-inner .carousel-item-next {
-                position: relative;
-                transform: translate3d(0, 0, 0);
-            }
-
-            /* left or forward direction */
-            .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(-100%, 0, 0);
-                visibility: visible;
-            }
-
-            /* right or prev direction */
-            .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(100%, 0, 0);
-                visibility: visible;
-                display: block;
-                visibility: visible;
-            }
-        }
-
-        /* LG */
-        @media (min-width: 991px) {
-            /* show 4th item */
-            .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item {
-                display: block;
-            }
-
-            .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
-                transition: none;
-            }
-
-            /* Show 5th slide on lg if col-lg-3 */
-            .carousel-inner .active.col-lg-3.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-                position: absolute;
-                top: 0;
-                right: -25%; /*change this with javascript in the future*/
-                z-index: -1;
-                display: block;
-                visibility: visible;
-            }
-
-            /* left or forward direction */
-            .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(-100%, 0, 0);
-                visibility: visible;
-            }
-
-            /* right or prev direction //t - previous slide direction last item animation fix */
-            .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
-                position: relative;
-                transform: translate3d(100%, 0, 0);
-                visibility: visible;
-                display: block;
-                visibility: visible;
-            }
-        }
-    </style>
-    <script>
-        /*
-        Carousel
-    */
-        $('#carousel-example').on('slide.bs.carousel', function (e) {
-            /*
-                CC 2.0 License Iatek LLC 2018 - Attribution required
-            */
-            var $e = $(e.relatedTarget);
-            var idx = $e.index();
-            var itemsPerSlide = 5;
-            var totalItems = $('.carousel-item').length;
-
-            if (idx >= totalItems - (itemsPerSlide - 1)) {
-                var it = itemsPerSlide - (totalItems - idx);
-                for (var i = 0; i < it; i++) {
-                    // append slides to end
-                    if (e.direction == "left") {
-                        $('.carousel-item').eq(i).appendTo('.carousel-inner');
-                    } else {
-                        $('.carousel-item').eq(0).appendTo('.carousel-inner');
-                    }
-                }
-            }
-        });
-    </script>
+<!-- akhir slider -->
+</body>
+</html>
