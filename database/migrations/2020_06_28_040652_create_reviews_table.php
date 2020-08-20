@@ -21,6 +21,7 @@ class CreateReviewsTable extends Migration
             $table->string('image')->nullable(true);
             $table->timestamps();
         });
+        (new ReviewsTableSeeder())->run();
     }
 
     /**

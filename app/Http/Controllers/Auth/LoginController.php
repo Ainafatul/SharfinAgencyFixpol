@@ -36,7 +36,9 @@ class LoginController extends Controller
                     Auth::logout();
                     return redirect()->back()->withErrors(['Agent Not Approve']);
                 } else  return redirect(route('Dashboard'));
-            } else  return redirect(route('Dashboard'));
+            } if(Auth::user()->role == 'Admin') {
+                return redirect(route('Dashboard'));
+            }else  return redirect()->route('Landing');
         }
         return redirect()->back()->withErrors(['Kata Sandi atau Password Salah']);
     }

@@ -457,36 +457,31 @@ class PropertyController extends Controller
         $datas = Property_Update::all();
         $lists = [];
         foreach ($datas as $data) {
-            $sell = 0;
-            $rent = 0;
-            if ($data->isSell) {
-                $sell = 1;
-            }
-            if ($data->isRent) {
-                $rent = 1;
-            }
-            if (isset($lists[$data->created_at->format('m')])) {
-                $lists[$data->created_at->format('m')]->sell += 1;
-                $lists[$data->created_at->format('m')]->rent += 1;
-            } else {
+            if(!isset($lists[$data->created_at->format('m')])){
                 $t = new \stdClass();
                 $t->label = $data->created_at->format('M');
                 $t->date = $data->created_at->format('m');
-                $t->sell = $sell;
-                $t->rent = $rent;
+                $t->sell = 0;
+                $t->rent = 0;
                 $lists[$t->date] = $t;
+            }
+
+            if (isset($lists[$data->created_at->format('m')])) {
+                if($data->isSell) $lists[$data->created_at->format('m')]->sell += 1;
+                if ($data->isRent) $lists[$data->created_at->format('m')]->rent += 1;
             }
         }
         $testtt[] = ['test', 'Jual', 'Sewa'];
         foreach ($lists as $list) {
-            $testtt[] = [$list->label,(int) $list->sell, $list->rent];
+            $testtt[] = [$list->label,(int) $list->sell,(int) $list->rent];
         }
         print_r(json_encode($testtt));
     }
 
     function testimoni()
     {
-        return view('test')->with('datas', Review::all());
+        $datas = Review::all();
+        return view('test')->with('datas', $datas);
     }
 
 }

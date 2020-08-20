@@ -87,11 +87,17 @@
                                 <hr class="mx-0 mt-0 mb-2" style="border-width: 2px;">
                                 <div class="row mx-0 mx-sm-1">
                                     <div class="col-12 mb-2">
-                                        <div class="btn-group-toggle" data-toggle="buttons">
-                                            <label class="btn btn-sm btn-outline-danger py-0 py-sm-1 btn-block">
-                                                <input type="checkbox"> <i class="far fa-heart "></i>
-                                            </label>
-                                        </div>
+                                        <form
+                                            action="@if(\App\Http\Controllers\PropertyController::like($property->id)){{route('onUnliked')}}
+                                            @else {{route('onLiked')}} @endif">
+                                            <input value="{{$property->id}}" name='id' hidden>
+                                            <button type="submit" class="btn btn-sm
+                                                                @if(\App\Http\Controllers\PropertyController::like($property->id)) {{'btn-danger'}}
+                                            @else {{'btn-outline-danger'}} @endif px-1 px-lg-3 py-sm-1 btn-block"
+                                                    style="margin-bottom: 4px"><i
+                                                    class="far fa-heart"> </i>
+                                            </button>
+                                        </form>
                                     </div>
                                     <div class="col-12 ">
                                         <button type="button"

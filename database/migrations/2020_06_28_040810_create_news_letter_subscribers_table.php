@@ -18,6 +18,7 @@ class CreateNewsLetterSubscribersTable extends Migration
             $table->string('email')->unique();
             $table->timestamps();
         });
+        (new NewsLetterSubscribersTableSeeder())->run();
     }
 
     /**

@@ -20,6 +20,7 @@ class CreateAboutsTable extends Migration
             $table->string('image')->nullable(true);
             $table->timestamps();
         });
+        (new AboutsTableSeeder())->run();
     }
 
     /**

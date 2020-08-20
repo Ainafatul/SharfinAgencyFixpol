@@ -20,7 +20,7 @@ class AdminsTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 6,
-                'name' => 'Dafa Wiratama',
+                'name' => 'Thoriq Romi',
                 'picture' => 'storage/image/users/wiratama.jpg',
                 'created_at' => '2020-06-28 18:24:30',
                 'updated_at' => '2020-06-28 18:24:30',
