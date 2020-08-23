@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="{{asset('lib/bootstrap/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('lib/bootstrap/fontawesome/css/all.css')}}">
     <link rel="stylesheet" href="{{asset('lib/bootstrap/css/style.css')}}">
-    <link rel="stylesheet" href="{{asset('lib/bootstrap/OwlCarousel2/dist/assets/owl.carousel.css')}}">
-    <link rel="stylesheet" href="{{asset('lib/bootstrap/OwlCarousel2/dist/assets/owl.theme.default.min.css')}}">
+
     <link rel="stylesheet" href="{{asset('res/css/custom.css')}}">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=lora:400,700|Montserrat:200,400,500,600,700,900&display=swap">

@@ -1,6 +1,8 @@
 @extends('layout.Main')
 
 @section('content')
+    <link rel="stylesheet" href="{{asset('lib/bootstrap/OwlCarousel/dist/assets/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('lib/bootstrap/OwlCarousel/dist/assets/owl.theme.default.min.css')}}">
     <div>
         <!-- banner -->
         <section>
@@ -456,147 +458,56 @@
         <section class="section-testimoni">
             <div class="container my-3">
                 <div class="row text-center">
-                    <div class="col-3 text-right quote-title" >
+                    <div class="col-3 text-right quote-title">
                         <i class="fas fa-quote-left"></i>
                     </div>
                     <div class="col-6 my-auto">
                         <h3 class="testimoni-title">Cerita Mereka</h3>
                     </div>
-                    <div class="col-3 text-left quote-title" >
+                    <div class="col-3 text-left quote-title">
                         <i class="fas fa-quote-right"></i>
                     </div>
                 </div>
                 <!-- item -->
                 <div class="owl-carousel owl-theme">
-                    <div class="item">
-                        <figure class="figure testimoni-figure">
-                            <div class="row mx-3 ">
-                                <div class="col-4 mt-3 text-center ">
-                                    <img src="bootstrap/img/user.png" class="img-testimoni">
+                    @php($datas = \App\Review::all())
+                    @foreach($datas as $data)
+                        <div class="item">
+                            <figure class="figure testimoni-figure">
+                                <div class="row mx-3 ">
+                                    <div class="col-4 mt-3 text-center ">
+                                        <img src="{{asset($data->image)}}" class="img-testimoni">
+                                    </div>
+                                    <div class="col-6 my-auto pl-0">
+                                        <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">{{$data->name}}</h6>
+                                        <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">
+                                            Programmer</p>
+                                    </div>
+                                    <div class="quote-item col-2 pl-0 my-auto">
+                                        <i class="fas fa-quote-left"></i>
+                                    </div>
                                 </div>
-                                <div class="col-6 my-auto pl-0">
-                                    <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">Thoriq Romi</h6>
-                                    <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">Programmer</p>
+                                <div class="row">
+                                    <div class="col">
+                                        <figcaption class="figure-caption">
+                                            <div class="figure-caption text-dark text-justify px-3 pt-2">
+                                                <p><span class="quote">"</span> {{$data->message}}<span
+                                                        class="font-weight-bold quote">"</span></p>
+                                            </div>
+                                        </figcaption>
+                                    </div>
                                 </div>
-                                <div class="quote-item col-2 pl-0 my-auto">
-                                    <i class="fas fa-quote-left"></i>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <figcaption class="figure-caption">
-                                        <div class="figure-caption text-dark text-justify px-3 pt-2">
-                                            <p><span class="quote">"</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, dolorem.<span class="font-weight-bold quote">"</span></p>
-                                        </div>
-                                    </figcaption>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="item">
-                        <figure class="figure testimoni-figure">
-                            <div class="row mx-3 ">
-                                <div class="col-4 mt-3 text-center ">
-                                    <img src="bootstrap/img/user.png" class="img-testimoni">
-                                </div>
-                                <div class="col-6 my-auto pl-0">
-                                    <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">Thoriq Romi</h6>
-                                    <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">Programmer</p>
-                                </div>
-                                <div class="quote-item col-2 pl-0 my-auto">
-                                    <i class="fas fa-quote-left"></i>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <figcaption class="figure-caption">
-                                        <div class="figure-caption text-dark text-justify px-3 pt-2">
-                                            <p><span class="quote">"</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis fugit, earum non necessitatibus nihil rem doloribus veniam libero velit vitae! <span class="font-weight-bold quote">"</span></p>
-                                        </div>
-                                    </figcaption>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="item">
-                        <figure class="figure testimoni-figure">
-                            <div class="row mx-3 ">
-                                <div class="col-4 mt-3 text-center ">
-                                    <img src="bootstrap/img/user.png" class="img-testimoni">
-                                </div>
-                                <div class="col-6 my-auto pl-0">
-                                    <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">Thoriq Romi</h6>
-                                    <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">Programmer</p>
-                                </div>
-                                <div class="quote-item col-2 pl-0 my-auto">
-                                    <i class="fas fa-quote-left"></i>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <figcaption class="figure-caption">
-                                        <div class="figure-caption text-dark text-justify px-3 pt-2">
-                                            <p><span class="quote">"</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cumque modi, dolorem in laboriosam temporibus? <span class="font-weight-bold quote">"</span></p>
-                                        </div>
-                                    </figcaption>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="item">
-                        <figure class="figure testimoni-figure">
-                            <div class="row mx-3 ">
-                                <div class="col-4 mt-3 text-center ">
-                                    <img src="bootstrap/img/user.png" class="img-testimoni">
-                                </div>
-                                <div class="col-6 my-auto pl-0">
-                                    <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">Thoriq Romi</h6>
-                                    <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">Programmer</p>
-                                </div>
-                                <div class="quote-item col-2 pl-0 my-auto">
-                                    <i class="fas fa-quote-left"></i>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <figcaption class="figure-caption">
-                                        <div class="figure-caption text-dark text-justify px-3 pt-2">
-                                            <p><span class="quote">"</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora quia deleniti incidunt nesciunt eveniet nam doloribus, ipsum rerum voluptate? <span class="font-weight-bold quote">"</span></p>
-                                        </div>
-                                    </figcaption>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="item">
-                        <figure class="figure testimoni-figure">
-                            <div class="row mx-3 ">
-                                <div class="col-4 mt-3 text-center ">
-                                    <img src="bootstrap/img/user.png" class="img-testimoni">
-                                </div>
-                                <div class="col-6 my-auto pl-0">
-                                    <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">Thoriq Romi</h6>
-                                    <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">Programmer</p>
-                                </div>
-                                <div class="quote-item col-2 pl-0 my-auto">
-                                    <i class="fas fa-quote-left"></i>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <figcaption class="figure-caption">
-                                        <div class="figure-caption text-dark text-justify px-3 pt-2">
-                                            <p><span class="quote">"</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente nulla deleniti iste qui delectus, provident dolor nostrum recusandae magni, est quam. Officiis dolorem reprehenderit optio accusantium, odit magni iure beatae natus alias at placeat nihil nisi ad maiores quia deleniti a recusandae sint non molestias. At dicta doloribus id aperiam! <span class="font-weight-bold quote">"</span></p>
-                                        </div>
-                                    </figcaption>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
+                            </figure>
+                        </div>
+                    @endforeach
                 </div>
                 <!-- akhir item -->
             </div>
-        </section><br><br>
+        </section>
+        <br><br>
+
+        <br><br>
+        <!-- akhir testimoni -->
 
 
         <!-- berlangganan -->
@@ -658,16 +569,25 @@
 @endsection
 
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="{{asset('lib/bootstrap/OwlCarousel2/dist/owl.carousel.js')}}" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script src="{{asset('lib/bootstrap/OwlCarousel/dist/owl.carousel.min.js')}}" type="text/javascript"></script>
+
 <script>
-    $('.carousel').carousel({
-        interval: 2500,
-        puse: 'hover',
-        wrap: true,
-        touch: true
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel();
+    });
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            }
+        }
     })
 
     @push('scripts')
