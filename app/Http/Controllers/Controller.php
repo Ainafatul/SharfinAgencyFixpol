@@ -37,10 +37,10 @@ class Controller extends BaseController
         return GuideLine::orderBy('created_at', 'ASC')->limit(3)->get();
     }
 
-    static  function getPortofolio()
-    {
-        return Portofolio::orderBy('created_at','DESC')->limit(1)->get();
-    }
+    // static  function getPortofolio()
+    // {
+    //     return Portofolio::orderBy('created_at','DESC')->limit(1)->get();
+    // }
 
     static  function getReview()
     {

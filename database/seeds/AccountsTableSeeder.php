@@ -63,17 +63,6 @@ class AccountsTableSeeder extends Seeder
             ),
             4 => 
             array (
-                'id' => 18,
-                'email' => 'thoriqromi@admin.com',
-                'role' => 'User',
-                'email_verified_at' => NULL,
-                'password' => '$2y$10$XwXM1DBS5QJHD7RLYLmLi.M.jHpFS4LAIFd81DPHFpWxByiEVZhIq',
-                'remember_token' => NULL,
-                'created_at' => '2020-07-18 05:53:12',
-                'updated_at' => '2020-07-18 05:53:12',
-            ),
-            5 => 
-            array (
                 'id' => 19,
                 'email' => 'caca@gmail.com',
                 'role' => 'User',
@@ -83,7 +72,7 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-07-18 07:20:47',
                 'updated_at' => '2020-07-18 07:20:47',
             ),
-            6 => 
+            5 => 
             array (
                 'id' => 20,
                 'email' => 'agent2@gmail.com',
@@ -94,7 +83,7 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-07-24 09:25:20',
                 'updated_at' => '2020-07-24 09:25:20',
             ),
-            7 => 
+            6 => 
             array (
                 'id' => 21,
                 'email' => 'agent3@gmail.com',
@@ -105,7 +94,7 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-07-24 09:26:15',
                 'updated_at' => '2020-07-24 09:26:15',
             ),
-            8 => 
+            7 => 
             array (
                 'id' => 22,
                 'email' => 'agent4@gmail.com',
@@ -116,7 +105,7 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-07-24 09:28:30',
                 'updated_at' => '2020-07-24 09:28:30',
             ),
-            9 => 
+            8 => 
             array (
                 'id' => 23,
                 'email' => 'user1@gmail.com',
@@ -127,7 +116,7 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-07-24 10:47:15',
                 'updated_at' => '2020-07-24 10:47:15',
             ),
-            10 => 
+            9 => 
             array (
                 'id' => 24,
                 'email' => 'user2@gmail.com',
@@ -138,7 +127,7 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-07-24 10:48:18',
                 'updated_at' => '2020-07-24 10:48:18',
             ),
-            11 => 
+            10 => 
             array (
                 'id' => 25,
                 'email' => 'user3@gmail.com',
@@ -149,7 +138,7 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-07-24 10:49:15',
                 'updated_at' => '2020-07-24 10:49:15',
             ),
-            12 => 
+            11 => 
             array (
                 'id' => 26,
                 'email' => 'agent5@gmail.com',
@@ -160,7 +149,7 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-07-25 06:01:53',
                 'updated_at' => '2020-07-25 06:01:53',
             ),
-            13 => 
+            12 => 
             array (
                 'id' => 27,
                 'email' => 'agent7@gmail.com',
@@ -171,7 +160,7 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-07-25 06:03:19',
                 'updated_at' => '2020-07-25 06:03:19',
             ),
-            14 => 
+            13 => 
             array (
                 'id' => 28,
                 'email' => 'agent8@gmail.com',
@@ -182,7 +171,7 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-07-25 06:04:37',
                 'updated_at' => '2020-07-25 06:04:37',
             ),
-            15 => 
+            14 => 
             array (
                 'id' => 29,
                 'email' => 'agent9@gmail.com',
@@ -193,7 +182,7 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-07-25 06:06:08',
                 'updated_at' => '2020-07-25 06:06:08',
             ),
-            16 => 
+            15 => 
             array (
                 'id' => 30,
                 'email' => 'agent10@gmail.com',
@@ -204,7 +193,7 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-07-25 06:07:21',
                 'updated_at' => '2020-07-25 06:07:21',
             ),
-            17 => 
+            16 => 
             array (
                 'id' => 31,
                 'email' => 'agent11@gmail.com',
@@ -215,7 +204,7 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-07-25 06:10:39',
                 'updated_at' => '2020-07-25 06:10:39',
             ),
-            18 => 
+            17 => 
             array (
                 'id' => 32,
                 'email' => 'agent12@gmail.com',
@@ -226,7 +215,7 @@ class AccountsTableSeeder extends Seeder
                 'created_at' => '2020-07-25 06:11:58',
                 'updated_at' => '2020-07-25 06:11:58',
             ),
-            19 => 
+            18 => 
             array (
                 'id' => 33,
                 'email' => 'thoriqromi@gmail.com',
@@ -236,6 +225,28 @@ class AccountsTableSeeder extends Seeder
                 'remember_token' => NULL,
                 'created_at' => '2020-08-17 09:19:52',
                 'updated_at' => '2020-08-17 09:19:52',
+            ),
+            19 => 
+            array (
+                'id' => 35,
+                'email' => 'thoriqromi@admin.com',
+                'role' => 'Admin',
+                'email_verified_at' => NULL,
+                'password' => '$2y$10$ODH105AB2o/fV8.UYrhON./HFgidq2q0roix5YsW.eouJBS/8c3bG',
+                'remember_token' => NULL,
+                'created_at' => '2020-08-29 18:08:09',
+                'updated_at' => '2020-08-29 18:08:09',
+            ),
+            20 => 
+            array (
+                'id' => 36,
+                'email' => 'bagas@gmail.com',
+                'role' => 'User',
+                'email_verified_at' => NULL,
+                'password' => '$2y$10$.wMF7/W2x9USePyCI/5QcOufjsZkMVntcWao9GILAHaBW8e889Nc2',
+                'remember_token' => NULL,
+                'created_at' => '2020-08-29 18:22:59',
+                'updated_at' => '2020-08-29 18:22:59',
             ),
         ));
         

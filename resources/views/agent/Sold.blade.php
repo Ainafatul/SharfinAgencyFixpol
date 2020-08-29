@@ -7,7 +7,7 @@
             <div class="row justify-content-between align-items-center">
                 <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8">
                     <div class="hero__caption">
-                        <h1>My Property</h1>
+                        <h1>Riwayat Property Terjual</h1>
                         <p>Ut enim ad minim
                             veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is
                             aute irure.</p>

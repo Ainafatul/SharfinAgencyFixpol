@@ -1,8 +1,8 @@
 @extends('layout.Main')
 
 @section('content')
-    <link rel="stylesheet" href="{{asset('lib/bootstrap/OwlCarousel/dist/assets/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('lib/bootstrap/OwlCarousel/dist/assets/owl.theme.default.min.css')}}">
+    <!-- <link rel="stylesheet" type="text/css" href="{{asset('lib/bootstrap/OwlCarousel/dist/assets/owl.carousel.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('lib/bootstrap/OwlCarousel/dist/assets/owl.theme.default.min.css')}}"> -->
     <div>
         <!-- banner -->
         <section>
@@ -104,14 +104,14 @@
                                         </div>
                                         <div class="col-7" style="padding-top: 16px">
                                             <h5 class=""
-                                                style="color: #1c7430;height: 38px">{{$data->property->name}}</h5>
+                                                style="height: 38px; font-size: 15px">{{$data->property->name}}</h5>
                                             <h6 class="alamat text-muted">{{\App\Http\Controllers\HelperController::parseLocation($data->property->location)}}</h6>
                                             <br>
                                             <h5 class="card-title "@if($data->property->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($data->property->isSell)->price)}}
                                             @else {{\App\Http\Controllers\Controller::format(\App\PropertyRent::find($data->property->isRent)->price)}} @endif
                                             @if($data->property->isRent!=null)
                                                 / {{\App\PropertyRent::find($data->property->isRent)->timeType}} @endif</h5>
-                                                <div class="row" style="padding-left: 8px;padding-right: 8px">
+                                                <div class="row text-center" style="font-size: 14px; padding-left: 8px;padding-right: 8px">
                                                     <div class="col item spek  p-0">
                                                         <i class="fas fa-bed"> {{$data->property->bed_room}}</i>
                                                     </div>
@@ -119,11 +119,10 @@
                                                         <i class="fas fa-shower"> {{$data->property->bath_room}}</i>
                                                     </div>
                                                     <div class="col item spek p-0">
-                                                        <i class="fas fa-expand-arrows-alt"> {{$data->property->land_area}}
-                                                            m<sup>2</sup></i>
+                                                        <i class="fas fa-expand-arrows-alt"> {{$data->property->land_area}}m<sup>2</sup></i>
                                                     </div>
                                                     <div class="col item spek p-0">
-                                                        <i class="fas fa-building"> {{$data->property->stories}} lt</i>
+                                                        <i class="fas fa-building"> {{$data->property->stories}}lt</i>
                                                     </div>
                                                 </div>
                                         </div>
@@ -148,13 +147,13 @@
                         <h3 class="tittle pb-3 text-dark text-center mb-5">Fitur Sharfin Agency</h3>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" >
                     <div class="item col-6 mb-1 col-lg-3 p-1 text-center">
                         <figure class="figure figure-portofolio text-center">
                             <img src="{{asset('lib/bootstrap/img/sold.svg')}}"
                                  class="figure-img img-fluid icon-fitur mb-3" alt="">
                             <figcaption class="figure-caption text-dark">
-                                <h6 class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                                <h6 class="mb-0" style="font-size: 18px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
                                     provident debitis, eveniet molestias cupiditate
                                     esse!</h6>
                             </figcaption>
@@ -166,7 +165,7 @@
                             <img src="{{asset('lib/bootstrap/img/sold.svg')}}"
                                  class="figure-img img-fluid icon-fitur mb-3" alt="">
                             <figcaption class="figure-caption text-dark">
-                                <h6 class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+                                <h6 class="mb-0" style="font-size: 18px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
                                     laudantium sunt natus nisi illo
                                     voluptatibus.</h6>
                             </figcaption>
@@ -178,7 +177,7 @@
                             <img src="{{asset('lib/bootstrap/img/sold.svg')}}"
                                  class="figure-img img-fluid icon-fitur mb-3" alt="">
                             <figcaption class="figure-caption text-dark">
-                                <h6 class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
+                                <h6 class="mb-0" style="font-size: 18px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
                                     provident quidem non repellat sapiente
                                     exercitationem.</h6>
                             </figcaption>
@@ -190,7 +189,7 @@
                             <img src="{{asset('lib/bootstrap/img/sold.svg')}}"
                                  class="figure-img img-fluid icon-fitur mb-3" alt="">
                             <figcaption class="figure-caption text-dark">
-                                <h6 class="mb-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt
+                                <h6 class="mb-0" style="font-size: 18px">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt
                                     perspiciatis perferendis, repudiandae ea culpa
                                     voluptas.</h6>
                             </figcaption>
@@ -211,9 +210,9 @@
                     <div class="col">
                         <h3 class="tittle">Property Terbaru</h3>
                     </div>
-                    <div class="col text-right">
+                    <div class="col text-right mb-2">
                         <a href="{{route('PropertyFilter',['type'=>'Beli'])}}"
-                           class="btn btn-lainnya btn-sm rounded-pill btn-secondary px-3">Lainnya <i
+                           class="btn btn-lainnya btn-sm rounded-pill btn-secondary px-3 ">Lainnya <i
                                 class="fas fa-chevron-right"></i></a>
                     </div>
                 </div>
@@ -226,20 +225,20 @@
                                     <img src="{{asset($property->main_image)}}"
                                          class="img-fluid terbaru-img d-block mx-auto" alt="gambar 1"
                                          style="height: 200px">
-                                    <div class="label label-card pl-2"><p
-                                            style="font-size: 14px">{{$property->category}}</p></div>
+                                    <div class="label label-card pl-2 mt-3">
+                                        <p style="font-size: 15px ">{{$property->category}}</p></div>
                                     <div class="card-body ">
-                                        <h6 class="card-subtitle mb-2" style="height: 32px">{{$property->name}}</h6>
+                                        <h6 class="card-subtitle mb-2 pt-1" style="font-size: 15px">{{$property->name}}</h6>
                                         <h6 class="card-subtitle alamat text-muted limit-2"
                                             style="height: 32px">{{\App\Http\Controllers\HelperController::parseLocation($property->location)}}</h6>
                                         <br>
-                                        <h6 class="card-subtitle alamat text-muted limit-2"
+                                        <h6 class="card-subtitle alamat text-muted limit-2 mt-0"
                                             style="height: 32px">{{$property->address}}</h6><br>
                                         <h5 class="card-title mb-2">@if($property->isSell!=null){{\App\Http\Controllers\Controller::format(\App\PropertySell::find($property->isSell)->price)}}
                                             @else {{\App\Http\Controllers\Controller::format(\App\PropertyRent::find($property->isRent)->price)}} @endif
                                             @if($property->isRent!=null)
                                                 / {{\App\PropertyRent::find($property->isRent)->timeType}} @endif</h5>
-                                        <div class="row spesifikasi w-100" style="margin-left: 0;margin-bottom: 0px">
+                                        <div class="row spesifikasi w-100 text-center" style="margin-left: 0;margin-bottom: 0px">
                                             <li class="col-3 item spek">
                                                 <i class="fas fa-bed">{{'  '.$property->bed_room}}</i>
                                             </li>
@@ -281,7 +280,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h6 class="py-2 text-dark text-justify">Lorem ipsum dolor sit amet consectetur
+                                <h6 class="py-2 text-dark text-center" style="font-size: 16px">Lorem ipsum dolor sit amet consectetur
                                     adipisicing elit. Explicabo, et. Quam maiores
                                     voluptatem fugit itaque quidem consectetur, vitae, vero in temporibus ab nihil quos
                                     deserunt?</h6>
@@ -379,7 +378,7 @@
                             <img src="{{asset('lib/bootstrap/img/consulting.svg')}}"
                                  class="figure-img img-fluid icon mb-3" alt="">
                             <figcaption class="figure-caption text-dark">
-                                <h1 class="jumlah">500</h1>
+                                <h1 class="jumlah">136</h1>
                                 <h5 class="mb-0">Orang Berkonsultasi</h5>
                             </figcaption>
                         </figure>
@@ -411,7 +410,7 @@
                     <div class="col">
                         <h3 class="artikel-label text-dark">Berita dan Artikel</h3>
                     </div>
-                    <div class="col text-right">
+                    <div class="col text-right mb-3">
                         <a href="{{route('Articles')}}" class="btn btn-lainnya btn-sm rounded-pill btn-secondary px-3">Lainnya
                             <i class="fas fa-chevron-right"></i></a>
                     </div>
@@ -481,7 +480,7 @@
                                     <div class="col-6 my-auto pl-0">
                                         <h6 class="testimoni-nama mt-4 mb-0 font-weight-bold">{{$data->name}}</h6>
                                         <p class="testimoni-pekerjaan mx-auto text-muted" style="font-size: small;">
-                                            Programmer</p>
+                                        {{$data->job}}</p>
                                     </div>
                                     <div class="quote-item col-2 pl-0 my-auto">
                                         <i class="fas fa-quote-left"></i>
@@ -491,8 +490,9 @@
                                     <div class="col">
                                         <figcaption class="figure-caption">
                                             <div class="figure-caption text-dark text-justify px-3 pt-2">
-                                                <p><span class="quote">"</span> {{$data->message}}<span
-                                                        class="font-weight-bold quote">"</span></p>
+                                                <p><span class="quote">"</span> {{$data->message}}
+                                                <span class="font-weight-bold quote">"</span></p>
+                                                <br>
                                             </div>
                                         </figcaption>
                                     </div>
@@ -567,40 +567,3 @@
 
     </div>
 @endsection
-
-
-<script src="https://code.jquery.com/jquery.min.js"></script>
-<script src="{{asset('lib/bootstrap/OwlCarousel/dist/owl.carousel.min.js')}}" type="text/javascript"></script>
-
-<script>
-    $(document).ready(function(){
-        $(".owl-carousel").owlCarousel();
-    });
-    $('.owl-carousel').owlCarousel({
-        loop:true,
-        margin:10,
-        nav:true,
-        responsive:{
-            0:{
-                items:1
-            },
-            600:{
-                items:3
-            }
-        }
-    })
-
-    @push('scripts')
-    var path = "{{ route('loc') }}";
-    $('#location').typeahead({
-        source: function (query, process) {
-            return $.get(path, {query: query}, function (data) {
-                return process(data);
-            });
-        }
-    });
-    @endpush
-
-</script>
-
-
