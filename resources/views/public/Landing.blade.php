@@ -24,9 +24,9 @@
                                             <div class="row mx-auto py-3">
                                                 <div class="col-9">
                                                     <input class="form-control form-tanya rounded-pill pl-4" type="text"
-                                                           id="location" autocomplete="off" name="location"
-                                                           placeholder="Lokasi berdasarkan Kota/Kab"
-                                                           aria-label="Search">
+                                                        id="search" autocomplete="off" name="search"
+                                                        placeholder="Lokasi berdasarkan Kota/Kab"
+                                                        aria-label="Search">
                                                 </div>
                                                 <div class="col-3">
                                                     <input
@@ -566,4 +566,15 @@
         <!-- akhir map -->
 
     </div>
+
+    <script type="text/javascript">
+    var route = "{{ url('autocomplete') }}";
+    $('#search').typeahead({
+        source:  function (term, process) {
+        return $.get(route, { term: term }, function (data) {
+                return process(data);
+            });
+        }
+    });
+</script>
 @endsection

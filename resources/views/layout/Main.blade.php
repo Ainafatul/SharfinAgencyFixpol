@@ -23,6 +23,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset('lib/bootstrap/OwlCarousel/dist/assets/owl.carousel.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('lib/bootstrap/OwlCarousel/dist/assets/owl.theme.default.min.css')}}">
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+
 </head>
 <body>
 @include('section.TopNavBar')

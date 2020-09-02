@@ -30,6 +30,9 @@ Route::get('/Abouts','AboutController@show')->name('Abouts');
 Route::get('/Autocomplete','HelperController@create');
 Route::get('/Autocomplete/Data','HelperController@getAutocompleteData')->name('loc');
 
+Route::get('search', 'HelperController@index');
+Route::get('autocomplete', 'HelperController@search');
+
 //Guest
 Route::get('/SignIn', 'Auth\LoginController@index')->name('SignIn');
 Route::put('/onSignIn', 'Auth\LoginController@onLogin')->name('onSignIn');

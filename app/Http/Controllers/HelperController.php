@@ -47,4 +47,19 @@ class HelperController extends Controller
     {
         return City::where('name', 'like', '%' . $request->input('term') . '%')->get('name');
     }
+
+    public function index()
+    {
+        return view('search');
+    }
+ 
+    public function search(Request $request)
+    {
+          $search = $request->get('term');
+      
+          $result = City::where('name', 'LIKE', '%'. $search. '%')->get();
+ 
+          return response()->json($result);
+            
+    }
 }
