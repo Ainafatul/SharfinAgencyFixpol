@@ -9,7 +9,7 @@
                     <div class="row ">
                         <div class="col-4 p-0">
                             <div class="form-input">
-                                <input id="search" class="form-control" autocomplete="off" type="text" name="search"
+                                <input id="location" class="form-control" autocomplete="off" type="text" name="location"
                                        placeholder="Lokasi berdasarkan Kota/Kab">
                             </div>
                         </div>
@@ -245,15 +245,15 @@
         </section>
         <br><br>
         <script type="text/javascript">
-    var route = "{{ url('autocomplete') }}";
-    $('#search').typeahead({
-        source:  function (term, process) {
-        return $.get(route, { term: term }, function (data) {
-                return process(data);
+            var route = "{{ url('autocomplete') }}";
+            $('#location').typeahead({
+                source:  function (term, process) {
+                return $.get(route, { term: term }, function (data) {
+                        return process(data);
+                    });
+                }
             });
-        }
-    });
-</script>
+        </script>
     </div>
 @endsection
 @push('scripts')

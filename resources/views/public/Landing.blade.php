@@ -1,8 +1,6 @@
 @extends('layout.Main')
 
 @section('content')
-    <!-- <link rel="stylesheet" type="text/css" href="{{asset('lib/bootstrap/OwlCarousel/dist/assets/owl.carousel.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('lib/bootstrap/OwlCarousel/dist/assets/owl.theme.default.min.css')}}"> -->
     <div>
         <!-- banner -->
         <section>
@@ -24,7 +22,7 @@
                                             <div class="row mx-auto py-3">
                                                 <div class="col-9">
                                                     <input class="form-control form-tanya rounded-pill pl-4" type="text"
-                                                        id="search" autocomplete="off" name="search"
+                                                        id="location" autocomplete="off" name="location"
                                                         placeholder="Lokasi berdasarkan Kota/Kab"
                                                         aria-label="Search">
                                                 </div>
@@ -569,7 +567,7 @@
 
     <script type="text/javascript">
     var route = "{{ url('autocomplete') }}";
-    $('#search').typeahead({
+    $('#location').typeahead({
         source:  function (term, process) {
         return $.get(route, { term: term }, function (data) {
                 return process(data);
