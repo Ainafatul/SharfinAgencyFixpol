@@ -95,7 +95,7 @@
                         var data = google.visualization.arrayToDataTable(data);
 
                         var options = {
-                            title: 'Company Performance',
+                            title: 'Agent',
                             curveType: 'function',
                             legend: {position: 'bottom'}
                         };

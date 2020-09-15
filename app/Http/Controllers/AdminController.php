@@ -116,7 +116,7 @@ class AdminController extends Controller
             'body' => 'Agent Telah di Approve'
         ];
 
-        Mail::to(Account::find($agent->id)->email)->send((new SendMail()));
+//        Mail::to(Account::find($agent->id)->email)->send((new SendMail()));
 
         return redirect()->back();
     }
@@ -125,7 +125,7 @@ class AdminController extends Controller
     {
         $agent = Agent::find($id);
         $account = Account::find($id);
-        Mail::to(Account::find($agent->id)->email)->send((new DeclineEmail()));
+//        Mail::to(Account::find($agent->id)->email)->send((new DeclineEmail()));
         Agent::destroy($id);
         Account::destroy($id);
         return redirect()->back();

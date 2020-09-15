@@ -1,0 +1,238 @@
+[33mcommit de22711cec6fe2519d12e73000d3c13e36d08683[m[33m ([m[1;36mHEAD -> [m[1;32mLikeFeature[m[33m)[m
+Author: thoriqromi <rseeep@gmail.com>
+Date:   Mon Sep 14 02:08:45 2020 +0700
+
+    autocomplete final
+
+[33mcommit f919ad89a886567a0144191fa1a58645d97eaae6[m[33m ([m[1;31morigin/LikeFeature[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: thoriqromi <rseeep@gmail.com>
+Date:   Thu Sep 3 02:47:54 2020 +0700
+
+    testimoni + autocomplete success
+
+[33mcommit da31bb1caf3617c30ac9d162a48296aed5276bd2[m
+Author: AINAFATUL <ainafatul20@gmail.com>
+Date:   Sun Aug 30 02:04:00 2020 +0700
+
+    final
+
+[33mcommit 6ad427cccd8cd3ab9b0a0dfeb65814be5fcfb771[m
+Author: AINAFATUL <ainafatul20@gmail.com>
+Date:   Sun Aug 23 17:58:27 2020 +0700
+
+    testimoni gagal lagi
+
+[33mcommit 5f6fc07500418cbeae0ecc4358ae72fd9062be7b[m
+Author: AINAFATUL <ainafatul20@gmail.com>
+Date:   Sun Aug 23 16:39:30 2020 +0700
+
+    testimoni
+
+[33mcommit 5dc26fadd0584ca5a5f3fb95ca5d52ebc33490ef[m
+Author: AINAFATUL <ainafatul20@gmail.com>
+Date:   Thu Aug 20 23:57:00 2020 +0700
+
+    fix grafik
+
+[33mcommit ba3229581e121130e24c5aee4416951a2422e76e[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Sat Aug 1 16:53:19 2020 +0700
+
+    -review.test
+
+[33mcommit b5a01896482cd4fb32dd15af6094b32e2497d55c[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Sat Jul 25 18:52:44 2020 +0700
+
+    -testimoni
+
+[33mcommit 88b20beb6377ab4fc7e659673a64c034f8c77e06[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Sat Jul 25 14:48:31 2020 +0700
+
+    -grafik Agent
+    -likes
+
+[33mcommit 62793cad000da85dc3b4dbd0c27c78c8faad42d8[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Tue Jul 21 16:49:07 2020 +0700
+
+    -riwayat
+    -tampilan riwayat
+
+[33mcommit 18c1851121fed2fc105ff06895991399379acf04[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Sun Jul 19 17:13:39 2020 +0700
+
+    landing
+
+[33mcommit 3b5c3aaedd633b21ed20b526a570458e41de3d7b[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Sun Jul 19 17:12:04 2020 +0700
+
+    - rekomendasi
+    - history
+
+[33mcommit 02df97794c3ccc19585b2fe9978bb6bc962b50fc[m
+Author: Wiratama <Dafawiratama13@gmail.com>
+Date:   Fri Jul 17 09:15:47 2020 +0700
+
+    Stuck At Sidebar.blade.php
+
+[33mcommit 74a67b3bcd3ec2573108143189f648f68889f06e[m
+Author: Wiratama <Dafawiratama13@gmail.com>
+Date:   Fri Jul 17 09:13:27 2020 +0700
+
+    Stuck At Sidebar.blade.php
+
+[33mcommit e67a4c22bed85193b2c00ea36f79f7810dd9b337[m
+Author: Wiratama <Dafawiratama13@gmail.com>
+Date:   Fri Jul 17 09:13:13 2020 +0700
+
+    Stuck At Sidebar.blade.php
+
+[33mcommit 61591cb5008116c044461f37f15a866a1a4c9a93[m
+Author: Wiratama <Dafawiratama13@gmail.com>
+Date:   Fri Jul 17 06:23:49 2020 +0700
+
+    new normal v1.0
+
+[33mcommit ea86107b908ee5052bf2b07ce2bc735570b5b802[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Fri Jul 17 11:58:30 2020 +0700
+
+    1.0.1
+
+[33mcommit 47d4fdbb6b13e93e78fbc7dc8afc25120fe27d83[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Fri Jul 17 11:18:44 2020 +0700
+
+    1.0.0
+
+[33mcommit 1e6ff11b7ef9139a9d8d6367cdf015e44742a728[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Thu Jul 9 15:01:00 2020 +0700
+
+    final 2.0
+
+[33mcommit dcde3d8aa2d16dabf8d3d12fd3a98aeaa8b158dc[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Sun Jul 5 09:09:32 2020 +0700
+
+    final
+
+[33mcommit 68b8d64d41cf6797983631a9ea8f460bdb890b30[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Sun Jul 5 08:51:30 2020 +0700
+
+    final
+
+[33mcommit 370ce71c282ad074cd8b50e7a3ebacb0968bb56a[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Fri Jul 3 16:40:08 2020 +0700
+
+    final
+
+[33mcommit 039db185580f61799f7bfb71ae8939b81f69b139[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Tue Jun 30 16:14:25 2020 +0700
+
+    portofolio
+    review
+
+[33mcommit b96599dcc1fa540afcad05f66b626e547c78bb72[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Tue Jun 30 14:58:56 2020 +0700
+
+    smtp fix
+
+[33mcommit 63cd9ce666d0951feee9555e2ffddcf590df02ed[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Tue Jun 30 14:51:47 2020 +0700
+
+    smtp fix
+
+[33mcommit 422b4ebaeab0b44c17d68abecae5c839f179467b[m
+Author: Dafa Wiratama <Dafawiratama@gmail.com>
+Date:   Tue Jun 30 14:07:57 2020 +0700
+
+    initial commit
+
+[33mcommit ea264f60483c824e0e7233fc81641457c38e6f92[m
+Author: DafaWiratama <43711291+DafaWiratama@users.noreply.github.com>
+Date:   Tue Jun 30 13:50:02 2020 +0700
+
+    Wiratama (#1)
+    
+    Rebase Wiratama
+
+[33mcommit 221441b8cf8d89f8e915d4bc7ebdbc6fadf2ff87[m
+Author: Wiratama <dafawiratama13@gmail.com>
+Date:   Tue Jun 30 00:02:33 2020 +0700
+
+    V0.1.6
+
+[33mcommit 2207e7cd4c85783a8ecc2d64f0e42c22c2edac14[m
+Author: Wiratama <dafawiratama13@gmail.com>
+Date:   Mon Jun 29 22:56:36 2020 +0700
+
+    V0.1.5
+
+[33mcommit cb6d1445d78219db036f6b6de3af143f78c83e87[m
+Author: Wiratama <dafawiratama13@gmail.com>
+Date:   Mon Jun 29 22:49:18 2020 +0700
+
+    V0.1.4
+
+[33mcommit 4b5c9c4fdc587cc410817ce70163802925160c6e[m
+Merge: 19f0791 80fe46a
+Author: Wiratama <dafawiratama13@gmail.com>
+Date:   Mon Jun 29 22:33:00 2020 +0700
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       storage/app/.gitignore
+    #       storage/app/public/.gitignore
+
+[33mcommit 19f0791997df410b89619347ded20fdbd19241a8[m
+Author: Wiratama <dafawiratama13@gmail.com>
+Date:   Mon Jun 29 22:31:26 2020 +0700
+
+    V0.1.3
+
+[33mcommit 80fe46ab8849f077d3ee45ef9cd23cde098593b0[m
+Author: Wiratama <dafawiratama13@gmail.com>
+Date:   Mon Jun 29 22:21:33 2020 +0700
+
+    V0.1.2
+
+[33mcommit 3c79f84d560e2fe65bbbb5c927ae536b12e9f7ae[m
+Author: Wiratama <dafawiratama13@gmail.com>
+Date:   Mon Jun 29 22:10:50 2020 +0700
+
+    V0.1.1
+
+[33mcommit 92164772f5304a2e4f865e0da3265361ab92e56a[m
+Author: Wiratama <dafawiratama13@gmail.com>
+Date:   Mon Jun 29 21:11:55 2020 +0700
+
+    V0.1.0
+
+[33mcommit 63e5f28369940efe006a419996d486f5be5a2961[m
+Author: Wiratama <dafawiratama13@gmail.com>
+Date:   Sun Jun 28 21:09:13 2020 +0700
+
+    Fresh
+
+[33mcommit 7542938e5412d3f07086c0751a3920a396d654fb[m
+Author: Wiratama <dafawiratama13@gmail.com>
+Date:   Sun Jun 28 18:25:51 2020 +0700
+
+    Fresh
+
+[33mcommit 67b4cbf22ff3ea03737bbfa3452ffe47d7d0d627[m
+Author: Wiratama <dafawiratama13@gmail.com>
+Date:   Sun Jun 28 02:40:16 2020 +0700
+
+    Fresh
